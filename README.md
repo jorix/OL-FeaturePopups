@@ -10,7 +10,7 @@ Features:
     * Allows external templates renderers.
  * Show popups by selection or hover from multiple vector layers.
  * Allows to register listeners on the events of selection and hover (Advanced)
- * Multiple selection using box and show list of features selecteds in a popup.
+ * Multiple selection using box and show list of features selecteds into popup.
  * Allows to register listeners on the events of selection and hover.
  
 TODO:
