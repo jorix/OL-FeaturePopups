@@ -83,13 +83,15 @@ var map = new OpenLayers.Map({
         new OpenLayers.Control.PanZoom(),
         new OpenLayers.Control.FeaturePopups({
             closeBox: true, 
-            box: true,
+            selectionBox: true,
             eventListeners: {
                 beforefeaturehighlighted: logEvent,
                 featurehighlighted: logEvent,
                 featureunhighlighted: logEvent,
                 featureselected: logEvent,
-                featureunselected: logEvent
+                featureunselected: logEvent,
+                beforeselectionbox: logEvent,
+                afterselectionbox: logEvent
             }
         }),
         new OpenLayers.Control.LayerSwitcher()
