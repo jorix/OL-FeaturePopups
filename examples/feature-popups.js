@@ -89,9 +89,7 @@ var map = new OpenLayers.Map({
                 featurehighlighted: logEvent,
                 featureunhighlighted: logEvent,
                 featureselected: logEvent,
-                featureunselected: logEvent,
-                beforeselectionbox: logEvent,
-                afterselectionbox: logEvent
+                featureunselected: logEvent
             }
         }),
         new OpenLayers.Control.LayerSwitcher()
