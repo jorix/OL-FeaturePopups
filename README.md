@@ -8,9 +8,9 @@ Features:
  * Prepare the contents of the popup using templates.
     * Templates as strings or functions.
     * Allows external templates renderers.
- * Simultaneously manage popups by selection or hover in multiple vector layers.
+ * Show popups by selection or hover from multiple vector layers.
  * Allows to register listeners on the events of selection and hover (Advanced)
- * Multiple selection using boxes and show list of features selecteds in a popup.
+ * Multiple selection using box and show list of features selecteds in a popup.
  * Allows to register listeners on the events of selection and hover.
  
 TODO:
@@ -18,8 +18,8 @@ TODO:
  * Write tests.
  * Documenting.
  * More constructor options?
- * Use clusters as list features
- * Show popups of a clustered features as a lists features
+ * Show a popup of a single feature from  a popup of a list of features.
+ * Show popups of a clustered features as a lists features.
  
 The beginnings
 --------------
