@@ -3,83 +3,87 @@
 <head>
   <meta charset='utf-8'>
 
-  <title>jorix/OL-FeaturePopups @ GitHub</title>
+  <title>OL-FeaturePopups - FeaturePopups @ GitHub</title>
 
   <style type="text/css">
     body {
       margin-top: 1.0em;
-      background-color: #d9211d;
+      background-color: #fff;
       font-family: Helvetica, Arial, FreeSans, san-serif;
-      color: #ffffff;
+      color: #000;
     }
     #container {
       margin: 0 auto;
       width: 700px;
     }
-    h1 { font-size: 3.8em; color: #26dee2; margin-bottom: 3px; }
-    h1 .small { font-size: 0.4em; }
-    h1 a { text-decoration: none }
-    h2 { font-size: 1.5em; color: #26dee2; }
-    h3 { text-align: center; color: #26dee2; }
-    a { color: #26dee2; }
+    h1 { text-align: center; font-size: 2em; margin-bottom: 3px; }
+    h2 { font-size: 1.5em;}
+    h3 { text-align: center;}
+    a { color: blue; }
     .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
     .download { float: right; }
     pre { background: #000; color: #fff; padding: 15px;}
-    hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
-    .footer { text-align:center; padding-top:30px; font-style: italic; }
+    hr { border: 0; border-bottom: 1px solid #aaa}
+    .footer { text-align:center; padding-top:1.5em; font-style: italic; }
   </style>
 </head>
 
 <body>
-  <a href="https://github.com/jorix/OL-FeaturePopups"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+    <a href="https://github.com/jorix/OL-FeaturePopups"><img 
+        style="position: absolute; top: 0; right: 0; border: 0;" 
+        src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" 
+        alt="Fork me on GitHub" /></a>
 
-  <div id="container">
+    <div id="container">
+        <div class="description">
+            <h1>FeaturePopups</h1>
+        </div>
 
-    <div class="download">
-      <a href="https://github.com/jorix/OL-FeaturePopups/zipball/master">
-        <img border="0" width="90" src="https://github.com/images/modules/download/zip.png"></a>
-      <a href="https://github.com/jorix/OL-FeaturePopups/tarball/master">
-        <img border="0" width="90" src="https://github.com/images/modules/download/tar.png"></a>
+        <h2>Run the proposal</h2>
+            <p>
+                This is a sandbox to discuss the implementation of 
+                <b>FeaturePopups</b> control in <b>OpenLayers</b>
+            </p>
+            <p>
+                You can run this proposal in:
+            </p>
+            <ul>
+                <li>
+                    <a href="examples/feature-popups.html" target="_blank"><b>feature-popups.html</b></a>
+                </li>
+            </ul>
+        <h3>Features</h3>
+            <p> 
+                This control wraps the management of popups and SelectFeature control.
+            </p>
+            <ul>
+                <li>Prepare the contents of the popup using templates
+                    <ul>
+                        <li>Templates as strings or functions</li>
+                        <li>Allows external templates renderers</li>
+                    </ul>
+                </li>
+                <li>Simultaneously manage popups by <b>selection</b> or <b>hover</b> in multiple vector layers.</li>
+                <li>Multiple selection using boxes.</li>
+                <li>Allows to register listeners on the events of selection and hover</li>
+            </ul>
+        <h3>The beginnings</h3>
+            <p>
+                This development began with the request 
+                <a href="http://osgeo-org.1803224.n2.nabble.com/HTML-template-popup-manager-tc6948565.html">olsocial</a> 
+                of Javier Carrasco, but has gone far beyond its initial request.
+            </p>
+        <h3>Development</h3>
+            <p>You can clone the project with <a href="http://git-scm.com">Git</a>
+              by running:
+              <pre>$ git clone git://github.com/jorix/OL-FeaturePopups</pre>
+            </p>
+
+        <div class="footer">
+          get the source code on GitHub:
+            <a href="https://github.com/jorix/OL-FeaturePopups">jorix/OL-FeaturePopups</a>
+        </div>
+
     </div>
-
-    <h1><a href="https://github.com/jorix/OL-FeaturePopups">OL-FeaturePopups</a>
-      <span class="small">by <a href="https://github.com/jorix">jorix</a></span></h1>
-
-    <div class="description">
-      Sandbox to discuss the implementation of FeaturePopups control in OpenLayers.
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-      <h2>Contact</h2>
-      <p>Xavier Mamano (xavier.mamano@gmail.com)<br/>      </p>
-    
-
-    <h2>Download</h2>
-    <p>
-      You can download this project in either
-      <a href="https://github.com/jorix/OL-FeaturePopups/zipball/master">zip</a> or
-      <a href="https://github.com/jorix/OL-FeaturePopups/tarball/master">tar formats.
-    </p>
-    <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
-      by running:
-      <pre>$ git clone git://github.com/jorix/OL-FeaturePopups</pre>
-    </p>
-
-    <div class="footer">
-      get the source code on GitHub : <a href="https://github.com/jorix/OL-FeaturePopups">jorix/OL-FeaturePopups</a>
-    </div>
-
-  </div>
-
 </body>
 </html>

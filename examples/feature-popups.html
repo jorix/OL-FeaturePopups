@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <title>OpenLayers Example</title>
+        <link rel="stylesheet" href="http://www.openlayers.org/dev/theme/default/style.css" type="text/css">
+        <link rel="stylesheet" href="http://www.openlayers.org/dev/examples/style.css" type="text/css">
+
+        <script src="http://www.openlayers.org/dev/OpenLayers.js"></script>
+        <script> // In order to simulate a template translation, see: sprintersLayer.
+            OpenLayers.Util.extend(OpenLayers.Lang.en, {
+                // Dummy translation ;-)
+                "Name": "Name-i18n",
+                "Country": "Country-i18n",
+                "City": "City-i18n"
+            });
+            OpenLayers.Lang.setCode("en");
+        </script>
+        <script src="../lib/FeaturePopups.js"></script>
+
+    </head>
+    <body>
+        <h1 id="title">OpenLayers Example</h1>
+        <div id="tags">popups, vector layers, templates</div>
+        <p id="shortdesc">
+            Demonstrates how to use the &quot;FeaturePopups&quot; control to display popups on multiple vector layers using templates.
+        </p>
+        <div id="map" style="width: 500px; height: 500px;" class="smallmap"></div>
+        <div id="docs">
+            <p> 
+                This control wraps the management of popups and SelectFeature control.
+            </p>
+            <p>Features:</p>
+            <ul>
+                <li>Prepare the contents of the popup using templates (as strings or functions)</li>
+                <li>Simultaneously manage popups by selection or hover in multiple vector layers.</li>
+                <li>Allows to register listeners on the events of selection and hover (Advanced)</li>
+            </ul>
+            <p>View the <a href="feature-popups.js" target="_blank">feature-popups.js</a> source to see how this is done.</p>
+        </div>
+        <script src="mobile-sprinters.js"></script>
+        <script src="feature-popups.js"></script>
+    </body>
+</html>
