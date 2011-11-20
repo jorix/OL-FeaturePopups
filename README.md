@@ -19,6 +19,8 @@ TODO:
  * More constructor options?
  * Show a popup of a single feature from  a popup of a list of features.
  * Show hover popups of a clustered features.
+ * new "listPopupClass" property.
+ * Able to using external div instead of popups?
  
 The beginnings
 --------------
