@@ -19,7 +19,7 @@ TODO:
  * Documenting.
  * More constructor options?
  * Show a popup of a single feature from  a popup of a list of features.
- * Show popups of a clustered features as a lists features.
+ * Show popups of a clustered features as a list features.
  
 The beginnings
 --------------
