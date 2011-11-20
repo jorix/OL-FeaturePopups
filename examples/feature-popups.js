@@ -26,7 +26,7 @@ var getLengthRoad = function(feature){
     return Math.round(feature.geometry.getLength()/10)/100 + " km";
 }
 var tasmaniaRoadsLayer = new OpenLayers.Layer.Vector("Tasmania roads (function templates)", {
-    // Only hover popup
+    // Only popup from hover or a list from selection box.
     hoverPopupTemplate: function(feature){return "Length: " + getLengthRoad(feature);},
     itemPopupTemplate:  function(feature){return "<li>" + getLengthRoad(feature) + "</li>";},
     projection: geographicProj,
@@ -37,12 +37,16 @@ var tasmaniaRoadsLayer = new OpenLayers.Layer.Vector("Tasmania roads (function t
     })
 });
 
-var sundialsLayer = new OpenLayers.Layer.Vector("Sundials", { // TODO: use cluster
-    // No hover popup
+var sundialsLayer = new OpenLayers.Layer.Vector("Sundials (clustered)", { 
+// TODO: cluster style
+// TODO: hover popup from cluster 
     selectPopupTemplate: "<h2>{{name}}</h2>{{description}}",
     itemPopupTemplate: "<li>{{name}}</li>",
     projection: geographicProj,
-    strategies: [new OpenLayers.Strategy.Fixed()],
+    strategies: [
+        new OpenLayers.Strategy.Fixed(),
+        new OpenLayers.Strategy.Cluster()
+    ],
     protocol: new OpenLayers.Protocol.HTTP({
         url: "kml/sundials.kml",
         format: new OpenLayers.Format.KML({
