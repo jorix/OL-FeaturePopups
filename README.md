@@ -3,6 +3,8 @@ Proposal for a new control: FeaturePopups for OpenLayers
 
 This control wraps the management of popups and SelectFeature control of [OpenLayers](http://openlayers.org).
 
+Try: [feature-popups.html](http://jorix.github.com/OL-FeaturePopups/examples/feature-popups.html)
+
 Features:
 --------
  * Prepare the contents of the popup using templates.
