@@ -38,8 +38,8 @@ var tasmaniaRoadsLayer = new OpenLayers.Layer.Vector("Tasmania roads (function t
 });
 
 var sundialsLayer = new OpenLayers.Layer.Vector("Sundials (clustered)", { 
-// TODO: cluster style
-// TODO: hover popup from cluster 
+// TODO: more hover popup from cluster 
+    hoverPopupTemplate: "${attributes.name}",
     selectPopupTemplate: "<h2>${attributes.name}</h2>${attributes.description}",
     itemPopupTemplate: "<li>${attributes.name}</li>",
     projection: geographicProj,
@@ -47,6 +47,21 @@ var sundialsLayer = new OpenLayers.Layer.Vector("Sundials (clustered)", {
         new OpenLayers.Strategy.Fixed(),
         new OpenLayers.Strategy.Cluster()
     ],
+    styleMap: new OpenLayers.StyleMap({
+        default: new OpenLayers.Style({
+                pointRadius: "${radius}",
+                fillOpacity: 0.6,
+                fillColor: "#ffcc66",
+                strokeColor: "#cc6633"
+            }, {
+                context: {
+                    radius: function(feature) {
+                        return Math.min(feature.attributes.count, 10)*1.5 + 2;
+                    }
+                }
+        }),
+        select: {fillColor: "#8aeeef"}
+    }),
     protocol: new OpenLayers.Protocol.HTTP({
         url: "kml/sundials.kml",
         format: new OpenLayers.Format.KML({
