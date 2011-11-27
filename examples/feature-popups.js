@@ -7,11 +7,11 @@ var geographicProj = new OpenLayers.Projection("EPSG:4326");
 // -------------
 
 var sprintersLayer = new OpenLayers.Layer.Vector("Sprinters (translated labels)", {
-    hoverPopupTemplate: "{{Name}}",
-    selectPopupTemplate: "{{OpenLayers.i18n(\"Name\")}}: {{Name}}<br>" +
-                         "{{OpenLayers.i18n(\"Country\")}}: {{Country}}<br>" +
-                         "{{OpenLayers.i18n(\"City\")}}: {{City}}<br>",
-    itemPopupTemplate: "<li>{{Name}}</li>",
+    hoverPopupTemplate: "${attributes.Name}",
+    selectPopupTemplate: "${OpenLayers.i18n(\"Name\")}: ${attributes.Name}<br>" +
+                         "${OpenLayers.i18n(\"Country\")}: ${attributes.Country}<br>" +
+                         "${OpenLayers.i18n(\"City\")}: ${attributes.City}<br>",
+    itemPopupTemplate: "<li>${attributes.Name}</li>",
     styleMap: new OpenLayers.StyleMap({
         externalGraphic: "http://www.openlayers.org/dev/examples/img/mobile-loc.png",
         graphicOpacity: 1.0,
@@ -40,8 +40,8 @@ var tasmaniaRoadsLayer = new OpenLayers.Layer.Vector("Tasmania roads (function t
 var sundialsLayer = new OpenLayers.Layer.Vector("Sundials (clustered)", { 
 // TODO: cluster style
 // TODO: hover popup from cluster 
-    selectPopupTemplate: "<h2>{{name}}</h2>{{description}}",
-    itemPopupTemplate: "<li>{{name}}</li>",
+    selectPopupTemplate: "<h2>${attributes.name}</h2>${attributes.description}",
+    itemPopupTemplate: "<li>${attributes.name}</li>",
     projection: geographicProj,
     strategies: [
         new OpenLayers.Strategy.Fixed(),
@@ -57,9 +57,9 @@ var sundialsLayer = new OpenLayers.Layer.Vector("Sundials (clustered)", {
 });
 
 var poisLayer = new OpenLayers.Layer.Vector("POIs (using BBOX)", {
-    hoverPopupTemplate: "{{title}}",
-    selectPopupTemplate: "<h2>{{title}}</h2>{{description}}",
-    itemPopupTemplate: "<li>{{title}}</li>",
+    hoverPopupTemplate: "${attributes.title}",
+    selectPopupTemplate: "<h2>${attributes.title}</h2>${attributes.description}",
+    itemPopupTemplate: "<li>${attributes.title}</li>",
     projection: geographicProj,
     strategies: [new OpenLayers.Strategy.BBOX({resFactor: 1.1})],
     protocol: new OpenLayers.Protocol.HTTP({
@@ -89,6 +89,7 @@ var map = new OpenLayers.Map({
             closeBox: true, 
             selectionBox: true,
             eventListeners: {
+            // TODO: box listeners
                 beforefeaturehighlighted: logEvent,
                 featurehighlighted: logEvent,
                 featureunhighlighted: logEvent,

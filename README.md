@@ -9,10 +9,11 @@ Features:
 --------
  * Prepare the contents of the popup using templates.
     * Templates as strings or functions.
-    * Allows external templates renderers.
+    * Allows internationalization of the labels in templates.
  * Show popups by selection or hover from multiple vector layers.
  * Multiple selection using box and show list of features selecteds into popup.
- * Allows to register listeners on the events of selection and hover.
+ * Proper popups when using feature clusters (OpenLayers.Strategy.Cluster)
+ * Allows to register listeners on the events of selection hover and box.
  
 TODO:
 ----
@@ -21,8 +22,6 @@ TODO:
  * More constructor options?
  * Show a popup of a single feature from  a popup of a list of features.
  * Show hover popups of a clustered features.
- * new "listPopupClass" property.
- * Able to using external div instead of popups?
  
 The beginnings
 --------------

@@ -25,27 +25,40 @@
         <h1 id="title">OpenLayers Example</h1>
         <div id="tags">popups, vector layers, templates</div>
         <p id="shortdesc">
-            Demonstrates how to use the &quot;FeaturePopups&quot; control to display popups on multiple vector layers using templates.
+            Demonstrates how to use the &quot;FeaturePopups&quot; control to 
+            display popups on multiple vector layers using templates.
         </p>
         <div id="map" style="width: 500px; height: 500px;" class="smallmap"></div>
         <div id="docs">
-            <h2>Features:</h2>
             <p> 
                 This control wraps the management of popups and SelectFeature control.
             </p>
+            <h2>Try:</h2>
             <ul>
-                <li>Prepare the contents of the popup using templates
+                <li>Select any feature.</li>
+                <li>Hide the layer from a popup, and re-display.</li>
+                <li>Use the selection box press CTRL key while dragging the mouse.</li>
+                <li>Hide one layer from a list popup, and re-display.</li>
+                <li>Select single feature using a selection box.</li>
+            </ul>
+            <h2>Features:</h2>
+            <ul>
+                <li>The contents of the popup are built using templates.
                     <ul>
                         <li>Templates as strings or functions</li>
-                        <li>Allows external templates renderers</li>
+                        <li>Allows internationalization of the labels in templates.</li>
                     </ul>
                 </li>
                 <li>Show popups by selection or hover from multiple vector layers.</li>
-                <li>Multiple selection using selection box and show list into a popup (to use the selection box press CTRL key while dragging the mouse)</li>
-                <li>Proper popups when using feature clusters (Strategy.Cluster)</li>
-                <li>Allows to register listeners on the events of selection and hover</li>
+                <li>Multiple selection using selection box and show list into a popup</li>
+                <li>Proper popups when using feature clusters (OpenLayers.Strategy.Cluster)</li>
+                <li>Allows to register listeners on the events of selection hover and box</li>
             </ul>
-            <p>View the <a href="feature-popups.js" target="_blank">feature-popups.js</a> source to see how this is done. (see also <a href="mobile-sprinters.js">mobile-sprinters.js</a>)</p>
+            <p>
+                View the <a href="feature-popups.js" target="_blank">feature-popups.js</a> 
+                source to see how this is done. 
+                (see also <a href="mobile-sprinters.js">mobile-sprinters.js</a>)
+            </p>
         </div>
         <script src="mobile-sprinters.js"></script>
         <script src="feature-popups.js"></script>
