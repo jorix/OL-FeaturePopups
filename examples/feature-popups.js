@@ -22,13 +22,14 @@ var sprintersLayer = new OpenLayers.Layer.Vector("Sprinters (translated labels)"
 });
 sprintersLayer.addFeatures(getSprintersFeatures());
 
-var getLengthRoad = function(feature){
-    return Math.round(feature.geometry.getLength()/10)/100 + " km";
-}
 var tasmaniaRoadsLayer = new OpenLayers.Layer.Vector("Tasmania roads (function templates)", {
     // Only popup from hover or a list from selection box.
-    hoverPopupTemplate: function(feature){return "Length: " + getLengthRoad(feature);},
-    itemPopupTemplate:  function(feature){return "<li>" + getLengthRoad(feature) + "</li>";},
+    hoverPopupTemplate: function(feature){
+        return "Length: " + Math.round(feature.geometry.getLength()/10)/100 + " km";
+    },
+    itemPopupTemplate:  function(feature){
+        return "<li>" + Math.round(feature.geometry.getLength()/10)/100 + " km</li>";
+    },
     projection: geographicProj,
     strategies: [new OpenLayers.Strategy.Fixed()],
     protocol: new OpenLayers.Protocol.HTTP({
@@ -38,7 +39,6 @@ var tasmaniaRoadsLayer = new OpenLayers.Layer.Vector("Tasmania roads (function t
 });
 
 var sundialsLayer = new OpenLayers.Layer.Vector("Sundials (clustered)", { 
-// TODO: more hover popup from cluster 
     hoverPopupTemplate: "${attributes.name}",
     selectPopupTemplate: "<h2>${attributes.name}</h2>${attributes.description}",
     itemPopupTemplate: "<li>${attributes.name}</li>",
@@ -72,15 +72,37 @@ var sundialsLayer = new OpenLayers.Layer.Vector("Sundials (clustered)", {
 });
 
 var poisLayer = new OpenLayers.Layer.Vector("POIs (using BBOX)", {
-    hoverPopupTemplate: "${attributes.title}",
-    selectPopupTemplate: "<h2>${attributes.title}</h2>${attributes.description}",
-    itemPopupTemplate: "<li>${attributes.title}</li>",
     projection: geographicProj,
     strategies: [new OpenLayers.Strategy.BBOX({resFactor: 1.1})],
     protocol: new OpenLayers.Protocol.HTTP({
         url: "textfile.txt",
         format: new OpenLayers.Format.Text()
     })
+});
+
+// Create control
+// --------------
+var featurePopupsCtl = new OpenLayers.Control.FeaturePopups({
+            closeBox: true, 
+            selectionBox: true,
+            eventListeners: {
+            // TODO: box listeners
+                beforefeaturehighlighted: logEvent,
+                featurehighlighted: logEvent,
+                featureunhighlighted: logEvent,
+                featureselected: logEvent,
+                featureunselected: logEvent,
+                beforeselectionbox: logEvent,
+                afterselectionbox: logEvent
+            }
+        });
+
+// Add a layer to the control explicitly
+// -------------------------------------
+featurePopupsCtl.addLayer(poisLayer, {
+    hoverTemplate: "${attributes.title}",
+    selectTemplate: "<h2>${attributes.title}</h2>${attributes.description}",
+    itemTemplate: "<li>${attributes.title}</li>"
 });
 
 // Create map
@@ -100,19 +122,8 @@ var map = new OpenLayers.Map({
         new OpenLayers.Control.Attribution({position: new OpenLayers.Pixel(1,486)}),
         new OpenLayers.Control.Navigation(),
         new OpenLayers.Control.PanZoom(),
-        new OpenLayers.Control.FeaturePopups({
-            closeBox: true, 
-            selectionBox: true,
-            eventListeners: {
-            // TODO: box listeners
-                beforefeaturehighlighted: logEvent,
-                featurehighlighted: logEvent,
-                featureunhighlighted: logEvent,
-                featureselected: logEvent,
-                featureunselected: logEvent
-            }
-        }),
-        new OpenLayers.Control.LayerSwitcher()
+        new OpenLayers.Control.LayerSwitcher(),
+        featurePopupsCtl
     ],
     layers: [
         new OpenLayers.Layer.OSM("OpenStreetMap", null),
@@ -128,11 +139,22 @@ var map = new OpenLayers.Map({
 // Log events
 // ----------
 function logEvent(evt) {
-
     if (!console || !console.log) {
         return;
     }
-    var feature = evt.feature
-    var layer = feature.layer;
-    console.log(evt.type + ": layer=" + layer.name + ((feature.fid)?" fid=" + feature.fid:" id=" + feature.id));
+    var text = evt.type + ":";
+    var feature = evt.feature;
+    if (feature) {
+        text += " layer=\"" + feature.layer.name + "\"";
+        text += " feature" + (feature.fid ? 
+                    "-fid=" + feature.fid :
+                    "-id=" + feature.id);
+    }
+    if (evt.selectionBox) {
+        text += " selectionBox=" + evt.selectionBox;
+    }
+    if (evt.count) {
+        text += " count=" + evt.count;
+    }
+    console.log(text);
 }

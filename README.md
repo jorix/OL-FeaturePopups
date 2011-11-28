@@ -18,10 +18,8 @@ Features:
 TODO:
 ----
  * Write tests.
- * Documenting.
- * More constructor options?
- * Show a popup of a single feature from  a popup of a list of features.
- * Show hover popups of a clustered features.
+ * Documenting more.
+ * Show a popup of a single feature from a list of features.
  
 The beginnings
 --------------
