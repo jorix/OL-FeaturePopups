@@ -48,7 +48,7 @@ var sundialsLayer = new OpenLayers.Layer.Vector("Sundials (clustered)", {
         new OpenLayers.Strategy.Cluster()
     ],
     styleMap: new OpenLayers.StyleMap({
-        default: new OpenLayers.Style({
+        "default": new OpenLayers.Style({
                 pointRadius: "${radius}",
                 fillOpacity: 0.6,
                 fillColor: "#ffcc66",
@@ -60,7 +60,7 @@ var sundialsLayer = new OpenLayers.Layer.Vector("Sundials (clustered)", {
                     }
                 }
         }),
-        select: {fillColor: "#8aeeef"}
+        "select": {fillColor: "#8aeeef"}
     }),
     protocol: new OpenLayers.Protocol.HTTP({
         url: "kml/sundials.kml",
