@@ -11,7 +11,7 @@ var sprintersLayer = new OpenLayers.Layer.Vector("Sprinters (translated labels)"
     selectPopupTemplate: "${OpenLayers.i18n(\"Name\")}: ${attributes.Name}<br>" +
                          "${OpenLayers.i18n(\"Country\")}: ${attributes.Country}<br>" +
                          "${OpenLayers.i18n(\"City\")}: ${attributes.City}<br>",
-    itemPopupTemplate: "<li>${attributes.Name}</li>",
+    itemPopupTemplate: "<li><a href=\"#\" onclick =\"f('${layer.id}','${id}')\">${attributes.Name}</a></li>",
     styleMap: new OpenLayers.StyleMap({
         externalGraphic: "http://www.openlayers.org/dev/examples/img/mobile-loc.png",
         graphicOpacity: 1.0,
@@ -104,6 +104,7 @@ featurePopupsCtl.addLayer(poisLayer, {
     selectTemplate: "<h2>${attributes.title}</h2>${attributes.description}",
     itemTemplate: "<li>${attributes.title}</li>"
 });
+var f = OpenLayers.Function.bind(featurePopupsCtl.showFeatureSelectedById,featurePopupsCtl);
 
 // Create map
 // ----------
