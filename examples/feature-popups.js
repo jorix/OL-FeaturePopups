@@ -41,7 +41,7 @@ var tasmaniaRoadsLayer = new OpenLayers.Layer.Vector("Tasmania roads (function t
 var sundialsLayer = new OpenLayers.Layer.Vector("Sundials (clustered)", { 
     hoverPopupTemplate: "${attributes.name}",
     selectPopupTemplate: "<h2>${attributes.name}</h2>${attributes.description}",
-    itemPopupTemplate: "<li ${show()}>${attributes.name}</li>",
+    itemPopupTemplate: "<li><a href=\"#\" ${show()}>${attributes.name}</a></li>",
     projection: geographicProj,
     strategies: [
         new OpenLayers.Strategy.Fixed(),
@@ -83,7 +83,6 @@ var poisLayer = new OpenLayers.Layer.Vector("POIs (using BBOX)", {
 // Create control
 // --------------
 var featurePopupsCtl = new OpenLayers.Control.FeaturePopups({
-            closeBox: true, 
             selectionBox: true,
             eventListeners: {
             // TODO: box listeners
