@@ -8,10 +8,10 @@ var geographicProj = new OpenLayers.Projection("EPSG:4326");
 
 var sprintersLayer = new OpenLayers.Layer.Vector("Sprinters (translated labels)", {
     hoverPopupTemplate: "${attributes.Name}",
-    selectPopupTemplate: "${OpenLayers.i18n(\"Name\")}: ${attributes.Name}<br>" +
-                         "${OpenLayers.i18n(\"Country\")}: ${attributes.Country}<br>" +
-                         "${OpenLayers.i18n(\"City\")}: ${attributes.City}<br>",
-    itemPopupTemplate: "<li><a href=\"#\" onclick =\"showPopup('${layer.id}','${id}');return false\">${attributes.Name}</a></li>",
+    selectPopupTemplate: "${i18n(\"Name\")}: ${attributes.Name}<br>" +
+                         "${i18n(\"Country\")}: ${attributes.Country}<br>" +
+                         "${i18n(\"City\")}: ${attributes.City}<br>",
+    itemPopupTemplate: "<li><a href=\"#\" onclick =\"explicitlyShowPopup('${layer.id}','${id}');return false\">${attributes.Name}</a></li>",
     styleMap: new OpenLayers.StyleMap({
         externalGraphic: "http://www.openlayers.org/dev/examples/img/mobile-loc.png",
         graphicOpacity: 1.0,
@@ -41,7 +41,7 @@ var tasmaniaRoadsLayer = new OpenLayers.Layer.Vector("Tasmania roads (function t
 var sundialsLayer = new OpenLayers.Layer.Vector("Sundials (clustered)", { 
     hoverPopupTemplate: "${attributes.name}",
     selectPopupTemplate: "<h2>${attributes.name}</h2>${attributes.description}",
-    itemPopupTemplate: "<li><a href=\"#\" ${show()}>${attributes.name}</a></li>",
+    itemPopupTemplate: "<li><a href=\"#\" ${showPopup()}>${attributes.name}</a></li>",
     projection: geographicProj,
     strategies: [
         new OpenLayers.Strategy.Fixed(),
@@ -101,9 +101,10 @@ var featurePopupsCtl = new OpenLayers.Control.FeaturePopups({
 featurePopupsCtl.addLayer(poisLayer, {
     hoverTemplate: "${attributes.title}",
     selectTemplate: "<h2>${attributes.title}</h2>${attributes.description}",
-    itemTemplate: "<li>${attributes.title}</li>"
+    itemTemplate: "<li><a href=\"#\" ${showPopup()}>${attributes.title}</a></li>"
 });
-var showPopup = OpenLayers.Function.bind(featurePopupsCtl.showFeatureById,featurePopupsCtl);
+var explicitlyShowPopup = OpenLayers.Function.bind(
+                           featurePopupsCtl.showFeatureById, featurePopupsCtl);
 
 // Create map
 // ----------
