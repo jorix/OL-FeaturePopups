@@ -103,7 +103,7 @@ featurePopupsCtl.addLayer(poisLayer, {
     selectTemplate: "<h2>${attributes.title}</h2>${attributes.description}",
     itemTemplate: "<li>${attributes.title}</li>"
 });
-var showPopup = OpenLayers.Function.bind(featurePopupsCtl.showFeatureSelectedById,featurePopupsCtl);
+var showPopup = OpenLayers.Function.bind(featurePopupsCtl.showFeatureById,featurePopupsCtl);
 
 // Create map
 // ----------
