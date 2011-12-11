@@ -12,14 +12,13 @@ Features:
     * Allows internationalization of the labels in templates.
  * Show popups by selection or hover from multiple vector layers.
  * Multiple selection using box and show list of features selecteds into popup.
- * Proper popups when using feature clusters (OpenLayers.Strategy.Cluster)
+ * Proper popups in clustered features (OpenLayers.Strategy.Cluster)
  * Allows to register listeners on the events of selection hover and box.
  
 TODO:
 ----
  * Write tests.
  * Documenting more.
- * Show a popup of a single feature from a list of features.
  
 The beginnings
 --------------
