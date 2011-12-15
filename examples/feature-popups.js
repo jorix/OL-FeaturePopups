@@ -83,18 +83,8 @@ var poisLayer = new OpenLayers.Layer.Vector("POIs (using BBOX)", {
 // Create control
 // --------------
 var featurePopupsCtl = new OpenLayers.Control.FeaturePopups({
-            selectionBox: true,
-            eventListeners: {
-            // TODO: box listeners
-                beforefeaturehighlighted: logEvent,
-                featurehighlighted: logEvent,
-                featureunhighlighted: logEvent,
-                featureselected: logEvent,
-                featureunselected: logEvent,
-                beforeselectionbox: logEvent,
-                afterselectionbox: logEvent
-            }
-        });
+    selectionBox: true
+});
 
 // Add a layer to the control explicitly
 // -------------------------------------
@@ -103,8 +93,11 @@ featurePopupsCtl.addLayer(poisLayer, {
     selectTemplate: "<h2>${attributes.title}</h2>${attributes.description}",
     itemTemplate: "<li><a href=\"#\" ${showPopup()}>${attributes.title}</a></li>"
 });
+
+// Create function to show single feature from a list
+// --------------------------------------------------
 var explicitlyShowPopup = OpenLayers.Function.bind(
-                           featurePopupsCtl.showFeatureById, featurePopupsCtl);
+                     featurePopupsCtl.showSingleFeatureById, featurePopupsCtl);
 
 // Create map
 // ----------
