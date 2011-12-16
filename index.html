@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset='utf-8'>
-
-  <title>OL-FeaturePopups - FeaturePopups @ GitHub</title>
-
-  <style type="text/css">
+    <meta charset='utf-8'>
+    <title>OL-FeaturePopups - FeaturePopups @ GitHub</title>
+    <style type="text/css">
     body {
       margin-top: 1.0em;
       background-color: #fff;
@@ -13,79 +11,26 @@
       color: #000;
     }
     #container {
-      margin: 0 auto;
-      width: 700px;
+      margin: 0 auto; padding: 10px 10px 20px;
+      width: 700px; background-color: #eee;
     }
     h1 { text-align: center; font-size: 2em; margin-bottom: 3px; }
-    h2 { font-size: 1.5em;}
-    h3 { text-align: center;}
     a { color: blue; }
-    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
-    .download { float: right; }
-    pre { background: #000; color: #fff; padding: 15px;}
-    hr { border: 0; border-bottom: 1px solid #aaa}
-    .footer { text-align:center; padding-top:1.5em; font-style: italic; }
-  </style>
+    </style>
 </head>
-
 <body>
     <a href="https://github.com/jorix/OL-FeaturePopups"><img 
         style="position: absolute; top: 0; right: 0; border: 0;" 
         src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" 
         alt="Fork me on GitHub" /></a>
-
     <div id="container">
-        <div class="description">
-            <h1>FeaturePopups</h1>
-        </div>
-
-        <h2>Run the proposal</h2>
-            <p>
-                This is a sandbox to discuss the implementation of 
-                <b>FeaturePopups</b> control in <a href="http://openlayers.org" ><b>OpenLayers</b></a>
-            </p>
-            <p>
-                You can run this proposal in:
-            </p>
-            <ul>
-                <li>
-                    <a href="examples/feature-popups.html" target="_blank"><b>feature-popups.html</b></a>
-                </li>
-            </ul>
-        <h3>Features</h3>
-            <p> 
-                This control wraps the management of popups and SelectFeature control.
-            </p>
-            <ul>
-                <li>The contents of the popup are built using templates.
-                    <ul>
-                        <li>Templates as strings or functions</li>
-                        <li>Allows internationalization of the labels in templates.</li>
-                    </ul>
-                </li>
-                <li>Show popups by selection or hover from multiple vector layers.</li>
-                <li>Multiple selection using selection box and show list into a popup</li>
-                <li>Proper popups when using feature clusters (OpenLayers.Strategy.Cluster)</li>
-                <li>Allows to register listeners on the events of selection hover and box</li>
-            </ul>
-        <h3>The beginnings</h3>
-            <p>
-                This development began with the request 
-                <a href="http://osgeo-org.1803224.n2.nabble.com/HTML-template-popup-manager-tc6948565.html">olsocial</a> 
-                of Javier Carrasco, but has gone far beyond its initial request.
-            </p>
-        <h3>Development</h3>
-            <p>
-                You can clone the project with <a href="http://git-scm.com">Git</a>
-                by running:
-            </p>
-            <pre>$ git clone git://github.com/jorix/OL-FeaturePopups</pre>
-
-        <div class="footer">
-          get the source code on GitHub:
-            <a href="https://github.com/jorix/OL-FeaturePopups">jorix/OL-FeaturePopups</a>
-        </div>
-
+        <h1>FeaturePopups</h1>
+        <p>
+            Try this proposal in: <a href="examples/feature-popups.html" target="_blank"><b>feature-popups.html</b></a>
+        </p>
+        <p>
+            See the source code on GitHub: <a href="https://github.com/jorix/OL-FeaturePopups">jorix/OL-FeaturePopups</a>
+        </p>
     </div>
 </body>
 </html>
