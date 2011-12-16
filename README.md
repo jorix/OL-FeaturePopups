@@ -9,7 +9,8 @@ Operation:
 ---------
 No need to interact with the control only must be added to the map.
 
-Assign templates to the layers is the only requirement for popups can be displayed. Example of a template `<h2>${attributes.name}</h2>${attributes.description}`.
+Assign templates to the layers is the only requirement for popups can be displayed. 
+Example of a template `<h2>${attributes.name}</h2>${attributes.description}`.
 
 The control shows two types of selection popups: **single feature** or **features list** (with two or more features). And in a list popup can be seen each feature in a single popup.
 
