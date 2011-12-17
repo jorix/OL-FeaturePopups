@@ -7,9 +7,10 @@
         <title>FeaturePopups Example</title>
         <link rel="stylesheet" href="http://www.openlayers.org/dev/theme/default/style.css" type="text/css">
         <link rel="stylesheet" href="http://www.openlayers.org/dev/examples/style.css" type="text/css">
-
+        <style>
+            .olControlFeaturePopups_list{font-size: 80%;}
+        </style>
         <script src="http://www.openlayers.org/dev/OpenLayers.js"></script>
-        <!-- script src="../../_basex/lib/OpenLayers.js"></script -->
         <script src="../lib/FeaturePopups.js"></script>
 
     </head>
@@ -34,6 +35,9 @@
                 <li>Now hide one layer and re-display.</li>
                 <li>Select only one feature in Africa using a selection box, is shown as a single feature not as list.</li>
                 <li>Select a clustered feature (circles) by clicking above, is shown as a list not as a single feature.</li>
+                <li>See the use of external div instead popups: 
+                    <a href="feature-popups-external.html" target="_blank">feature-popups-external.html</a> 
+                    (in popups list)</li>
             </ul>
             <h2>Features:</h2>
             <ul>
