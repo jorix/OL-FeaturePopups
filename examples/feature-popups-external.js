@@ -130,26 +130,3 @@ var map = new OpenLayers.Map({
     center: new OpenLayers.LonLat(0, 0),
     zoom: 2
 });
-
-// Log events
-// ----------
-function logEvent(evt) {
-    if (!console || !console.log) {
-        return;
-    }
-    var text = evt.type + ":";
-    var feature = evt.feature;
-    if (feature) {
-        text += " layer=\"" + feature.layer.name + "\"";
-        text += " feature" + (feature.fid ? 
-                    "-fid=" + feature.fid :
-                    "-id=" + feature.id);
-    }
-    if (evt.selectionBox) {
-        text += " selectionBox=" + evt.selectionBox;
-    }
-    if (evt.count) {
-        text += " count=" + evt.count;
-    }
-    console.log(text);
-}
