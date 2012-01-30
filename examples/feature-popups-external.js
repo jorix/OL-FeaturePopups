@@ -7,11 +7,11 @@ var geographicProj = new OpenLayers.Projection("EPSG:4326");
 // -------------
 
 var sprintersLayer = new OpenLayers.Layer.Vector("Sprinters (translated labels)", {
-    hoverPopupTemplate: "${attributes.Name}",
-    selectPopupTemplate: "${i18n(\"Name\")}: ${attributes.Name}<br>" +
-                         "${i18n(\"Country\")}: ${attributes.Country}<br>" +
-                         "${i18n(\"City\")}: ${attributes.City}<br>",
-    itemPopupTemplate: "<li><a href=\"#\" onclick =\"explicitlyShowPopup('${layer.id}','${id}');return false\">${attributes.Name}</a></li>",
+    hoverPopupTemplate: "${.Name}",
+    selectPopupTemplate: "${i18n(\"Name\")}: ${.Name}<br>" +
+                         "${i18n(\"Country\")}: ${.Country}<br>" +
+                         "${i18n(\"City\")}: ${.City}<br>",
+    itemPopupTemplate: "<li><a href=\"#\" onclick =\"explicitlyShowPopup('${layer.id}','${id}');return false\">${.Name}</a></li>",
     styleMap: new OpenLayers.StyleMap({
         externalGraphic: "http://www.openlayers.org/dev/examples/img/mobile-loc.png",
         graphicOpacity: 1.0,
@@ -39,9 +39,9 @@ var tasmaniaRoadsLayer = new OpenLayers.Layer.Vector("Tasmania roads (function t
 });
 
 var sundialsLayer = new OpenLayers.Layer.Vector("Sundials (clustered)", { 
-    hoverPopupTemplate: "${attributes.name}",
-    selectPopupTemplate: "<h2>${attributes.name}</h2>${attributes.description}",
-    itemPopupTemplate: "<li><a href=\"#\" ${showPopup()}>${attributes.name}</a></li>",
+    hoverPopupTemplate: "${.name}",
+    selectPopupTemplate: "<h2>${.name}</h2>${.description}",
+    itemPopupTemplate: "<li><a href=\"#\" ${showPopup()}>${.name}</a></li>",
     projection: geographicProj,
     strategies: [
         new OpenLayers.Strategy.Fixed(),
@@ -90,9 +90,9 @@ var featurePopupsCtl = new OpenLayers.Control.FeaturePopups({
 // Add a layer to the control explicitly
 // -------------------------------------
 featurePopupsCtl.addLayer(poisLayer, {
-    hoverTemplate: "${attributes.title}",
-    selectTemplate: "<h2>${attributes.title}</h2>${attributes.description}",
-    itemTemplate: "<li><a href=\"#\" ${showPopup()}>${attributes.title}</a></li>"
+    hoverTemplate: "${.title}",
+    selectTemplate: "<h2>${.title}</h2>${.description}",
+    itemTemplate: "<li><a href=\"#\" ${showPopup()}>${.title}</a></li>"
 });
 
 // Create function to show single feature from a list
