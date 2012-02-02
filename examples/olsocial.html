@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <title>FeaturePopups Example</title>
+        <link rel="stylesheet" href="http://www.openlayers.org/dev/theme/default/style.css" type="text/css">
+        
+        <script src="http://www.openlayers.org/dev/OpenLayers.js"></script>
+        <script src="../lib/FeaturePopups.js"></script>
+        
+    <script src="http://gis.prodevelop.es/olsocial/Format/FlatJSON.js"></script>
+    <script src="http://gis.prodevelop.es/olsocial/Script2.js"></script>
+    <script src="http://gis.prodevelop.es/olsocial/Layer/Social.js"></script>
+    <script src="http://gis.prodevelop.es/olsocial/Layer/Social/Twitter.js"></script>
+
+    <script src="http://gis.prodevelop.es/olsocial/Layer/Social/Flickr.js"></script>
+    <script src="http://gis.prodevelop.es/olsocial/Layer/Social/POIProxy.js"></script>
+    <script src="http://gis.prodevelop.es/olsocial/Layer/Social/Lastfm.js"></script>
+    <script src="http://gis.prodevelop.es/olsocial/Layer/Social/Yelp.js"></script>
+    <style>
+        html, body, #map {
+                margin: 0;
+                width: 100%;
+                height: 100%;
+            }
+    
+        .twimg {
+            float:left;
+            margin: 0 10px 10px 0;
+            width: 48px;
+            height: 48px;
+        }
+        .twtext, .twuser {
+            font-size: small;
+            color: gray;
+            text-decoration:none;
+        }
+        .twuser{
+            font-weight:bold;
+        }
+        h2.tit{
+            font-size:small;
+            color: gray;
+            padding:0; 
+            margin: 0;
+        }
+
+        .lfmdesc{
+            font-size:small;
+            color: gray;
+        }
+        
+        lfmlabel{
+            font-weight:bold;
+        }
+
+        .ydesc{
+            font-size:small;
+            color: gray;
+            width: 150px;
+        }
+        
+        .lfmlabel{
+            font-weight:bold;
+        }
+        
+        a.ylink{
+            color: gray;
+            text-decoration: none;
+            display:block;
+        }
+    </style>
+    <script type="text/javascript">
+        var map, layer0, layer1, layer2, layer3, layer4, layer5, layer6;
+        function init(){
+            map = new OpenLayers.Map( 'map' );
+            
+            layer0= new OpenLayers.Layer.OSM( "Simple OSM Map");
+                    
+            layer1 = new OpenLayers.Layer.Social.Twitter("Twitter",{
+                styleMap: new OpenLayers.StyleMap({
+                    externalGraphic: 'http://gis.prodevelop.es/olsocial/twitter_fugue.png',
+                    pointRadius: 8
+                })
+            });
+            
+            layer2 = new OpenLayers.Layer.Social.Flickr("Flickr","b3a77fdabcdf31ea15266ccffbb353c0",{});
+            
+            layer3 = new OpenLayers.Layer.Social.POIProxy("Gowalla (POIProxy)","gowalla",{
+                styleMap: new OpenLayers.StyleMap({
+                    externalGraphic: 'http://gis.prodevelop.es/olsocial/gowalla.png',
+                    pointRadius: 8
+                })
+            });
+            
+            layer4 = new OpenLayers.Layer.Social.Lastfm("Lastfm","b25b959554ed76058ac220b7b2e0a026",{
+                styleMap: new OpenLayers.StyleMap({
+                    externalGraphic: 'http://gis.prodevelop.es/olsocial/lastfm.png',
+                    pointRadius: 8
+                })
+            });
+            
+            layer5 = new OpenLayers.Layer.Social.Yelp("Yelp","s38_h6eGpQk1Ka8PjivJgw",{
+                styleMap: new OpenLayers.StyleMap({
+                    externalGraphic: 'http://gis.prodevelop.es/olsocial/yelp.png',
+                    pointRadius: 8
+                })
+            });
+            
+            layer6 = new OpenLayers.Layer.Social.POIProxy("Wikipedia (POIProxy)","wikipedia",{
+                styleMap: new OpenLayers.StyleMap({
+                    externalGraphic: 'http://gis.prodevelop.es/olsocial/wikipedia.png',
+                    pointRadius: 8
+                })
+            });
+                                    
+            map.addLayer(layer0);
+            map.addLayer(layer2);
+            map.addLayer(layer1);
+            map.addLayer(layer3);
+            map.addLayer(layer4);
+            map.addLayer(layer5);
+            map.addLayer(layer6);
+            
+            var p1 = new OpenLayers.Control.FeaturePopups();
+            var getTempl = function(id){
+                return document.getElementById(id).innerHTML;
+            }
+            p1.addLayer(layer1, {selectTemplate: getTempl('twitterPopup')});
+            p1.addLayer(layer2, {selectTemplate: getTempl('flickrPopup'), hoverTemplate: getTempl('flickrPopup_h')});
+            p1.addLayer(layer3, {selectTemplate: getTempl('gowallaPopup')});
+            p1.addLayer(layer4, {selectTemplate: getTempl('lfmPopup')});
+            p1.addLayer(layer5, {selectTemplate: getTempl('yPopup')});
+            p1.addLayer(layer6, {selectTemplate: getTempl('wPopup')});
+            
+            map.addControls([p1, new OpenLayers.Control.LayerSwitcher()]);
+            
+            map.moveTo(
+                new OpenLayers.LonLat(-104.976425,39.740986).transform(
+                    new OpenLayers.Projection("EPSG:4326"),
+                    map.getProjectionObject()
+                ), 13
+            );    
+        }
+
+    </script>
+  </head>
+  <body onload="init()">
+    <div id="map"></div>
+    <script id="twitterPopup" type="text/x-template">
+        <img src="${.profile_image_url}" class="twimg" />
+        <a class="twuser" href="http://twitter.com/${.from_user}">${.from_user}:</a>
+        <a class="twtext" href="http://twitter.com/${.from_user}/status/${.id_str}">${.text}</a>
+    </script>
+    <script id="flickrPopup_h" type="text/x-template">
+        <img src="http://farm${.farm}.static.flickr.com/${.server}/${.id}_${.secret}_t.jpg" class="flimg"/><br>
+        ${.ownername}
+    </script>
+    <script id="flickrPopup" type="text/x-template">
+        <h2 class="tit">${.title}</h2>
+        <a class="twuser" href="http://www.flickr.com/photos/${.owner}/${.id}">
+            <img src="http://farm${.farm}.static.flickr.com/${.server}/${.id}_${.secret}_m.jpg" class="flimg"/>
+        </a><br/>
+        by: <a class="twuser" href="http://www.flickr.com/people/${.owner}">${.ownername}:</a>
+    </script>
+    <script id="gowallaPopup" type="text/x-template">
+        <h2 class="tit">${.name}</h2>
+        <img src="${.image_url}" class="flimg"/><br/>
+        <a class="twuser" href="http://gowalla.com${.url}">more info on Gowalla</a>
+    </script>
+    <script id="lfmPopup" type="text/x-template">
+        <h2 class="tit">${.title}</h2>
+        <a class="lfmlink" href="${.url}"><img src="lastfm2.png"/></a><br/>
+        <span class="lfmdesc">
+            <span class="lfmlabel">Date:</span> ${.startDate} <br/>
+            <span class="lfmlabel">Website:</span> ${.website} <br/>
+            ${.description}
+        </span>
+    </script>
+    <script id="yPopup" type="text/x-template">
+        <h2 class="tit">${.name}</h2>
+        <div style="width:300px;height:180px;margin:0;padding:0">
+            <div style="float:left;width:100px;margin-right:10px">
+                <img src="${.rating_img_url}"/><br/>
+                <img class="yimg" src="${.photo_url}"/><br/>
+            </div>
+            <span class="ydesc">
+                <span class="lfmlabel">Reviews:</span> ${.review_count} <br/>
+                <span class="lfmlabel">Phone:</span> ${.phone} <br/>
+                <span class="lfmlabel">Address:</span><br/>
+                ${.address1}<br/>
+                ${.address2}<br/>
+                ${.address3}<br/>
+                ${.zip} ${.city} <br/>
+            </span>
+            <a class="ylink" style="clear:both" href="${.url}">more info on <img src="yelp2.png"/></a>
+        </div>
+    </script>
+    <script id="wPopup" type="text/x-template">
+        <h2 class="tit">${.title}</h2>
+        <img src="wikipedia2.png"/><br/>
+        <a href="${.url}" class="ylink">see article on Wikipedia</a>
+    </script>
+  </body>
+</html>

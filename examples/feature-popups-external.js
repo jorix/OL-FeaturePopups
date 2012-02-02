@@ -40,7 +40,8 @@ var tasmaniaRoadsLayer = new OpenLayers.Layer.Vector("Tasmania roads (function t
 
 var sundialsLayer = new OpenLayers.Layer.Vector("Sundials (clustered)", { 
     hoverPopupTemplate: "${.name}",
-    selectPopupTemplate: "<h2>${.name}</h2>${.description}",
+    selectPopupTemplate: "<div style=\"margin-right:22px\"><h2>${.name}</h2>${.description}</div>",
+        // `margin-right:22px` To ensure that there is room for the vertical scroll bar
     itemPopupTemplate: "<li><a href=\"#\" ${showPopup()}>${.name}</a></li>",
     projection: geographicProj,
     strategies: [
