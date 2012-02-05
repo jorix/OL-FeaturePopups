@@ -18,6 +18,7 @@ Currently hover popups are simpler, shows data of a single feature or in the cas
 Examples:
 --------
  * Adaptation of OpenLayers example to use `FeaturePopups`: [sundials.html](http://jorix.github.com/OL-FeaturePopups/examples/sundials.html)
+ * Adaptation to show the advantage of using `fid` in the lists when using the strategy BBOX [georss-flickr.html](http://jorix.github.com/OL-FeaturePopups/examples/georss-flickr.html)
  * Adaptation of [olsocial](http://gis.prodevelop.es/olsocial/) to use `FeaturePopups`: [olsocial.html](http://jorix.github.com/OL-FeaturePopups/examples/olsocial.html)
  * Use complex: [feature-popups.html](http://jorix.github.com/OL-FeaturePopups/examples/feature-popups.html)
  * Use complex with lists outside the map div [feature-popups-external.html](http://jorix.github.com/OL-FeaturePopups/examples/feature-popups-external.html)
