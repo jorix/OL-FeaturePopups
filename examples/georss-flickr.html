@@ -55,7 +55,7 @@
             markerLayer = new OpenLayers.Layer.Vector("Some images from Flickr", {
                 selectPopupTemplate: "<h3>${.title}</h3>${.description}",
                 listPopupTemplate: "<h2>${count} images.</h2>${html}",
-                itemPopupTemplate: "<img ${showPopup(fid)aa} src=\"${.thumbnail}\" alt=\"${.title}\" style=\"float:left; margin:3px;\">",
+                itemPopupTemplate: "<img ${showPopup(fid)} src=\"${.thumbnail}\" alt=\"${.title}\" style=\"float:left; margin:3px;\">",
                 protocol: new OpenLayers.Protocol.HTTP({
                     url: "xml/georss-flickr.xml",
                     format: new OpenLayers.Format.GeoRSS({
