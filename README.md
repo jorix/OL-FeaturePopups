@@ -7,13 +7,13 @@ Operation:
 ---------
 No need to interact with the control only must be added to the map.
 
-Assign templates to the layers is the only requirement for popups can be displayed. 
+Assign templates to the layers is the only requirement for the popups can be displayed. 
 
 Example of a template `<h2>${attributes.name}</h2>${attributes.description}`.
 
 The control shows two types of selection popups: **single feature** or **features list** (with two or more features). And in a list popup can be seen each feature in a single popup.
 
-Currently hover popups are simpler, shows data of a single feature or in the case of a cluster indicates only the number of elements and layer name (if more than one element, otherwise displays as single feature)
+Currently hover popups are simpler, shows data of a single feature or in the case of a cluster (with more than one feature) indicates only the number of elements and layer name.
 
 Examples:
 --------
@@ -37,7 +37,7 @@ TODO:
  * Write tests.
  * Documenting more.
  * Study improvements in `onFeaturesremoved` method?
- * Open a ticket in OpenLayers to better manage auto-size popups?
+ * Better manage auto-size on OpenLayers popups?
  
 The beginnings
 --------------
