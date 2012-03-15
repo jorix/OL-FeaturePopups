@@ -3,7 +3,7 @@ Proposal for a new control: FeaturePopups for OpenLayers
 
 **FeaturePopups** wraps the management of popups and SelectFeature control of [OpenLayers](http://openlayers.org).
 
-branch is considered stable 1-FeaturePopups
+The branch that is considered stable is: [1-FeaturePopups](https://github.com/jorix/OL-FeaturePopups/tree/1-FeaturePopups)
 
 Operation:
 ---------
