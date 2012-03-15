@@ -3,13 +3,27 @@ Proposal for a new control: FeaturePopups for OpenLayers
 
 **FeaturePopups** wraps the management of popups and SelectFeature control of [OpenLayers](http://openlayers.org).
 
+branch is considered stable 1-FeaturePopups
+
 Operation:
 ---------
 No need to interact with the control only must be added to the map.
 
 Assign templates to the layers is the only requirement for the popups can be displayed. 
 
-Example of a template `<h2>${attributes.name}</h2>${attributes.description}`.
+Example:
+
+```javascript
+    ...
+    map.addLayer(
+        new OpenLayers.Layer.Vector("My layer", {
+            selectPopupTemplate: "<h2>${attributes.name}</h2>${attributes.description}"
+        })
+    );
+    ...
+    map.addControl(new OpenLayers.Control.FeaturePopups());
+    ...
+```
 
 The control shows two types of selection popups: **single feature** or **features list** (with two or more features). And in a list popup can be seen each feature in a single popup.
 
