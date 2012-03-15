@@ -5,6 +5,17 @@ Proposal for a new control: FeaturePopups for OpenLayers
 
 The branch that is considered stable is: [1-FeaturePopups](https://github.com/jorix/OL-FeaturePopups/tree/1-FeaturePopups)
 
+New goals:
+----------
+ * Multi selection.
+ * Safe selection: when it is used eg zoom-in and later zoom-out (on Cluster and BBOX strategies)
+ * Can display data when a layer is loaded.
+ * Force *hover popups* to follow the cursor.
+ * Shows *select popups* where the cursor is pressed.
+ * Common interface for popups.
+
+The branch **gh-pages** may not be stable (is equivalent to *master*)
+ 
 Operation:
 ---------
 No need to interact with the control only must be added to the map.
