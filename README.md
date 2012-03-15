@@ -17,9 +17,9 @@ Example:
     ...
     map.addLayer(
         new OpenLayers.Layer.Vector("My layer", {
-            selectPopupTemplate: "<h2>${attributes.name}</h2>${attributes.description}"
+            selectPopupTemplate: "<h2>${.name}</h2>${.description}"
         })
-    );
+    ); // .name is attributes.name on features, and so on.
     ...
     map.addControl(new OpenLayers.Control.FeaturePopups());
     ...
