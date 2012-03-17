@@ -7,12 +7,13 @@ The branch that is considered stable is: [1-FeaturePopups](https://github.com/jo
 
 New goals:
 ----------
- * Multi selection.
- * Safe selection: when it is used eg zoom-in and later zoom-out (on Cluster and BBOX strategies)
+ * Multi selection, **done**!
+ * Safe selection **done**! (lack to thoroughly test): when it is used eg zoom-in and later zoom-out (on Cluster and BBOX strategies)
  * Can display data when a layer is loaded.
  * Force *hover popups* to follow the cursor.
  * Shows *select popups* where the cursor is pressed.
  * Common interface for popups.
+ * Better manage auto-size on OpenLayers popups.
 
 The branch **gh-pages** may not be stable (is equivalent to *master*)
  
@@ -56,14 +57,7 @@ Features:
  * Show popups by selection (click) or hover from multiple vector layers.
  * Multiple selection using box and show list of features selected into an popup.
  * Proper popups on clustered features (OpenLayers.Strategy.Cluster)
- 
-TODO:
-----
- * Write tests.
- * Documenting more.
- * Study improvements in `onFeaturesremoved` method?
- * Better manage auto-size on OpenLayers popups?
- 
+
 The beginnings
 --------------
 This development began with the request [olsocial](http://osgeo-org.1560.n6.nabble.com/HTML-template-popup-manager-td3889159.html) 
