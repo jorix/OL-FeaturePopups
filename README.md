@@ -8,9 +8,9 @@ The branch that is considered stable is: [1-FeaturePopups](https://github.com/jo
 New goals:
 ----------
  * Multi selection, **done**!
- * Safe selection **done**! (lack to thoroughly test): when it is used eg zoom-in and later zoom-out (on Cluster and BBOX strategies)
+ * Safe selection **done**!: when it is used eg zoom-in and later zoom-out (on Cluster and BBOX strategies)
  * Can display data when a layer is loaded.
- * Force *hover popups* to follow the cursor.
+ * Force *hover popups* to follow the cursor **done**!.
  * Shows *select popups* where the cursor is pressed.
  * Common interface for popups.
  * Better manage auto-size on OpenLayers popups.
