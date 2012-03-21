@@ -11,7 +11,7 @@ New goals:
  * Safe selection **done**!: when it is used eg zoom-in and later zoom-out (on Cluster and BBOX strategies)
  * Can display data when a layer is loaded.
  * Force *hover popups* to follow the cursor **done**!.
- * Shows *select popups* where the cursor is pressed.
+ * Shows *select popups* where the cursor is pressed (except for a single point) **done**!
  * Common interface for popups.
  * Better manage auto-size on OpenLayers popups.
 
