@@ -12,6 +12,7 @@ New goals:
  * Can display data when a layer is loaded.
  * Force *hover popups* to follow the cursor **done**!.
  * Shows *select popups* where the cursor is pressed (except for a single point) **done**!
+ * Unify behaviors **done**! 80%. Must use new "mode" property that it supports multiple behaviors (use also "mode" property instead "selectionBox:true")
  * Common interface for popups.
  * Better manage auto-size on OpenLayers popups.
 
@@ -43,8 +44,8 @@ Currently hover popups are simpler, shows data of a single feature or in the cas
 
 Examples:
 --------
- * Adaptation of OpenLayers example to use `FeaturePopups`: [sundials.html](http://jorix.github.com/OL-FeaturePopups/examples/sundials.html)
- * Adaptation to show the advantage of using `fid` in the lists when using the strategy BBOX [georss-flickr.html](http://jorix.github.com/OL-FeaturePopups/examples/georss-flickr.html)
+ * Adaptation of OpenLayers example to use `FeaturePopups`: [sundials.html](http://jorix.github.com/OL-FeaturePopups/examples/sundials-FP.html)
+ * Adaptation to show the advantage of using `fid` in the lists when using the strategy BBOX [georss-flickr.html](http://jorix.github.com/OL-FeaturePopups/examples/georss-flickr-FP.html)
  * Use complex: [feature-popups.html](http://jorix.github.com/OL-FeaturePopups/examples/feature-popups.html)
  * Use complex with lists outside the map div [feature-popups-external.html](http://jorix.github.com/OL-FeaturePopups/examples/feature-popups-external.html)
 
