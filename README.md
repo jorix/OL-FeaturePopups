@@ -42,12 +42,15 @@ The control shows two types of selection popups: **single feature** or **feature
 
 Currently hover popups are simpler, shows data of a single feature or in the case of a cluster (with more than one feature) indicates only the number of elements and layer name.
 
-Examples:
---------
- * Adaptation of OpenLayers example to use `FeaturePopups`: [sundials-FP.html](http://jorix.github.com/OL-FeaturePopups/examples/sundials-FP.html)
- * Adaptation to show the advantage of using `fid` in the lists when using the strategy BBOX [georss-flickr-FP.html](http://jorix.github.com/OL-FeaturePopups/examples/georss-flickr-FP.html)
- * Use complex: [feature-popups.html](http://jorix.github.com/OL-FeaturePopups/examples/feature-popups.html)
- * Use complex with lists outside the map div [feature-popups-external.html](http://jorix.github.com/OL-FeaturePopups/examples/feature-popups-external.html)
+Adaptation of OpenLayers example to use `FeaturePopups`: 
+--------------------------------------------------------
+ * [sundials-FP.html](http://jorix.github.com/OL-FeaturePopups/examples/sundials-FP.html)
+ * [georss-flickr-FP.html](http://jorix.github.com/OL-FeaturePopups/examples/georss-flickr-FP.html)
+
+Complex usage of popup templates:
+---------------------------------
+ * Selection box: [feature-popups.html](http://jorix.github.com/OL-FeaturePopups/examples/feature-popups.html)
+ * Data from a list of features outside the map div [feature-popups-external.html](http://jorix.github.com/OL-FeaturePopups/examples/feature-popups-external.html)
 
 Features:
 --------
