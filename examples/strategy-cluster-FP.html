@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+        <title>OpenLayers Cluster Strategy Example</title>
+        <link rel="stylesheet" href="http://www.openlayers.org/dev/theme/default/style.css" type="text/css">
+        <link rel="stylesheet" href="http://www.openlayers.org/dev/examples/style.css" type="text/css">
+        <style type="text/css">
+            #photos {
+                height: 100px;
+                width: 512px;
+                position: relative;
+                white-space: nowrap;
+            }
+            .shift {
+                height: 25px;
+                line-height: 25px;
+                background-color: #fefefe;
+                text-align: center;
+                position: absolute;
+                bottom: 10px;
+                font-size: 8px;
+                font-weight: bold;
+                color: #696969;
+                width: 25px;
+            }
+            #scroll-start {
+                left: 0px;
+            }
+            #scroll-end {
+                right: 0px;
+            }
+            #scroll {
+                left: 30px;
+                width: 452px;
+                height: 100px;
+                overflow: hidden;
+                position: absolute;
+                bottom: 0px;
+            }
+            #photos ul {
+                position: absolute;
+                bottom: 0px;
+                padding: 0;
+                margin: 0;
+            }
+            #photos ul.start {
+                left: 0px;
+            }
+            #photos ul.end {
+                right: 80px;
+            }
+            #photos ul li {
+                padding: 10px;
+                margin: 0;
+                list-style: none;
+                display: inline;
+            }
+            img.thumb {
+                height: 30px;
+            }
+            img.big {
+                height: 90px;
+            }
+        </style>
+        <script src="http://www.openlayers.org/dev/OpenLayers.js"></script>
+        <script src="../lib/FeaturePopups.js"></script>
+        <script src="http://www.openlayers.org/dev/examples/animator.js"></script>
+        <script type="text/javascript">
+            var map, template;
+
+            /**
+             * A specific format for parsing Flickr API JSON responses.
+             */
+            OpenLayers.Format.Flickr = OpenLayers.Class(OpenLayers.Format, {
+                read: function(obj) {
+                    if(obj.stat === 'fail') {
+                        throw new Error(
+                            ['Flickr failure response (',
+                             obj.code,
+                             '): ',
+                             obj.message].join(''));
+                    }
+                    if(!obj || !obj.photos ||
+                       !OpenLayers.Util.isArray(obj.photos.photo)) {
+                        throw new Error(
+                            'Unexpected Flickr response');
+                    }
+                    var photos = obj.photos.photo, photo,
+                        x, y, point,
+                        feature, features = [];
+                    for(var i=0,l=photos.length; i<l; i++) {
+                        photo = photos[i];
+                        x = photo.longitude;
+                        y = photo.latitude;
+                        point = new OpenLayers.Geometry.Point(x, y);
+                        feature = new OpenLayers.Feature.Vector(point, {
+                            title: photo.title,
+                            img_url: photo.url_s
+                        });
+                        features.push(feature);
+                    }
+                    return features;
+                }
+            });
+
+            function init() {
+                map = new OpenLayers.Map('map');
+                var base = new OpenLayers.Layer.OSM();
+
+                var style = new OpenLayers.Style({
+                    pointRadius: "${radius}",
+                    fillColor: "#ffcc66",
+                    fillOpacity: 0.8,
+                    strokeColor: "#cc6633",
+                    strokeWidth: 2,
+                    strokeOpacity: 0.8
+                }, {
+                    context: {
+                        radius: function(feature) {
+                            return Math.min(feature.attributes.count, 7) + 3;
+                        }
+                    }
+                });
+
+                var photos = new OpenLayers.Layer.Vector("Photos", {
+                    listPopupTemplate: document.getElementById("template").innerHTML,
+                    itemPopupTemplate: document.getElementById("itemTemplate").innerHTML,
+                    projection: "EPSG:4326",
+                    strategies: [
+                        new OpenLayers.Strategy.Fixed(),
+                        new OpenLayers.Strategy.Cluster()
+                    ],
+                    protocol: new OpenLayers.Protocol.Script({
+                        url: "http://api.flickr.com/services/rest",
+                        params: {
+                            api_key: "18351da2113513f3ba4eef6b99b4dcb6",
+                            format: 'json',
+                            method: 'flickr.photos.search',
+                            extras: 'geo,url_s',
+                            per_page: 150,
+                            page: 1,
+                            bbox: [-180, -90, 180, 90]
+                        },
+                        callbackKey: 'jsoncallback',
+                        format: new OpenLayers.Format.Flickr()
+                    }),
+                    styleMap: new OpenLayers.StyleMap({
+                        "default": style,
+                        "select": {
+                            fillColor: "#8aeeef",
+                            strokeColor: "#32a8a9"
+                        }
+                    })
+                });
+                
+                map.addControl(new OpenLayers.Control.FeaturePopups({
+                     popupListClass: "photos",
+                     mode: OpenLayers.Control.FeaturePopups.HOVER_SELECT,
+                     eventListeners: {"popupdisplayed": display}
+                }));
+                map.addLayers([base, photos]);
+                map.setCenter(new OpenLayers.LonLat(0, 0), 1);
+                
+            }
+            function display(event) {
+                // set up forward/rewind
+                var forward = Animator.apply($("list"), ["start", "end"], {duration: 1500});
+                $("scroll-end").onmouseover = function() {forward.seekTo(1)};
+                $("scroll-end").onmouseout = function() {forward.seekTo(forward.state)};
+                $("scroll-start").onmouseover = function() {forward.seekTo(0)};
+                $("scroll-start").onmouseout = function() {forward.seekTo(forward.state)};
+                // set up photo zoom
+                for(var ii=0; ii<event.features.length; ++ii) {
+                    for(var i=0; i<event.features[ii].cluster.length; ++i) {
+                        var feature = event.features[ii].cluster[i];
+                        listen($("link-" + feature.id), Animator.apply($("photo-" + feature.id), ["thumb", "big"]));
+                    }
+                }
+            }
+            
+            function listen(el, anim) {
+                el.onmouseover = function() {anim.seekTo(1)};
+                el.onmouseout = function() {anim.seekTo(0)};
+            }
+            
+        </script>
+    </head>
+    <body onload="init()">
+        <h1 id="title">Cluster Strategy Example</h1>
+        <div id="tags">
+            vector, feature, stylemap, cluster, strategy, flickr, script
+        </div>         
+        <p id="shortdesc">
+            Uses a cluster strategy to render points representing clusters of features.
+        </p>
+        <div id="map" class="smallmap"></div>
+        <div id="docs">
+            <p>The Cluster strategy lets you display points representing clusters
+            of features within some pixel distance.</p>
+            <p>This particular example uses the <a
+                href="http://www.flickr.com/services/api/">Flickr API.</a></p>
+        </div>
+        <div id="photos"></div>
+        <p>Hover over a cluster on the map to see the photos it includes.</p>
+        <script id="template" type="text/x-template">
+                <div class="shift" id="scroll-start">&lt;&lt;</div>
+                <div id="scroll">
+                    <ul id="list" class="start">
+                        ${html}
+                    </ul>
+                </div>
+                <div class="shift" id="scroll-end">&gt;&gt;</div>
+        </script>
+        <script id="itemTemplate" type="text/x-template">
+                <li>
+                    <a href="${.img_url}" id="link-${id}" target="_blank">
+                        <img src="${.img_url}" title="${.title}" id="photo-${id}" class="thumb" />
+                    </a>
+                </li>
+        </script>
+    </body>
+</html>

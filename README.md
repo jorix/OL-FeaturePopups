@@ -12,8 +12,8 @@ New goals:
  * Can display data when a layer is loaded.
  * Force *hover popups* to follow the cursor **done**!.
  * Shows *select popups* where the cursor is pressed (except for a single point) **done**!
- * Unify behaviors **done**! 80%. Must use new "mode" property that it supports multiple behaviors (use also "mode" property instead "selectionBox:true")
- * Common interface for popups.
+ * Unify behaviors **done**! Must use new "mode" property that it supports multiple behaviors (use also "mode" property instead "selectionBox:true")
+ * Common interface for popups **done**!
  * Better manage auto-size on OpenLayers popups.
 
 The branch **gh-pages** may not be stable (is equivalent to *master*)
@@ -42,13 +42,20 @@ The control shows two types of selection popups: **single feature** or **feature
 
 Currently hover popups are simpler, shows data of a single feature or in the case of a cluster (with more than one feature) indicates only the number of elements and layer name.
 
-Adaptation of OpenLayers example to use `FeaturePopups`: 
---------------------------------------------------------
- * [sundials-FP.html](http://jorix.github.com/OL-FeaturePopups/examples/sundials-FP.html)
- * [georss-flickr-FP.html](http://jorix.github.com/OL-FeaturePopups/examples/georss-flickr-FP.html)
+Examples:
+---------
+**Adaptation of OpenLayers examples to use `FeaturePopups`**:
 
-Complex usage of popup templates:
----------------------------------
+ * [georss-flickr-FP.html](http://jorix.github.com/OL-FeaturePopups/examples/georss-flickr-FP.html) (template)
+ * [strategy-cluster-FP.html](http://jorix.github.com/OL-FeaturePopups/examples/strategy-cluster-FP.html) (uses event listener "popupdisplayed" and remove Jugl.js)
+ * [sundials-FP.html](http://jorix.github.com/OL-FeaturePopups/examples/sundials-FP.html) (all templates and selection box)
+ 
+**Adaptation of GeoExt examples to use `FeaturePopups` and GeoExt popups**: 
+
+ * [popup-auto-position-FP.html](http://jorix.github.com/OL-FeaturePopups/examples-geoext/popup-auto-position-FP.html) (custom popups)
+
+**Complex usage of popup templates**:
+
  * Selection box: [feature-popups.html](http://jorix.github.com/OL-FeaturePopups/examples/feature-popups.html)
  * Data from a list of features outside the map div [feature-popups-external.html](http://jorix.github.com/OL-FeaturePopups/examples/feature-popups-external.html)
 
