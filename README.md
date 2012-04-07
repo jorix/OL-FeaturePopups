@@ -12,11 +12,11 @@ New goals:
  * Can display data when a layer is loaded.
  * Force *hover popups* to follow the cursor **done**!.
  * Shows *select popups* where the cursor is pressed (except for a single point) **done**!
- * Unify behaviors **done**! Must use new "mode" property that it supports multiple behaviors (use also "mode" property instead "selectionBox:true")
+ * Unify behaviors **done**! Must use new "mode" "selectOptions" "hoverOptions" ans "boxSelectionOptions" properties supporting multiple behaviors. 
  * Common interface for popups **done**!
  * Better manage auto-size on OpenLayers popups.
 
-The branch **gh-pages** may not be stable (is equivalent to *master*)
+Branch **gh-pages** may be not stable (is equivalent to *master*)
  
 Operation:
 ---------

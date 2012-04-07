@@ -11,7 +11,7 @@ var sprintersLayer = new OpenLayers.Layer.Vector("Sprinters (translated labels)"
     selectPopupTemplate: "${i18n(\"Name\")}: ${.Name}<br>" +
                          "${i18n(\"Country\")}: ${.Country}<br>" +
                          "${i18n(\"City\")}: ${.City}<br>",
-    itemPopupTemplate: "<li><a href=\"#\" onclick =\"explicitlyShowPopup('${layer.id}','${id}');return false\">${.Name}</a></li>",
+    itemPopupTemplate: "<li><a href=\"#\" onclick =\"explicitlyShowPopup('${layer.id}','${id}','id');return false\">${.Name}</a></li>",
     styleMap: new OpenLayers.StyleMap({
         externalGraphic: "http://www.openlayers.org/dev/examples/img/mobile-loc.png",
         graphicOpacity: 1.0,
@@ -84,8 +84,7 @@ var poisLayer = new OpenLayers.Layer.Vector("POIs (using BBOX)", {
 // Create control
 // --------------
 var featurePopupsCtl = new OpenLayers.Control.FeaturePopups({
-    mode:(OpenLayers.Control.FeaturePopups.DEFAULT |
-          OpenLayers.Control.FeaturePopups.SELECTION_BOX),
+    boxSelectionOptions: {},
     popupListClass: "divList"
 });
 

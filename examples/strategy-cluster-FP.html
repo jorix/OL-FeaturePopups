@@ -157,8 +157,10 @@
                 });
                 
                 map.addControl(new OpenLayers.Control.FeaturePopups({
+                     selectOptions: {hover: true},
+                     mode: OpenLayers.Control.FeaturePopups.DEFAULT & 
+                           ~OpenLayers.Control.FeaturePopups.CLOSE_ON_UNSELECT,
                      popupListClass: "photos",
-                     mode: OpenLayers.Control.FeaturePopups.HOVER_SELECT,
                      eventListeners: {"popupdisplayed": display}
                 }));
                 map.addLayers([base, photos]);
