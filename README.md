@@ -12,7 +12,7 @@ New goals:
  * Can display data when a layer is loaded.
  * Force *hover popups* to follow the cursor **done**!.
  * Shows *select popups* where the cursor is pressed (except for a single point) **done**!
- * Unify behaviors **done**! Must use new "mode" "selectOptions" "hoverOptions" ans "boxSelectionOptions" properties supporting multiple behaviors. 
+ * Unify behaviors **done**! Must use new "mode" "selectOptions" "hoverOptions" and "boxSelectionOptions" properties to support multiple behaviors. 
  * Common interface for popups **done**!
  * Better manage auto-size on OpenLayers popups.
 
