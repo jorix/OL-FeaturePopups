@@ -159,6 +159,7 @@
                 map.addControl(new OpenLayers.Control.FeaturePopups({
                      selectOptions: {hover: true},
                      mode: OpenLayers.Control.FeaturePopups.DEFAULT & 
+                           ~OpenLayers.Control.FeaturePopups.SAFE_SELECTION & 
                            ~OpenLayers.Control.FeaturePopups.CLOSE_ON_UNSELECT,
                      popupListClass: "photos",
                      eventListeners: {"popupdisplayed": display}
@@ -175,11 +176,10 @@
                 $("scroll-start").onmouseover = function() {forward.seekTo(0)};
                 $("scroll-start").onmouseout = function() {forward.seekTo(forward.state)};
                 // set up photo zoom
-                for(var ii=0; ii<event.features.length; ++ii) {
-                    for(var i=0; i<event.features[ii].cluster.length; ++i) {
-                        var feature = event.features[ii].cluster[i];
-                        listen($("link-" + feature.id), Animator.apply($("photo-" + feature.id), ["thumb", "big"]));
-                    }
+                var features = event.selection[0].features;
+                for(var i=0, len = features.length; i<len; ++i) {
+                    var feature = features[i];
+                    listen($("link-" + feature.id), Animator.apply($("photo-" + feature.id), ["thumb", "big"]));
                 }
             }
             

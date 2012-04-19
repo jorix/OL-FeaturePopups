@@ -15,6 +15,7 @@ New goals:
  * Unify behaviors **done**! Must use new "mode" "selectOptions" "hoverOptions" and "boxSelectionOptions" properties to support multiple behaviors. 
  * Common interface for popups **done**!
  * Better manage auto-size on OpenLayers popups.
+ * Sort the features by fid or id, especially when they are clustered.
 
 Branch **gh-pages** may be not stable (is equivalent to *master*)
  
