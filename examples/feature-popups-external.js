@@ -85,7 +85,7 @@ var poisLayer = new OpenLayers.Layer.Vector("POIs (using BBOX)", {
 // --------------
 var featurePopupsCtl = new OpenLayers.Control.FeaturePopups({
     boxSelectionOptions: {},
-    popupListClass: "divList"
+    popupListOptions: {popupClass: "divList"}
 });
 
 // Add a layer to the control explicitly

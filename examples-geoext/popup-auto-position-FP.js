@@ -86,8 +86,9 @@ Ext.onReady(function() {
 
     mapPanel = mapwin.items.get(0);
     mapPanel.map.addControl( new OpenLayers.Control.FeaturePopups({
-            popupSelectClass: createPopup,
-            popupListClass: createPopup
+            popupSelectOptions: {popupClass: createPopup},
+            popupListOptions: {popupClass: createPopup},
+            popupListItemOptions: {popupClass: createPopup}
         })
     );
 });

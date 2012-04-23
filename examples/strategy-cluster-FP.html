@@ -161,14 +161,17 @@
                      mode: OpenLayers.Control.FeaturePopups.DEFAULT & 
                            ~OpenLayers.Control.FeaturePopups.SAFE_SELECTION & 
                            ~OpenLayers.Control.FeaturePopups.CLOSE_ON_UNSELECT,
-                     popupListClass: "photos",
-                     eventListeners: {"popupdisplayed": display}
+                     popupListOptions: {
+                        popupClass: "photos",
+                        eventListeners: {"popupdisplayed": display}
+                     }
                 }));
                 map.addLayers([base, photos]);
                 map.setCenter(new OpenLayers.LonLat(0, 0), 1);
                 
             }
             function display(event) {
+                if (event.selection[0] === 0) { return; }
                 // set up forward/rewind
                 var forward = Animator.apply($("list"), ["start", "end"], {duration: 1500});
                 $("scroll-end").onmouseover = function() {forward.seekTo(1)};
