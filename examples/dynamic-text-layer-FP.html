@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <title>OpenLayers Vector Behavior Example</title>
+        <link rel="stylesheet" href="http://www.openlayers.org/dev/theme/default/style.css" type="text/css">
+        <link rel="stylesheet" href="http://www.openlayers.org/dev/examples/style.css" type="text/css">
+        <script src="http://www.openlayers.org/dev/OpenLayers.js"></script>
+        <script src="../lib/FeaturePopups.js"></script>
+        <script type="text/javascript">
+            var map;
+        
+            function init(){
+                map = new OpenLayers.Map('map');
+                var wms = new OpenLayers.Layer.WMS(
+                    "OpenLayers WMS", "http://vmap0.tiles.osgeo.org/wms/vmap0",
+                    {layers: 'basic'}
+                );
+
+                var layer = new OpenLayers.Layer.Vector("POIs", {
+                    strategies: [new OpenLayers.Strategy.BBOX({resFactor: 1.1})],
+                    protocol: new OpenLayers.Protocol.HTTP({
+                        url: "textfile.txt",
+                        format: new OpenLayers.Format.Text()
+                    })
+                });
+
+                map.addLayers([wms, layer]);
+                map.zoomToMaxExtent();
+
+                // Interaction; not needed for initial display.
+                selectControl = new OpenLayers.Control.FeaturePopups();
+                selectControl.addLayer(layer, {
+                    selectTemplate: "<h2>${.title}</h2>${.description}"
+                });
+                map.addControl(selectControl);
+            }
+             
+        </script>
+    </head>
+    <body onload="init()">
+        <h1 id="title">Dynamic POIs via a Text Layer</h1>
+        <div id="tags">
+            poi, dynamic data, text, format, strategy, popup, select, selection
+        </div>
+        <p id="shortdesc">
+           Loading dynamic data from a text file. 
+        </p>
+        <div id="map" class="smallmap"></div>
+        <div id="docs">
+            <p>The vector layer shown uses the BBOX strategy, the HTTP protocol,
+            and the Text format.
+            This setup appends "?bbox=west,south,east,north" to every
+            request. This allows you to configure the location as something
+            like 'textfile.php', and take the '?bbox=' parameter to select
+            data from a database or the like.</p>
+            <p>There is nothing about this example that limits it to text files;
+            you can do the same thing with KML, GeoJSON, etc.</p>
+            <p>This is an alternative to something like the <a href="http://wiki.openstreetmap.org/index.php/OpenLayers_Dynamic_POI">OpenStreetMap "Dynamic POI"</a> example. The Layer is a standard vector layer, and interaction can be
+            configured via the SelectFeature control, as you can see in the 
+            latter half of the code, which allows you to open a popup when
+            a feature is selected.</p>
+        </div>
+    </body>
+</html>
