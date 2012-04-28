@@ -9,13 +9,13 @@ New goals:
 ----------
  * Multi selection, **done**!
  * Safe selection **done**!: when it is used eg zoom-in and later zoom-out (on Cluster and BBOX strategies)
- * Can display data when a layer is loaded.
+ * Can display data when a layer is loaded **done**.
  * Force *hover popups* to follow the cursor **done**!.
  * Shows *select popups* where the cursor is pressed (except for a single point) **done**!
  * Unify behaviors **done**! Must use new "mode" "selectOptions" "hoverOptions" and "boxSelectionOptions" properties to support multiple behaviors. 
  * Common interface for popups **done**!
  * Better manage auto-size on OpenLayers popups.
- * Sort the features by fid or id, especially when they are clustered.
+ * Sort the features by fid or id **done**, especially when they are clustered.
 
 Branch **gh-pages** may be not stable (is equivalent to *master*)
  
