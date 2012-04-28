@@ -11,7 +11,7 @@
             fpControl.addSelectionByIds(vLayer.id, [id], true);
             fpControl.showSingleFeatureById(vLayer.id, id);
         } else {
-            delete selectionIds[id];
+            OpenLayers.Util.removeItem(selectionIds, id);
             fpControl.removeSelectionByIds(vLayer.id, [id], true);
             fpControl.showSingleFeatureById();
         }
