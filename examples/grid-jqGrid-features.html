@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <title>&quot;FeaturePopups&quot with jqGrid grid features</title>
+
+        <!-- OpenLayers -->
+        <link rel="stylesheet" href="http://www.openlayers.org/dev/theme/default/style.css" type="text/css">
+        <link rel="stylesheet" href="http://www.openlayers.org/dev/examples/style.css" type="text/css">
+        <script src="http://www.openlayers.org/dev/OpenLayers.js"></script>
+        <!-- FeaturePopups control -->
+        <script src="../lib/FeaturePopups.js"></script>
+
+        <!-- jQuery -->
+        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/themes/redmond/jquery-ui.css" />
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+        <!-- jqGrid -->
+        <link rel="stylesheet" type="text/css" href="http://www.trirand.com/blog/jqgrid/themes/ui.jqgrid.css" />
+        <script type="text/javascript" src="http://www.trirand.com/blog/jqgrid/js/i18n/grid.locale-en.js"></script>
+        <script type="text/javascript" src="http://www.trirand.com/blog/jqgrid/js/jquery.jqGrid.min.js"></script>
+    </head>
+    <body>
+        <h1 id="title">&quot;FeaturePopups&quot with jqGrid grid features</h1>
+        <div id="tags">FeaturePopups, grid, jqGrid, SelectFeature</div>
+        <p id="shortdesc">
+            Shows how to bind the <a href="https://github.com/jorix/OL-FeaturePopups">&quot;FeaturePopups&quot; control</a> with a <a href="http://www.trirand.com/jqgridwiki/doku.php">jqGrid</a> grid to show the features of a layer and select them.
+        </p>
+        <div id="map" style="float:left; width: 500px; height: 500px;" class="smallmap"></div>
+        <div id="grid-container" style="float:left; margin-left: 6px">
+            <table id="grid-data"></table>
+            <div id="grid-pager"></div>
+        </div>
+        <div style="clear:both" id="docs">
+            <p>&quot;FeaturePopups&quot; control wraps the management of SelectFeature control.</p>
+            <p>View the <a href="grid-jqGrid-features.js" target="_blank">grid-jqGrid-features.js source</a> to see how this is done.</p>
+            <p>View the <a href="grid-commonOL.js" target="_blank">grid-commonOL.js source</a> to see the definition of the map and layers.</p>
+        </div>
+        <script src="grid-commonOL.js"></script>
+        <script src="grid-jqGrid-features.js"></script>
+    </body>
+</html>

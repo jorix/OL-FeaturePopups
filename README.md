@@ -51,6 +51,11 @@ Examples:
  * [strategy-cluster-FP.html](http://jorix.github.com/OL-FeaturePopups/examples/strategy-cluster-FP.html) (uses event listener "popupdisplayed" and remove Jugl.js)
  * [sundials-FP.html](http://jorix.github.com/OL-FeaturePopups/examples/sundials-FP.html) (all templates and selection box)
  
+**Grids to show feature attributes using `FeaturePopups`**:
+
+ * [grid-jqGrid-features.html](http://jorix.github.com/OL-FeaturePopups/examples/grid-jqGrid-features.html) (uses jqGrid to show features and selection)
+ * [grid-jqGrid-selection.html](http://jorix.github.com/OL-FeaturePopups/examples/grid-jqGrid-selection.html) (uses jqGrid to show selection)
+ 
 **Adaptation of GeoExt examples to use `FeaturePopups` and GeoExt popups**: 
 
  * [popup-auto-position-FP.html](http://jorix.github.com/OL-FeaturePopups/examples-geoext/popup-auto-position-FP.html) (custom popups)
