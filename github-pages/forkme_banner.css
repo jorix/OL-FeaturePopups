@@ -1,0 +1,17 @@
+#forkme_banner {
+    display: block;
+    position: absolute;
+    top:0; right: 18px;
+    z-index: 10;
+    padding: 5px 45px 5px 5px;
+    color: #fff;
+    background: url('http://github.com/themes/slate/images/blacktocat.png') #0090ff no-repeat 95% 50%;
+    box-shadow: 0 0 10px rgba(0,0,0,.5);
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    text-decoration: none;
+    font-family: 'Myriad Pro', Calibri, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: bold;
+}
