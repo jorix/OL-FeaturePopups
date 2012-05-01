@@ -2,16 +2,8 @@
         var grid, fpControl, lastSelectId;
 
 // Functions to bind grid with fpControl
-    // listeners on grig
-    var rowSelected = function(id, status) {
-        lastSelectId = id;
-        fpControl.showSingleFeatureById(vLayer.id, id);
-    };
-    var refreshSelection = function() {            
-        lastSelectId && grid.jqGrid("setSelection", lastSelectId, false);
-    };        
     // listeners on control
-    var setGridSelection = function(evt) {
+    var fpControl_onSelectionChanged = function(evt) {
         lastSelectId = null;
         fpControl.showSingleFeatureById();
         grid.jqGrid('clearGridData');
@@ -23,6 +15,14 @@
             $("#grid-container").hide();
         }
     };
+    // listeners on grid
+    var grid_onRowSelected = function(id, status) {
+        lastSelectId = id;
+        fpControl.showSingleFeatureById(vLayer.id, id);
+    };
+    var grid_onLoadComplete = function() {            
+        lastSelectId && grid.jqGrid("setSelection", lastSelectId, false);
+    };        
     
 // Create Control
     fpControl = new OpenLayers.Control.FeaturePopups({
@@ -34,7 +34,7 @@
     fpControl.addLayer(vLayer, {
         selectTemplate: "${.title} ${.size}",
         eventListeners: {
-            "selectionchanged": setGridSelection,
+            "selectionchanged": fpControl_onSelectionChanged,
             "scope": fpControl
         }
     });
@@ -46,8 +46,8 @@
         caption: vLayer.name,
         colModel: [
             {name: 'attributes', hidden: true}, // trick to can read the attributes
-            { name: 'attributes.title', label: 'Title', width: 150},
-            { name: 'attributes.size', label: 'Size', width: 100}
+            { name: 'attributes.title', label: 'Title', width: 200},
+            { name: 'attributes.size', label: 'Size', width: 50}
         ],
         height: "100%",
         pager: '#grid-pager',
@@ -55,8 +55,8 @@
         sortname: 'Name',
         ignoreCase: true,
         deselectAfterSort: true,
-        loadComplete: refreshSelection,
-        onSelectRow: rowSelected
+        loadComplete: grid_onLoadComplete,
+        onSelectRow: grid_onRowSelected
     });
-    $("#lli").hide();
+    $("#grid-container").hide();
     
