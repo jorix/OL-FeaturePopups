@@ -1,0 +1,67 @@
+<html>
+<head>
+<link rel="stylesheet" href="../github-pages/forkme_banner.css" type="text/css">
+<link rel="stylesheet" href="http://www.openlayers.org/dev/examples/style.css" type="text/css">
+<script src="http://www.openlayers.org/dev/OpenLayers.js"></script>
+<script src="../lib/FeaturePopups.js"></script>
+<script type="text/javascript">
+//OpenLayers.ProxyHost = '/nascsp/simpleproxy.php?mode=native&url=';
+var map, drawControls, selectControl, selectedFeature;
+var geographic = new OpenLayers.Projection("EPSG:4326");
+var sphericalMercator = new OpenLayers.Projection("EPSG:3857");
+
+function init() {
+  map = new OpenLayers.Map('map');
+
+  var wmsLayer = new OpenLayers.Layer.WMS( "OpenLayers WMS",
+    "http://vmap0.tiles.osgeo.org/wms/vmap0?", {
+      layers: 'basic',
+      params: {
+        srs: sphericalMercator.projCode
+      }
+    });
+
+  var wfsLayer = new OpenLayers.Layer.Vector('Test WFS', {
+      strategies: [new OpenLayers.Strategy.BBOX(), new OpenLayers.Strategy.Cluster({})],
+      extractAttributes: true,
+      projection: sphericalMercator,
+      visibility: true,
+      protocol: new OpenLayers.Protocol.WFS({
+          url: '_nbtsolutions.response?',
+          version: '1.1.0', // probably need to parameterize that.
+          featureType: 'Wx_Train',
+          geometryName: 'Shape', // needed for ArcGIS
+          featureNS: 'http://23.21.95.235/ArcGIS/services/NASCSP/Wx_Train_WFS/GeoDataServer/WFSServer?',
+          srsName: sphericalMercator.projCode,
+          format: new OpenLayers.Format.WFST.v1_1_0({
+              geometryName: 'Shape', // needed for ArcGIS in BOTH places.
+              featureType: 'Wx_Train'
+          })
+      })
+  });
+
+  map.addLayers([wmsLayer, wfsLayer]);
+  
+  
+  map.addControl(new OpenLayers.Control.LayerSwitcher());
+  map.addControl(new OpenLayers.Control.MousePosition());
+
+  map.setCenter(new OpenLayers.LonLat(-98, 39), 5);
+
+  var fpControl = new OpenLayers.Control.FeaturePopups();
+  fpControl.addLayer(wfsLayer, {
+    hoverTemplate: "${.Center}",
+    selectTemplate: "<h2>${.Center}</h2>Phone: ${.CenterPhone}<br>City: ${.ZIP_1} ${.City_1}<br><a href=\"${.Website}\">${.Website}</a>",
+    itemTemplate: "<li><a href=\"#\" ${showPopup(fid)}>${.Center} (${.City_1})</a></li>"
+  });
+  map.addControl(fpControl);
+  
+}
+</script>
+</head>
+<body onload='init()'>
+<a id="forkme_banner" style="z-index: 2000;" href="https://github.com/jorix/OL-FeaturePopups">View on GitHub</a>
+<div id="map"></div>
+</body>
+</html>
+
