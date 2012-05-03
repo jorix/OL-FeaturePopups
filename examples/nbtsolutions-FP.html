@@ -26,13 +26,8 @@ function init() {
       extractAttributes: true,
       projection: sphericalMercator,
       visibility: true,
-      protocol: new OpenLayers.Protocol.WFS({
+      protocol: new OpenLayers.Protocol.HTTP({
           url: 'nbtsolutions-response.xml?',
-          version: '1.1.0', // probably need to parameterize that.
-          featureType: 'Wx_Train',
-          geometryName: 'Shape', // needed for ArcGIS
-          featureNS: 'http://23.21.95.235/ArcGIS/services/NASCSP/Wx_Train_WFS/GeoDataServer/WFSServer?',
-          srsName: sphericalMercator.projCode,
           format: new OpenLayers.Format.WFST.v1_1_0({
               geometryName: 'Shape', // needed for ArcGIS in BOTH places.
               featureType: 'Wx_Train'
