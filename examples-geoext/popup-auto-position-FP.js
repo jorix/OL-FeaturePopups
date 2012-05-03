@@ -22,7 +22,7 @@ Ext.onReady(function() {
     // create a vector layer, add features into it
     var vectorLayer = new OpenLayers.Layer.Vector("vector",{
         selectPopupTemplate: "<div>${.bogusCount} - ${.bogusText}</div>",
-        itemPopupTemplate: "<li><a href=\"#\" ${showPopup()}>${.bogusCount} - ${.bogusText}</a></li>",
+        itemPopupTemplate: "<li><a href=\"#\" ${showPopup()}>${.bogusCount} - ${.bogusText}</a></li>"
     });
     vectorLayer.addFeatures([
         new OpenLayers.Feature.Vector(
