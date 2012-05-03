@@ -27,7 +27,7 @@ function init() {
       projection: sphericalMercator,
       visibility: true,
       protocol: new OpenLayers.Protocol.WFS({
-          url: '_nbtsolutions.response?',
+          url: 'nbtsolutions-response.xml?',
           version: '1.1.0', // probably need to parameterize that.
           featureType: 'Wx_Train',
           geometryName: 'Shape', // needed for ArcGIS
