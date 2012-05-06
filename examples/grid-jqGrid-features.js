@@ -18,8 +18,9 @@
         }
     };
     var fpControl_onSelectionChanged = function(evt) {            
+        fpControl.showSingleFeatureById();
         grid.jqGrid('resetSelection');
-        selectionIds = fpControl.getSelectionIds(evt.object);
+        selectionIds = fpControl.getSelectionIds(evt.layer);
         refreshSelection();
     };
     // listeners on grid

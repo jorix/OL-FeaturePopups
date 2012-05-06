@@ -14,8 +14,9 @@
         }
     }
     var fpControl_onSelectionChanged = function(evt) {
+        fpControl.showSingleFeatureById();
         _silentSelect = true;
-        var ids = fpControl.getSelectionIds(evt.object)
+        var ids = fpControl.getSelectionIds(evt.layer)
         grid.setSelectedRows(grid.getData().mapIdsToRows(ids));
         _silentSelect = false;
     };
