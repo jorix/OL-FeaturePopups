@@ -48,7 +48,7 @@
     });
     map.addControl(fpControl);
     fpControl.addLayer(vLayer, {
-        selectTemplate: "${.title} ${.size}",
+        templates: {single: "${.title} ${.size}"},
         eventListeners: {
             "selectionchanged": fpControl_onSelectionChanged
         }

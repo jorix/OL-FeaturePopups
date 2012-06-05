@@ -39,10 +39,6 @@
             );
 
             var sundials = new OpenLayers.Layer.Vector("KML", {
-                hoverPopupTemplate: "${.name}",
-                selectPopupTemplate: "<div style=\"margin-right:22px\"><h2>${.name}</h2>${.description}</div>",
-                    // `margin-right:22px` To ensure that there is room for the vertical scroll bar
-                itemPopupTemplate: "<li><a href=\"#\" ${showPopup()}>${.name}</a></li>",
                 projection: map.displayProjection,
                 strategies: [new OpenLayers.Strategy.Fixed()],
                 protocol: new OpenLayers.Protocol.HTTP({
@@ -56,7 +52,17 @@
             
             map.addLayers([wms, sundials]);
             
-            map.addControl(new OpenLayers.Control.FeaturePopups({selectionBox: true}));
+            map.addControl(new OpenLayers.Control.FeaturePopups({
+                selectionBox: true,
+                layers: [[
+                    sundials , {templates: {
+                        hover: "${.name}",
+                        single: "<div style=\"margin-right:22px\"><h2>${.name}</h2>${.description}</div>",
+                            // `margin-right:22px` To ensure that there is room for the vertical scroll bar
+                        item: "<li><a href=\"#\" ${showPopup()}>${.name}</a></li>"
+                    }}
+                ]]
+            }));
 
             map.zoomToExtent(new OpenLayers.Bounds(68.774414,11.381836,123.662109,34.628906));
         }

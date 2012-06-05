@@ -5,13 +5,7 @@ var geographicProj = new OpenLayers.Projection("EPSG:4326");
 
 // Vector layers
 // -------------
-
 var sprintersLayer = new OpenLayers.Layer.Vector("Sprinters (translated labels)", {
-    hoverPopupTemplate: "${.Name}",
-    selectPopupTemplate: "${i18n(\"Name\")}: ${.Name}<br>" +
-                         "${i18n(\"Country\")}: ${.Country}<br>" +
-                         "${i18n(\"City\")}: ${.City}<br>",
-    itemPopupTemplate: "<li><a href=\"#\" onclick =\"explicitlyShowPopup('${layer.id}','${id}','id');return false\">${.Name}</a></li>",
     styleMap: new OpenLayers.StyleMap({
         externalGraphic: "http://www.openlayers.org/dev/examples/img/mobile-loc.png",
         graphicOpacity: 1.0,
@@ -21,15 +15,8 @@ var sprintersLayer = new OpenLayers.Layer.Vector("Sprinters (translated labels)"
     })
 });
 sprintersLayer.addFeatures(getSprintersFeatures());
-
+    
 var tasmaniaRoadsLayer = new OpenLayers.Layer.Vector("Tasmania roads (function templates)", {
-    // Only popup from hover or a list from selection box.
-    hoverPopupTemplate: function(feature){
-        return "Length: " + Math.round(feature.geometry.getLength()/10)/100 + " km";
-    },
-    itemPopupTemplate:  function(feature){
-        return "<li>" + Math.round(feature.geometry.getLength()/10)/100 + " km</li>";
-    },
     projection: geographicProj,
     strategies: [new OpenLayers.Strategy.Fixed()],
     protocol: new OpenLayers.Protocol.HTTP({
@@ -37,13 +24,9 @@ var tasmaniaRoadsLayer = new OpenLayers.Layer.Vector("Tasmania roads (function t
         format: new OpenLayers.Format.GML.v2()
     })
 });
-
+   
 var sundialsLayer = new OpenLayers.Layer.Vector("Sundials (clustered)", { 
-    hoverPopupTemplate: "${.name}",
-    selectPopupTemplate: "<div style=\"margin-right:22px\"><h2>${.name}</h2>${.description}</div>",
-        // `margin-right:22px` To ensure that there is room for the vertical scroll bar
-    itemPopupTemplate: "<li><a href=\"#\" ${showPopup()}>${.name}</a></li>",
-    projection: geographicProj,
+     projection: geographicProj,
     strategies: [
         new OpenLayers.Strategy.Fixed(),
         new OpenLayers.Strategy.Cluster()
@@ -84,16 +67,43 @@ var poisLayer = new OpenLayers.Layer.Vector("POIs (using BBOX)", {
 // Create control
 // --------------
 var featurePopupsCtl = new OpenLayers.Control.FeaturePopups({
-    boxSelectionOptions: {}
+    boxSelectionOptions: {},
+    layers: [
+        [
+        sprintersLayer, {templates: {
+            hover: "${.Name}",
+            single: "${i18n(\"Name\")}: ${.Name}<br>" +
+                 "${i18n(\"Country\")}: ${.Country}<br>" +
+                 "${i18n(\"City\")}: ${.City}<br>",
+            item: "<li><a href=\"#\" ${showPopup()}>${.Name}</a></li>"
+        }}], [
+        tasmaniaRoadsLayer, {templates: {
+            // Only popup from hover or list, .
+            hover: function(feature){
+                return "Length: " + Math.round(feature.geometry.getLength()/10)/100 + " km";
+            },
+            item:  function(feature){
+                return "<li>" + Math.round(feature.geometry.getLength()/10)/100 + " km</li>";
+            }
+        }}], [
+        sundialsLayer, {templates: { 
+            hover: "${.name}",
+            hoverList: "<b>${count}</b><br>${html}",
+            hoverItem: "${.name}<br>",
+            single: "<div style=\"margin-right:22px\"><h2>${.name}</h2>${.description}</div>",
+            // `margin-right:22px` To ensure that there is room for the vertical scroll bar
+            item: "<li><a href=\"#\" ${showPopup()}>${.name}</a></li>"
+        }}]
+    ]
 });
 
 // Add a layer to the control explicitly
 // -------------------------------------
-featurePopupsCtl.addLayer(poisLayer, {
-    hoverTemplate: "${.title}",
-    selectTemplate: "<h2>${.title}</h2>${.description}",
-    itemTemplate: "<li><a href=\"#\" ${showPopup()}>${.title}</a></li>"
-});
+featurePopupsCtl.addLayer(poisLayer, {templates: {
+    hover: "${.title}",
+    single: "<h2>${.title}</h2>${.description}",
+    item: "<li><a href=\"#\" ${showPopup()}>${.title}</a></li>"
+}});
 
 // Create function to show single feature from a list
 // --------------------------------------------------

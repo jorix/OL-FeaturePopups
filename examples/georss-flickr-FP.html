@@ -58,7 +58,6 @@
             
             // Create a Vector layer with GeoRSS format and a style map.
             markerLayer = new OpenLayers.Layer.Vector("Some images from Flickr", {
-                selectPopupTemplate: "<h3>${.title}</h3>${.description}",
                 protocol: new OpenLayers.Protocol.HTTP({
                     url: "xml/georss-flickr.xml",
                     format: new OpenLayers.Format.GeoRSS({
@@ -82,7 +81,10 @@
             
             // control that will show a popup when clicking on a thumbnail
             map.addControl(new OpenLayers.Control.FeaturePopups({
-                 popupSelectClass: OpenLayers.Popup
+                layers:[
+                    [markerLayer, {templates: {single: "<h3>${.title}</h3>${.description}"}}],
+                ],
+                popupSelectClass: OpenLayers.Popup
             }));
         }
     </script>

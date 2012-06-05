@@ -45,9 +45,11 @@ function init() {
 
   var fpControl = new OpenLayers.Control.FeaturePopups();
   fpControl.addLayer(wfsLayer, {
-    hoverTemplate: "${.Center}",
-    selectTemplate: "<h2>${.Center}</h2>Phone: ${.CenterPhone}<br>City: ${.ZIP_1} ${.City_1}<br><a href=\"${.Website}\">${.Website}</a>",
-    itemTemplate: "<li><a href=\"#\" ${showPopup(fid)}>${.Center} (${.City_1})</a></li>"
+    templates: {
+        hover: "${.Center}",
+        single: "<h2>${.Center}</h2>Phone: ${.CenterPhone}<br>City: ${.ZIP_1} ${.City_1}<br><a href=\"${.Website}\">${.Website}</a>",
+        item: "<li><a href=\"#\" ${showPopup(fid)}>${.Center} (${.City_1})</a></li>"
+    }
   });
   map.addControl(fpControl);
   

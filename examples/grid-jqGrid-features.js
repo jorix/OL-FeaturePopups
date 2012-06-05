@@ -17,7 +17,7 @@
             $("#grid-container").hide();
         }
     };
-    var fpControl_onSelectionChanged = function(evt) {            
+    var fpControl_onSelectionChanged = function(evt) {
         fpControl.showSingleFeatureById();
         grid.jqGrid('resetSelection');
         selectionIds = fpControl.getSelectionIds(evt.layer);
@@ -52,7 +52,7 @@
     });
     map.addControl(fpControl);
     fpControl.addLayer(vLayer, {
-        selectTemplate: "${.title} ${.size}",
+        templates: {single: "${.title} ${.size}"},
         eventListeners: {
             "featureschanged": fpControl_onFeaturesChanged,
             "selectionchanged": fpControl_onSelectionChanged

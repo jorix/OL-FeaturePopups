@@ -35,7 +35,7 @@
                 // Interaction; not needed for initial display.
                 selectControl = new OpenLayers.Control.FeaturePopups();
                 selectControl.addLayer(layer, {
-                    selectTemplate: "<h2>${.title}</h2>${.description}"
+                    templates: {single: "<h2>${.title}</h2>${.description}"}
                 });
                 map.addControl(selectControl);
             }

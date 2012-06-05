@@ -20,10 +20,7 @@ Ext.onReady(function() {
     var bogusCount = 1;
 
     // create a vector layer, add features into it
-    var vectorLayer = new OpenLayers.Layer.Vector("vector",{
-        selectPopupTemplate: "<div>${.bogusCount} - ${.bogusText}</div>",
-        itemPopupTemplate: "<li><a href=\"#\" ${showPopup()}>${.bogusCount} - ${.bogusText}</a></li>"
-    });
+    var vectorLayer = new OpenLayers.Layer.Vector("vector");
     vectorLayer.addFeatures([
         new OpenLayers.Feature.Vector(
             new OpenLayers.Geometry.Point(-75, 45),{bogusCount: bogusCount++, bogusText:bogusText}
@@ -86,9 +83,17 @@ Ext.onReady(function() {
 
     mapPanel = mapwin.items.get(0);
     mapPanel.map.addControl( new OpenLayers.Control.FeaturePopups({
-            popupSelectOptions: {popupClass: createPopup},
+            popupSingleOptions: {popupClass: createPopup},
             popupListOptions: {popupClass: createPopup},
-            popupListItemOptions: {popupClass: createPopup}
+            popupListItemOptions: {popupClass: createPopup},
+            layers: [[
+                vectorLayer, {
+                    templates: {
+                        single: "<div>${.bogusCount} - ${.bogusText}</div>",
+                        item: "<li><a href=\"#\" ${showPopup()}>${.bogusCount} - ${.bogusText}</a></li>"
+                    }
+                }
+            ]]
         })
     );
 });

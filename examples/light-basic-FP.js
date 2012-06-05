@@ -41,7 +41,7 @@ function init() {
         }
     })
     selector.addLayer(vector, {
-        selectTemplate: "<div style='font-size:.8em'>Feature: ${id}<br>Foo: ${.foo}</div>",
+        templates:{single: "<div style='font-size:.8em'>Feature: ${id}<br>Foo: ${.foo}</div>"},
         hoverTemplate: "Foo: ${.foo}"
     }); 
     

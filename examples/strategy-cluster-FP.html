@@ -128,8 +128,6 @@
                 });
 
                 var photos = new OpenLayers.Layer.Vector("Photos", {
-                    listPopupTemplate: document.getElementById("template").innerHTML,
-                    itemPopupTemplate: document.getElementById("itemTemplate").innerHTML,
                     projection: "EPSG:4326",
                     strategies: [
                         new OpenLayers.Strategy.Fixed(),
@@ -159,14 +157,20 @@
                 });
                 
                 map.addControl(new OpenLayers.Control.FeaturePopups({
-                     selectOptions: {hover: true},
-                     mode: OpenLayers.Control.FeaturePopups.DEFAULT & 
-                           ~OpenLayers.Control.FeaturePopups.SAFE_SELECTION & 
-                           ~OpenLayers.Control.FeaturePopups.CLOSE_ON_UNSELECT,
-                     popupListOptions: {
+                    selectOptions: {hover: true},
+                    mode: OpenLayers.Control.FeaturePopups.DEFAULT & 
+                       ~OpenLayers.Control.FeaturePopups.SAFE_SELECTION & 
+                       ~OpenLayers.Control.FeaturePopups.CLOSE_ON_UNSELECT,
+                    layers: [[
+                        photos, {templates: {
+                                list: document.getElementById("template").innerHTML,
+                                item: document.getElementById("itemTemplate").innerHTML
+                        }}
+                    ]],
+                    popupListOptions: {
                         popupClass: "photos",
                         eventListeners: {"popupdisplayed": display}
-                     }
+                    }
                 }));
                 map.addLayers([base, photos]);
                 map.setCenter(new OpenLayers.LonLat(0, 0), 1);
