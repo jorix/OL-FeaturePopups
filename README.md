@@ -30,9 +30,9 @@ Example:
     ...
 ```
 
-The control shows two types of selection popups: **single feature** or **features list** (with two or more features). And in a list popup can be seen each feature in a single popup.
+The control shows two types of selection popups: **single feature** or **features list** (with two or more features). Into a list of features can be seen each feature in a single popup.
 
-Also supports hover popups simultaneously with the selection. In the case of a cluster (with more than one feature) can display all items oor only display the number of items.
+Also supports hover popups simultaneously with the selection. In the case of a cluster (with more than one feature) can display all items or only display the number of items.
 
 Examples:
 ---------
@@ -84,3 +84,4 @@ Pending:
 --------
  * Applying patches to adjust the automatic size problems of the OL-popups.
  * Review examples of the grids.
+ * Adjust changes on visibility and inRange of the layers?
