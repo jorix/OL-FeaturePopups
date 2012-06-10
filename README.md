@@ -84,4 +84,3 @@ Pending:
 --------
  * Applying patches to adjust the automatic size problems of the OL-popups.
  * Review examples of the grids.
- * Adjust changes on visibility and inRange of the layers?
