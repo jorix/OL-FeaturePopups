@@ -38,25 +38,26 @@ Examples:
 ---------
 **Adaptation of OpenLayers examples to use `FeaturePopups`**:
 
- * [georss-flickr-FP.html](http://jorix.github.com/OL-FeaturePopups/examples/georss-flickr-FP.html) (template)
- * [strategy-cluster-FP.html](http://jorix.github.com/OL-FeaturePopups/examples/strategy-cluster-FP.html) (uses event listener "popupdisplayed" and remove Jugl.js)
- * [sundials-FP.html](http://jorix.github.com/OL-FeaturePopups/examples/sundials-FP.html) (all templates and selection box)
+ * [georss-flickr-FP.html](http://jorix.github.com/OL-FeaturePopups/examples/georss-flickr-FP.html) (custom templates instead of *onSelect* function, code simpler)
+ * [highlight-feature-FP.html](http://jorix.github.com/OL-FeaturePopups/examples/highlight-feature-FP.html) (two controls in one!)
+ * [strategy-cluster-FP.html](http://jorix.github.com/OL-FeaturePopups/examples/strategy-cluster-FP.html) (don't use "Jugl.js" and uses "popupdisplayed" event instead of "featureselected")
+ * [sundials-FP.html](http://jorix.github.com/OL-FeaturePopups/examples/sundials-FP.html) (custom templates instead of *onFeatureXxxxx* functions, code simpler)
  
 **Grids to show feature attributes using `FeaturePopups`**:
 
- * [grid-jqGrid-features.html](http://jorix.github.com/OL-FeaturePopups/examples/grid-jqGrid-features.html) (uses jqGrid to show features and selection)
- * [grid-jqGrid-selection.html](http://jorix.github.com/OL-FeaturePopups/examples/grid-jqGrid-selection.html) (uses jqGrid to show selection)
- * [grid-SlickGrid-features.html](http://jorix.github.com/OL-FeaturePopups/examples/grid-SlickGrid-features.html) (uses SlickGrid to show features and selection)
- * [grid-SlickGrid-selection.html](http://jorix.github.com/OL-FeaturePopups/examples/grid-SlickGrid-selection.html) (uses SlickGrid to show selection)
+ * [grid-jqGrid-features.html](http://jorix.github.com/OL-FeaturePopups/examples/grid-jqGrid-features.html) (uses jqGrid to show features and highlight the selection)
+ * [grid-jqGrid-selection.html](http://jorix.github.com/OL-FeaturePopups/examples/grid-jqGrid-selection.html) (uses jqGrid to show the selection)
+ * [grid-SlickGrid-features.html](http://jorix.github.com/OL-FeaturePopups/examples/grid-SlickGrid-features.html) (uses SlickGrid to show features and highlight the selection)
+ * [grid-SlickGrid-selection.html](http://jorix.github.com/OL-FeaturePopups/examples/grid-SlickGrid-selection.html) (uses SlickGrid to show the selection)
  
 **Adaptation of GeoExt examples to use `FeaturePopups` and GeoExt popups**: 
 
- * [popup-auto-position-FP.html](http://jorix.github.com/OL-FeaturePopups/examples-geoext/popup-auto-position-FP.html) (custom popups)
+ * [popup-auto-position-FP.html](http://jorix.github.com/OL-FeaturePopups/examples-geoext/popup-auto-position-FP.html) (uses custom popups)
 
 **Complex usage of popup templates**:
 
- * Selection box: [feature-popups.html](http://jorix.github.com/OL-FeaturePopups/examples/feature-popups.html)
- * Data from a list of features outside the map div [feature-popups-external.html](http://jorix.github.com/OL-FeaturePopups/examples/feature-popups-external.html)
+ * Multi layer, multi selection and uses *Strategy.Cluster*: [feature-popups.html](http://jorix.github.com/OL-FeaturePopups/examples/feature-popups.html)
+ * Same as above but the lists of features are displayed outside the map div: [feature-popups-external.html](http://jorix.github.com/OL-FeaturePopups/examples/feature-popups-external.html)
 
 Features:
 --------
@@ -66,11 +67,11 @@ Features:
  * Show popups by selection (click) or hover from multiple vector layers.
  * Multiple selection using box and show list of features selected into an popup.
  * Proper popups on clustered features (OpenLayers.Strategy.Cluster)
- * Safe selection: Features remain selected even though zoom or pan (on Cluster and BBOX strategies) are performed.
- * Triggers appropriate events when changing the selection or a layer features (to prevent flickering or other nuisances events are triggered only if there has been an effective change)
+ * Safe selection: Features remain selected even after zooming or moving the map (using Cluster and BBOX strategies)
+ * Triggers appropriate events when changing the selection or a layer features (to prevent flickering or other nuisances, events are triggered only if there has been an effective change)
  * By default: 
     * Multi selection is enabled, 
-    * *hover popups* follows the cursor
+    * *hover popups* follows the cursor (to prevent flickering)
     * *select popups* are shown where the cursor is pressed.
  * Ability to customize the operation of the control.
  

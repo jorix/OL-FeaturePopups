@@ -53,6 +53,8 @@
             };
             
             var ctrl = new OpenLayers.Control.FeaturePopups({
+                layers: [vectors],
+                selectOptions: {clickout: true},
                 hoverOptions:{
                     renderIntent: "temporary",
                     eventListeners: {
@@ -62,10 +64,7 @@
                     }
                 }
             });
-            ctrl.addLayer(vectors);
             map.addControl(ctrl);
-
-            map.addControl(new OpenLayers.Control.EditingToolbar(vectors));
 
             map.setCenter(new OpenLayers.LonLat(0, 0), 1);
 

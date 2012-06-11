@@ -27,7 +27,7 @@
         var lon = 5;
         var lat = 40;
         var zoom = 5;
-        var map;
+        var map, select;
 
         function init(){
             map = new OpenLayers.Map('map');
@@ -52,7 +52,7 @@
             
             map.addLayers([wms, sundials]);
             
-            map.addControl(new OpenLayers.Control.FeaturePopups({
+            select = new OpenLayers.Control.FeaturePopups({
                 selectionBox: true,
                 layers: [[
                     sundials , {templates: {
@@ -62,7 +62,9 @@
                         item: "<li><a href=\"#\" ${showPopup()}>${.name}</a></li>"
                     }}
                 ]]
-            }));
+            });
+
+            map.addControl(select);
 
             map.zoomToExtent(new OpenLayers.Bounds(68.774414,11.381836,123.662109,34.628906));
         }

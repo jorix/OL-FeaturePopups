@@ -80,12 +80,13 @@
             map.addLayer(markerLayer);
             
             // control that will show a popup when clicking on a thumbnail
-            map.addControl(new OpenLayers.Control.FeaturePopups({
+            var popupControl = new OpenLayers.Control.FeaturePopups({
                 layers:[
                     [markerLayer, {templates: {single: "<h3>${.title}</h3>${.description}"}}],
                 ],
                 popupSelectClass: OpenLayers.Popup
-            }));
+            });
+            map.addControl(popupControl);
         }
     </script>
   </head>
