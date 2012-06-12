@@ -5,6 +5,7 @@ var geographicProj = new OpenLayers.Projection("EPSG:4326");
 
 // Vector layers
 // -------------
+// Sprinters: layer with different attributes.
 var sprintersLayer = new OpenLayers.Layer.Vector("Sprinters (translated labels)", {
     styleMap: new OpenLayers.StyleMap({
         externalGraphic: "http://www.openlayers.org/dev/examples/img/mobile-loc.png",
@@ -15,7 +16,8 @@ var sprintersLayer = new OpenLayers.Layer.Vector("Sprinters (translated labels)"
     })
 });
 sprintersLayer.addFeatures(getSprintersFeatures());
-    
+
+// Tasmania roads: layer of lines to show its length.
 var tasmaniaRoadsLayer = new OpenLayers.Layer.Vector("Tasmania roads (function templates)", {
     projection: geographicProj,
     strategies: [new OpenLayers.Strategy.Fixed()],
@@ -24,9 +26,10 @@ var tasmaniaRoadsLayer = new OpenLayers.Layer.Vector("Tasmania roads (function t
         format: new OpenLayers.Format.GML.v2()
     })
 });
-   
+
+// Sundials: layer uses Cluster strategy.
 var sundialsLayer = new OpenLayers.Layer.Vector("Sundials (clustered)", { 
-     projection: geographicProj,
+    projection: geographicProj,
     strategies: [
         new OpenLayers.Strategy.Fixed(),
         new OpenLayers.Strategy.Cluster()
@@ -55,12 +58,23 @@ var sundialsLayer = new OpenLayers.Layer.Vector("Sundials (clustered)", {
     })
 });
 
+// POIs: layer uses BBOX strategy and simulated "fid".
+var TextAndFid = OpenLayers.Class(OpenLayers.Format.Text, {
+    read: function(text) {
+        var features = OpenLayers.Format.Text.prototype.read.call(this, text);
+        for (var i=0, len = features.length; i < len; i++) {
+            var feature = features[i];
+            feature.fid = feature.attributes.title.replace(/ /g,"_");
+        }
+        return features;
+    }
+});
 var poisLayer = new OpenLayers.Layer.Vector("POIs (using BBOX)", {
     projection: geographicProj,
     strategies: [new OpenLayers.Strategy.BBOX({resFactor: 1.1})],
     protocol: new OpenLayers.Protocol.HTTP({
         url: "textfile.txt",
-        format: new OpenLayers.Format.Text()
+        format: new TextAndFid()
     })
 });
 

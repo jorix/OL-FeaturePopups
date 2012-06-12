@@ -11,7 +11,7 @@ Please, open a **issue** if you have questions or problems using this control.
  
 Operation:
 ---------
-Assign templates to the layers is the only requirement for the popups can be displayed. 
+Assign templates to the layers is the only requirement to display popups. 
 
 Example:
 
@@ -32,17 +32,15 @@ Example:
 
 The control shows two types of selection popups: **single feature** or **features list** (with two or more features). Into a list of features can be seen each feature in a single popup.
 
-Also supports hover popups simultaneously with the selection. In the case of a cluster (with more than one feature) can display all items or only display the number of items.
+It also supports hover popups (both kinds *single feature* and *features list*) simultaneously with the selection 
 
 Examples:
 ---------
-**Adaptation of OpenLayers examples to use `FeaturePopups`**:
+**Using the control and templates to display popups**:
 
- * [georss-flickr-FP.html](http://jorix.github.com/OL-FeaturePopups/examples/georss-flickr-FP.html) (custom templates instead of *onSelect* function, code simpler)
- * [highlight-feature-FP.html](http://jorix.github.com/OL-FeaturePopups/examples/highlight-feature-FP.html) (two controls in one!)
- * [strategy-cluster-FP.html](http://jorix.github.com/OL-FeaturePopups/examples/strategy-cluster-FP.html) (don't use "Jugl.js" and uses "popupdisplayed" event instead of "featureselected")
- * [sundials-FP.html](http://jorix.github.com/OL-FeaturePopups/examples/sundials-FP.html) (custom templates instead of *onFeatureXxxxx* functions, code simpler)
- 
+ * Multi layer, multi selection and uses *Strategy.Cluster*: [feature-popups.html](http://jorix.github.com/OL-FeaturePopups/examples/feature-popups.html)
+ * Same as above but the lists of features are displayed outside the map div: [feature-popups-external.html](http://jorix.github.com/OL-FeaturePopups/examples/feature-popups-external.html)
+
 **Grids to show feature attributes using `FeaturePopups`**:
 
  * [grid-jqGrid-features.html](http://jorix.github.com/OL-FeaturePopups/examples/grid-jqGrid-features.html) (uses jqGrid to show features and highlight the selection)
@@ -50,14 +48,16 @@ Examples:
  * [grid-SlickGrid-features.html](http://jorix.github.com/OL-FeaturePopups/examples/grid-SlickGrid-features.html) (uses SlickGrid to show features and highlight the selection)
  * [grid-SlickGrid-selection.html](http://jorix.github.com/OL-FeaturePopups/examples/grid-SlickGrid-selection.html) (uses SlickGrid to show the selection)
  
+**Adaptation of OpenLayers examples to use `FeaturePopups`**:
+
+ * [georss-flickr-FP.html](http://jorix.github.com/OL-FeaturePopups/examples/georss-flickr-FP.html) (custom templates instead of *onSelect* function, code simpler)
+ * [highlight-feature-FP.html](http://jorix.github.com/OL-FeaturePopups/examples/highlight-feature-FP.html) (two controls in one!)
+ * [strategy-cluster-FP.html](http://jorix.github.com/OL-FeaturePopups/examples/strategy-cluster-FP.html) (don't use "Jugl.js" and uses "popupdisplayed" event instead of "featureselected")
+ * [sundials-FP.html](http://jorix.github.com/OL-FeaturePopups/examples/sundials-FP.html) (custom templates instead of *onFeatureXxxxx* functions, code simpler)
+ 
 **Adaptation of GeoExt examples to use `FeaturePopups` and GeoExt popups**: 
 
  * [popup-auto-position-FP.html](http://jorix.github.com/OL-FeaturePopups/examples-geoext/popup-auto-position-FP.html) (uses custom popups)
-
-**Complex usage of popup templates**:
-
- * Multi layer, multi selection and uses *Strategy.Cluster*: [feature-popups.html](http://jorix.github.com/OL-FeaturePopups/examples/feature-popups.html)
- * Same as above but the lists of features are displayed outside the map div: [feature-popups-external.html](http://jorix.github.com/OL-FeaturePopups/examples/feature-popups-external.html)
 
 Features:
 --------
