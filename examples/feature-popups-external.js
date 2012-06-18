@@ -11,8 +11,7 @@ var fpControl = new OpenLayers.Control.FeaturePopups({
             // hover single
             hover: "${.name}",
             // select: single & list
-            single: "<div style=\"margin-right:22px\"><h2>${.name}</h2>${.description}</div>",
-            // `margin-right:22px` To ensure that there is room for the vertical scroll bar
+            single: "<div><h2>${.name}</h2>${.description}</div>",
             item: "<li><a href=\"#\" ${showPopup()}>${.name}</a></li>"
         }}], [
         // Uses: Internationalized templates.

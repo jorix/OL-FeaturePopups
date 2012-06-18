@@ -81,7 +81,3 @@ Compatibility notes (with previous version "1-FeaturePopups"):
  * The templates are grouped into the object "templates" in options of `addLayer` method.
  * The scope of events has changed during development, now if you want to access to the control should be used `evt.object.control` instead of `evt.object`.
  
-Pending:
---------
- * Applying patches to adjust the automatic size problems of the OL-popups.
- * Review examples of the grids.

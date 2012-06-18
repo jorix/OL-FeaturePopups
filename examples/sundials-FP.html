@@ -22,6 +22,7 @@
         .olPopup h2 { font-size:1.2em; }
     </style>
     <script src="http://www.openlayers.org/dev/OpenLayers.js"></script>
+    <script src="../lib/patches_OL-popup-autosize.js"></script>
     <script src="../lib/FeaturePopups.js"></script>
     <script type="text/javascript">
         var lon = 5;
@@ -57,8 +58,7 @@
                 layers: [[
                     sundials , {templates: {
                         hover: "${.name}",
-                        single: "<div style=\"margin-right:22px\"><h2>${.name}</h2>${.description}</div>",
-                            // `margin-right:22px` To ensure that there is room for the vertical scroll bar
+                        single: "<h2>${.name}</h2>${.description}",
                         item: "<li><a href=\"#\" ${showPopup()}>${.name}</a></li>"
                     }}
                 ]]
