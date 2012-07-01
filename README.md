@@ -75,6 +75,16 @@ Features:
     * *select popups* are shown where the cursor is pressed.
  * Ability to customize the operation of the control.
  
+Adjustments on OL popups for proper calculation of the autosize
+---------------------------------------------------------------
+See problems: 
+  * Extra padding: [OL-Popup-issues/autoSize-padding-dev.html](http://jorix.github.com/OL-FeaturePopups/OL-Popup-issues/autoSize-padding-dev.html)
+  * Narrow content when displaying scroll bar: [OL-Popup-issues/popups-overflow-dev.html](http://jorix.github.com/OL-FeaturePopups/OL-Popup-issues/popups-overflow-dev.html)
+
+Have been proposed to OpenLayers team a set of patches to fix these problems. These patches are grouped all in a code to can use these patches also in versions 2.11 and 2.12, see: [lib/patches_OL-popup-autosize.js](https://github.com/jorix/OL-FeaturePopups/blob/gh-pages/lib/patches_OL-popup-autosize.js)
+
+NOTE: The patch to fix problem with the border is not yet proposed to OL, but it is applied in this code.
+ 
 Compatibility notes (with previous version "1-FeaturePopups"):
 -------------------------------------------------------------
  * The layers can no longer be added implicitly, it is necessary to use the `addLayer` method or `layers` option of the constructor.

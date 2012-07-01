@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <title>Popups issues: Overflow causes a too narrow content "dev fixed"</title>
+        <link rel="stylesheet" href="http://www.openlayers.org/dev/theme/default/style.css" type="text/css">
+        <link rel="stylesheet" href="http://www.openlayers.org/dev/examples/style.css" type="text/css">
+        <script src="http://www.openlayers.org/dev/OpenLayers.js"></script>
+        <script src="../lib/patches_OL-popup-autosize.js"></script>
+        <style>
+            .olPopupContent,
+            .olFramedCloudPopupContent {
+                background-color:#af6; 
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id="title">Popups issues: Overflow causes a too narrow content "dev fixed"</h1>
+        <div><b>Try: <a href="popups-overflow-dev.html">OL development branch</a>, <a href="popups-overflow-2.11-fixed.html">2.11 + patches</a>, <a href="popups-overflow-2.12-fixed.html">2.12 + patches</a></b></div>
+        <div id="map" style="width: 1200px; height: 300px; background-color:#aaa" class="smallmap"></div>
+        <div>
+            Content is shown <span style="background-color:#af6">green</span>
+        </div>
+        <script src="popups-overflow.js"></script>
+    </body>
+</html>
