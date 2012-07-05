@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <title>Popups issues: The margin should be removed or added to the size</title>
+        <link rel="stylesheet" href="http://www.openlayers.org/dev/theme/default/style.css" type="text/css">
+        <link rel="stylesheet" href="http://www.openlayers.org/dev/examples/style.css" type="text/css">
+        <script src="http://www.openlayers.org/dev/OpenLayers.js"></script>
+        <style>
+            .olPopupContent,
+            .olFramedCloudPopupContent {
+                background-color:#af6;
+                padding: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id="title">Popups issues: The margin should be removed or added to the size</h1>
+        <!-- div><b>Try: <a href="popups-margin-dev-fixed.html">dev + patches</a></b></div -->
+        <div id="map" style="width: 1200px; height: 300px; background-color:#aaa" class="smallmap"></div>
+        <div>
+            Content is shown <span style="background-color:#af6">green</span>
+        </div>
+        <script src="popups-margin.js"></script>
+    </body>
+</html>

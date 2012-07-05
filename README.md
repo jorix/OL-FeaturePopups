@@ -3,10 +3,6 @@ Proposal for a new control: FeaturePopups for OpenLayers
 
 **FeaturePopups** wraps the management of popups and SelectFeature control of [OpenLayers](http://openlayers.org).
 
-The branch that is considered stable is: [1-FeaturePopups](https://github.com/jorix/OL-FeaturePopups/tree/1-FeaturePopups)
-
-Branch **gh-pages** may be not stable (is equivalent to *master*), there are no major changes expected in this branch and starts the process of consolidation.
-
 Please, open a **issue** if you have questions or problems using this control.
  
 Operation:
@@ -84,6 +80,10 @@ See problems:
 Have been proposed to OpenLayers team a set of patches to fix these problems. These patches are grouped all in a code to can use these patches also in versions 2.11 and 2.12, see: [lib/patches_OL-popup-autosize.js](https://github.com/jorix/OL-FeaturePopups/blob/gh-pages/lib/patches_OL-popup-autosize.js)
 
 NOTE: The patch to fix problem with the border is not yet proposed to OL, but it is applied in this code.
+
+Investigating OL issues:
+  * Chrome does not consider the size of many images [OL-Popup-issues/popups-img-chr-dev.html](http://jorix.github.com/OL-FeaturePopups/OL-Popup-issues/popups-img-chr.html)
+  * The margin should be removed or added to the size [OL-Popup-issues/popups-margin-dev.html](http://jorix.github.com/OL-FeaturePopups/OL-Popup-issues/popups-margin.html)
  
 Compatibility notes (with previous version "1-FeaturePopups"):
 -------------------------------------------------------------
