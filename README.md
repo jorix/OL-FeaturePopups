@@ -81,9 +81,9 @@ Have been proposed to OpenLayers team a set of patches to fix these problems. Th
 
 NOTE: The patch to fix problem with the border is not yet proposed to OL, but it is applied in this code.
 
-Investigating OL issues:
-  * Chrome does not consider the size of many images [OL-Popup-issues/popups-img-chr-dev.html](http://jorix.github.com/OL-FeaturePopups/OL-Popup-issues/popups-img-chr.html)
-  * The margin should be removed or added to the size [OL-Popup-issues/popups-margin-dev.html](http://jorix.github.com/OL-FeaturePopups/OL-Popup-issues/popups-margin.html)
+Investigating OL popups issues:
+  * Chrome does not consider the size of many images [OL-Popup-issues/popups-img-chr-dev.html](http://jorix.github.com/OL-FeaturePopups/OL-Popup-issues/popups-img-chr-dev.html)
+  * The margin should be removed or added to the size [OL-Popup-issues/popups-margin-dev.html](http://jorix.github.com/OL-FeaturePopups/OL-Popup-issues/popups-margin-dev.html)
  
 Compatibility notes (with previous version "1-FeaturePopups"):
 -------------------------------------------------------------
