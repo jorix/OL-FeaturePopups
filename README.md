@@ -74,16 +74,16 @@ Features:
 Adjustments on OL popups for proper calculation of the autosize
 ---------------------------------------------------------------
 See problems: 
-  * Extra padding: [OL-Popup-issues/autoSize-padding-dev.html](http://jorix.github.com/OL-FeaturePopups/OL-Popup-issues/autoSize-padding-dev.html)
-  * Narrow content when displaying scroll bar: [OL-Popup-issues/popups-overflow-dev.html](http://jorix.github.com/OL-FeaturePopups/OL-Popup-issues/popups-overflow-dev.html)
+  * Extra padding: [autoSize-padding-dev.html](http://jorix.github.com/OL-FeaturePopups/OL-Popup-issues/autoSize-padding-dev.html)
+  * Narrow content when displaying scroll bar: [popups-overflow-dev.html](http://jorix.github.com/OL-FeaturePopups/OL-Popup-issues/popups-overflow-dev.html)
 
 Have been proposed to OpenLayers team a set of patches to fix these problems. These patches are grouped all in a code to can use these patches also in versions 2.11 and 2.12, see: [lib/patches_OL-popup-autosize.js](https://github.com/jorix/OL-FeaturePopups/blob/gh-pages/lib/patches_OL-popup-autosize.js)
 
 NOTE: The patch to fix problem with the border is not yet proposed to OL, but it is applied in this code.
 
 Investigating OL popups issues:
-  * Chrome does not consider the size of many images [OL-Popup-issues/popups-img-chr-dev.html](http://jorix.github.com/OL-FeaturePopups/OL-Popup-issues/popups-img-chr-dev.html)
-  * The margin should be removed or added to the size [OL-Popup-issues/popups-margin-dev.html](http://jorix.github.com/OL-FeaturePopups/OL-Popup-issues/popups-margin-dev.html)
+  * Chrome does not consider the size of many images [popups-img-chrome-dev.html](http://jorix.github.com/OL-FeaturePopups/OL-Popup-issues/popups-img-chrome-dev.html)
+  * The margin should be removed or added to the size [popups-margin-dev.html](http://jorix.github.com/OL-FeaturePopups/OL-Popup-issues/popups-margin-dev.html)
  
 Compatibility notes (with previous version "1-FeaturePopups"):
 -------------------------------------------------------------

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <title>Popups issues: Chrome does not consider the size images</title>
+        <script src="../lib/releaseEnvirontment.js"></script>
+        <script>
+            var release = new releaseEnvironment({
+                patches: ["../lib/patches_OL-popup-autosize.js"] // Tested using Chrome, Safari, Opera, IE9 7 & 6 anf FF13 & FF1.5
+            });
+            release.writeScripts();
+        </script>
+        <style>
+            .olPopupContent {
+                background-color: #af6;
+            }
+            .olPopupContent img {
+                background-color: #ff6;
+                padding: 2px
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id="title">??</h1>
+        <div id="environmentForm"></div>
+        <script>
+            release.writeSelectionForm("environmentForm", "title");
+        </script>
+        <div id="map" style="width: 300px; height: 300px; background-color:#aaa" class="smallmap"></div>
+        <div>
+            Padding is shown <span style="background-color:#af6">green</span>  
+            content is shown <span style="background-color:#faf">pink</span>
+            and the padding of the image in <span style="background-color:#ff6">yellow</span>.
+        </div>
+        <script src="popups-img-chrome.js"></script>
+    </body>
+</html>
