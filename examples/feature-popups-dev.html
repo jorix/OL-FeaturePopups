@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="../github-pages/forkme_banner.css" type="text/css">
+        <title>FeaturePopups Example</title>
+        <script src="../lib/releaseEnvirontment.js"></script>
+        <script>
+            var release = new releaseEnvironment({
+                defaults: {patch: true}, 
+                patches: ["../lib/patches_OL-popup-autosize.js"]
+            });
+            release.writeScripts();
+        </script>
+        <style>
+            .olControlFeaturePopups_list{font-size: 80%;}
+            .olControlFeaturePopups_list ul{margin-bottom: 0}
+        </style>
+        <script src="../lib/FeaturePopups.js"></script>
+
+    </head>
+    <body>
+        <h1 id="title">??</h1>
+        <div id="environmentForm"></div>
+        <script>
+            release.writeSelectionForm("environmentForm", "title");
+        </script>
+        <div id="map" style="width: 1000px; height: 600px;" class="smallmap"></div>
+        <script src="feature-popups-common.js"></script>
+        <script src="feature-popups.js"></script>
+    </body>
+</html>
