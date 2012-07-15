@@ -4,10 +4,14 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
         <meta name="apple-mobile-web-app-capable" content="yes">
-        <title>Popups issues: autosize causes extra padding "quirks"</title>
-        <link rel="stylesheet" href="http://www.openlayers.org/dev/theme/default/style.css" type="text/css">
-        <link rel="stylesheet" href="http://www.openlayers.org/dev/examples/style.css" type="text/css">
-        <script src="http://www.openlayers.org/dev/OpenLayers.js"></script>
+        <title>Popups issues: autosize causes extra padding</title>
+        <script src="../lib/releaseEnvirontment.js"></script>
+        <script>
+            var release = new releaseEnvironment({
+                patches: ["../lib/patches_OL-popup-autosize.js"]
+            });
+            release.writeScripts();
+        </script>
         <style>
             dt {font-size: 110%;}
             dd {margin-left:2em;}
@@ -18,7 +22,7 @@
         </style>
     </head>
     <body>
-        <h1 id="title">Popups issues: autosize causes extra padding "quirks"</h1>
+        <h1 id="title">??</h1>
         <div id="shortdesc">
             <dl>
                 <dt>Extra padding on bottom & right (fixed with 
@@ -37,7 +41,11 @@
                         a extra padding on bottom & right.</dd>
             </dl>
         </div>
-        <div><b>Try: <a href="autoSize-padding-dev.html">W3C mode</a></b></div>
+        <hr>
+        <div id="environmentForm"></div>
+        <script>
+            release.writeSelectionForm("environmentForm", "title");
+        </script>
         <div id="map" style="width: 900px; height: 400px; background-color:#aaa" class="smallmap"></div>
         <div>
             Padding is shown <span style="background-color:#af6">green</span> and 
