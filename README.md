@@ -80,7 +80,7 @@ The problems were fixed:
   * Narrow content when displaying scroll bar: [popups-overflow-dev.html](http://jorix.github.com/OL-FeaturePopups/OL-Popup-issues/popups-overflow-dev.html)
 
 Patches to fix other problems not yet proposed to OL, but applied in this code:
-  * Chrome does not consider the size of images: [popups-img-chrome-dev.html](http://jorix.github.com/OL-FeaturePopups/OL-Popup-issues/popups-img-chrome-dev.html)
+  * Chrome+ABP does not consider the size of images: [popups-img-chrome-dev.html](http://jorix.github.com/OL-FeaturePopups/OL-Popup-issues/popups-img-chrome-dev.html)
   * Consider the border on `contentDisplayClass`: [autoSize-padding-dev.html][autoSize-padding-dev]
   * Margin should be considered when padding on `contentDisplayClass` is zero: [popups-margin-dev.html](http://jorix.github.com/OL-FeaturePopups/OL-Popup-issues/popups-margin-dev.html)
 
