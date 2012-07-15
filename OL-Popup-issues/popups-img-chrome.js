@@ -24,18 +24,6 @@ var html =
     '<div style="background-color:#faf;">' +
     '<img src="img/14012012329.jpg">' +
     '</div>';
-var html1 = 
-    '<div style="background-color:#faf;">' +
-    '<img width="50" src="img/14012012329.jpg">' +
-    '</div>';
-var html2 = 
-    '<div style="background-color:#faf;">' +
-    '<img height="50" src="img/14012012329.jpg">' +
-    '</div>';
-var html3 = 
-    '<div style="background-color:#faf;">' +
-    '<img height="50" width="50" src="img/14012012329.jpg">' +
-    '</div>';
 var html01 = 
     '<div style="background-color:#faf;">' +
     '<img style="width:50px" src="img/14012012329.jpg">' +
