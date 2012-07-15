@@ -73,13 +73,13 @@ Features:
  
 Adjustments on OL popups for proper calculation of the autosize
 ---------------------------------------------------------------
-See problems: 
+Have been proposed to OpenLayers team a set of patches to fix some autosize issues. These patches are grouped all in a code to can use these patches also in releases 2.11 and 2.12, see: [lib/patches_OL-popup-autosize.js](https://github.com/jorix/OL-FeaturePopups/blob/gh-pages/lib/patches_OL-popup-autosize.js)
+
+The problems were fixed:
   * Remove extra padding: [autoSize-padding-dev.html][autoSize-padding-dev]
   * Narrow content when displaying scroll bar: [popups-overflow-dev.html](http://jorix.github.com/OL-FeaturePopups/OL-Popup-issues/popups-overflow-dev.html)
 
-Have been proposed to OpenLayers team a set of patches to fix these problems. These patches are grouped all in a code to can use these patches also in versions 2.11 and 2.12, see: [lib/patches_OL-popup-autosize.js](https://github.com/jorix/OL-FeaturePopups/blob/gh-pages/lib/patches_OL-popup-autosize.js)
-
-Patches to fix other problems not yet proposed to OL, but it is applied in this code:
+Patches to fix other problems not yet proposed to OL, but applied in this code:
   * Chrome does not consider the size of images: [popups-img-chrome-dev.html](http://jorix.github.com/OL-FeaturePopups/OL-Popup-issues/popups-img-chrome-dev.html)
   * Consider the border on `contentDisplayClass`: [autoSize-padding-dev.html][autoSize-padding-dev]
   * Margin should be considered when padding on `contentDisplayClass` is zero: [popups-margin-dev.html](http://jorix.github.com/OL-FeaturePopups/OL-Popup-issues/popups-margin-dev.html)
