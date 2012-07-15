@@ -5,9 +5,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <title>Popups issues: Margin should be considered when padding on `contentDisplayClass` is zero.</title>
-        <link rel="stylesheet" href="http://www.openlayers.org/dev/theme/default/style.css" type="text/css">
-        <link rel="stylesheet" href="http://www.openlayers.org/dev/examples/style.css" type="text/css">
-        <script src="http://www.openlayers.org/dev/OpenLayers.js"></script>
+        <script src="../lib/releaseEnvirontment.js"></script>
+        <script>
+            var release = new releaseEnvironment({
+                patches: ["../lib/patches_OL-popup-autosize.js"]
+            });
+            release.writeScripts();
+        </script>
         <style>
             .olPopupContent,
             .olFramedCloudPopupContent {
@@ -17,9 +21,12 @@
         </style>
     </head>
     <body>
-        <h1 id="title">Popups issues: Margin should be considered when padding on `contentDisplayClass` is zero.</h1>
-        <div><b>Try: <a href="popups-margin.html?patch=y">dev + patches</a></b></div>
-        <div id="map" style="width: 300px; height: 400px; background-color:#aaa" class="smallmap"></div>
+        <h1 id="title">??</h1>
+        <div id="environmentForm"></div>
+        <script>
+            release.writeSelectionForm("environmentForm", "title");
+        </script>
+        <div id="map" style="width: 400px; height: 400px; background-color:#aaa" class="smallmap"></div>
         <div>
             Content is shown <span style="background-color:#af6">green</span>
         </div>

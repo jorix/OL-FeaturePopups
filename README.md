@@ -82,10 +82,8 @@ Have been proposed to OpenLayers team a set of patches to fix these problems. Th
 Patches to fix other problems not yet proposed to OL, but it is applied in this code:
   * Chrome does not consider the size of images: [popups-img-chrome-dev.html](http://jorix.github.com/OL-FeaturePopups/OL-Popup-issues/popups-img-chrome-dev.html)
   * Consider the border on `contentDisplayClass`: [autoSize-padding-dev.html][autoSize-padding-dev]
+  * Margin should be considered when padding on `contentDisplayClass` is zero: [popups-margin-dev.html](http://jorix.github.com/OL-FeaturePopups/OL-Popup-issues/popups-margin-dev.html)
 
-Investigating OL popups issues:
-  * The margin should be removed or added to the size: [popups-margin-dev.html](http://jorix.github.com/OL-FeaturePopups/OL-Popup-issues/popups-margin-dev.html)
- 
 [autoSize-padding-dev]: http://jorix.github.com/OL-FeaturePopups/OL-Popup-issues/autoSize-padding-dev.html
  
 Compatibility notes (with previous version "1-FeaturePopups"):

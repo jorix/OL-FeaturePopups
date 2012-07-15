@@ -18,24 +18,13 @@ var showPopup = function (id, html, popupCls, xy, closeBox) {
     popup.autoSize = true;
     map.addPopup(popup);
 };
-/* OK: removed */ 
-    // var html = 
-        // '<h2 style="margin: 0 15px 15px; background-color:#f9f;">Foo</h2>' +
-        // '<ul style="background-color:#fbf; margin-bottom:0">' +
-            // '<li>foo</li>' +
-        // '</ul>';
 
-/* ko */ 
-    var html = 
-        '<h2 style="margin: 15px; background-color:#f9f;">Foo</h2>' +
-        '<ul style="background-color:#fbf;">' +
-            '<li>foo</li>' +
-        '</ul>';
-
-/* OK: added to the size */
-    //var forceMargin = '<div style="margin:0; width:1px; height:1px; clear:both"></div>';
-    //html = forceMargin + html + forceMargin;
-    
-var x = -370;
-var y = -94;
-showPopup("iFC_cBox", html, OpenLayers.Popup.FramedCloud, [x, y], true);
+var html = 
+    '<h2 style="margin: 15px; background-color:#f9f;">Foo</h2>' +
+    '<ul style="margin: 5px; background-color:#fcf;">' +
+        '<li>foo_foo</li>' +
+    '</ul>';
+showPopup("iP_marginCB", html, OpenLayers.Popup, [-200, 0], true);
+showPopup("iFC_marginCB", html, OpenLayers.Popup.FramedCloud, [180, 0], true);
+showPopup("iP_margin", html, OpenLayers.Popup, [-200, 200]);
+showPopup("iFC_margin", html, OpenLayers.Popup.FramedCloud, [180, 200]);
