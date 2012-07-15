@@ -74,17 +74,19 @@ Features:
 Adjustments on OL popups for proper calculation of the autosize
 ---------------------------------------------------------------
 See problems: 
-  * Remove extra padding: [autoSize-padding-dev.html](http://jorix.github.com/OL-FeaturePopups/OL-Popup-issues/autoSize-padding-dev.html)
+  * Remove extra padding: [autoSize-padding-dev.html][autoSize-padding-dev]
   * Narrow content when displaying scroll bar: [popups-overflow-dev.html](http://jorix.github.com/OL-FeaturePopups/OL-Popup-issues/popups-overflow-dev.html)
 
 Have been proposed to OpenLayers team a set of patches to fix these problems. These patches are grouped all in a code to can use these patches also in versions 2.11 and 2.12, see: [lib/patches_OL-popup-autosize.js](https://github.com/jorix/OL-FeaturePopups/blob/gh-pages/lib/patches_OL-popup-autosize.js)
 
 Patches to fix other problems not yet proposed to OL, but it is applied in this code:
   * Chrome does not consider the size of images: [popups-img-chrome-dev.html](http://jorix.github.com/OL-FeaturePopups/OL-Popup-issues/popups-img-chrome-dev.html)
-  * Consider the border on `contentDisplayClass`: [autoSize-padding-dev.html]
+  * Consider the border on `contentDisplayClass`: [autoSize-padding-dev.html][autoSize-padding-dev]
 
 Investigating OL popups issues:
   * The margin should be removed or added to the size: [popups-margin-dev.html](http://jorix.github.com/OL-FeaturePopups/OL-Popup-issues/popups-margin-dev.html)
+ 
+[autoSize-padding-dev]: http://jorix.github.com/OL-FeaturePopups/OL-Popup-issues/autoSize-padding-dev.html
  
 Compatibility notes (with previous version "1-FeaturePopups"):
 -------------------------------------------------------------
