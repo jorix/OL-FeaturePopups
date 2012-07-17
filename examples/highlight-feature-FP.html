@@ -21,7 +21,9 @@
     <script src="../lib/FeaturePopups.js"></script>
     <script type="text/javascript">
         if (console && typeof console.log === "function") {
-            OpenLayers.Util.extend(OpenLayers.Console, console);
+            OpenLayers.Console.log = function(){
+                console.log.apply(console, arguments);
+            }
         }
 
         var map;
