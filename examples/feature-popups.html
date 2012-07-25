@@ -34,7 +34,7 @@
             <h2>Try:</h2>
             <ul>
                 <li>Move the cursor over a feature.</li>
-                <li>Select (do click) a clustered feature (circles), popup is shown as a list.
+                <li>Select a clustered feature (circles), popup is shown as a list.
                     <ul>
                         <li>Do zoom-in, selection is kept: this is the <b>safe selection</b>.</li>
                         <li>Click a link, shows a single popup: due to <code>${showPopup()}</code> in &quot;item&quot; template.</li>
@@ -46,7 +46,7 @@
                 <li>Now hide one layer and re-display: the popup list is updated.</li>
                 <li>Select only one single feature using a selection box, is shown a single pupup not a list.</li>
                 <li>Use a external div instead of a popups to display lists of features, see: 
-                    <a href="feature-popups-external.html" target="_blank">feature-popups-external.html</a> 
+                    <a href="feature-popups-external.html">feature-popups-external.html</a> 
                 </li>
             </ul>
             <h2>Features:</h2>
@@ -60,12 +60,13 @@
                 <li>Show popups by selection or hover from multiple vector layers.</li>
                 <li>Multiple selection using box and show the list of features selected into an popup</li>
                 <li>Proper popups on clustered features (OpenLayers.Strategy.Cluster)</li>
-                <li>Safe selection: after zoom or move the map the selection is kept despite using strategies as BBOX o Cluster</li>
+                <li>Safe selection: Features remain selected even after zooming or moving the map (using Cluster and BBOX strategies)</li>
+                <li>See more: <a href="https://github.com/jorix/OL-FeaturePopups/blob/gh-pages/README.md">Description of the project</a></li>
             </ul>
             <p>
                 View the <a href="feature-popups.js" target="_blank">feature-popups.js</a> 
                 source to see how this is done. 
-                (see also <a href="feature-popups-common.js">feature-popups-common.js</a>)
+                (see also <a href="feature-popups-common.js" target="_blank">feature-popups-common.js</a>)
             </p>
         </div>
         <script src="feature-popups-common.js"></script>
