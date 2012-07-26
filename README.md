@@ -1,4 +1,4 @@
-Proposal for a new control: FeaturePopups for OpenLayers
+Proposal for a new control for OpenLayers: FeaturePopups
 ========================================================
 
 **FeaturePopups** wraps the management of popups and SelectFeature control of [OpenLayers](http://openlayers.org).
