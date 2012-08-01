@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <title>Popups issues: Overflow causes a too narrow content</title>
+        <script src="../lib/releaseEnvirontment.js"></script>
+        <script>
+            var release = new releaseEnvironment({
+                patches: [
+                    // "../lib/patches_OL-popup-autosize.js",
+                    "https://raw.github.com/jorix/openlayers/bc20ca7373bfeba5e7855ea40b3c4de31b6ac68e/lib/OpenLayers/Popup/FramedCloud.js"
+                ]
+            });
+            release.writeScripts();
+        </script>
+        <style>
+.olPopupContent{
+    padding: 0;
+}
+.olPopupContent,
+.olFramedCloudPopupContent {
+    background-color: green;
+}
+/* Tourn on "img opacity" to see the overlap of the frames, can see:
+      * a white horizontal line on the right side of the "tr" popup (fixed)
+      * white horizontal lines at the intersection of the stem to the body of the popups(not fixed here)
+.olPopup img {opacity: 0.50; filter: alpha(opacity=50);}
+*/
+        </style>
+    </head>
+    <body>
+        <h1 id="title">??</h1>
+        <div id="environmentForm"></div>
+        <script>
+            release.writeSelectionForm("environmentForm", "title");
+        </script>
+        <div id="map" style="background-color:blue" class="smallmap"></div>
+        <div>
+            Content is shown <span style="background-color:#af6">green</span>
+        </div>
+        <script src="popups-FramedCloud-insertion-poin.js"></script>
+    </body>
+</html>
