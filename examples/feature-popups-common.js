@@ -92,7 +92,7 @@ var map = new OpenLayers.Map({
         -20037508.34, -20037508.34, 20037508.34, 20037508.34
     ),
     controls: [
-        new OpenLayers.Control.Attribution({position: new OpenLayers.Pixel(1,486)}),
+        new OpenLayers.Control.Attribution(),
         new OpenLayers.Control.Navigation(),
         new OpenLayers.Control.PanZoom(),
         new OpenLayers.Control.LayerSwitcher()
