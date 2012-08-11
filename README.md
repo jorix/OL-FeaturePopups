@@ -78,6 +78,8 @@ Have been proposed to OpenLayers team a set of patches to fix some autosize issu
 The problems were fixed:
   * Remove extra padding: [autoSize-padding-dev.html][autoSize-padding-dev]
   * Narrow content when displaying scroll bar: [popups-overflow-dev.html](http://jorix.github.com/OL-FeaturePopups/OL-Popup-issues/popups-overflow-dev.html)
+  * Adjust the insertion point using FramedCloud popup: [popups-FramedCloud-insertion-point.html](http://jorix.github.com/OL-FeaturePopups/OL-Popup-issues/popups-FramedCloud-insertion-point.html)
+  * Avoid breaking the "OpenLayers.String.format" execution [#OL-631](https://github.com/openlayers/openlayers/pull/631)
 
 Patches to fix other problems not yet proposed to OL, but applied in this code:
   * Chrome+ABP does not consider the size of images: [popups-img-chrome-dev.html](http://jorix.github.com/OL-FeaturePopups/OL-Popup-issues/popups-img-chrome-dev.html)

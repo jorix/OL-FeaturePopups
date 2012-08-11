@@ -8,10 +8,7 @@
         <script src="../lib/releaseEnvirontment.js"></script>
         <script>
             var release = new releaseEnvironment({
-                patches: [
-                    // "../lib/patches_OL-popup-autosize.js",
-                    "https://raw.github.com/jorix/openlayers/bc20ca7373bfeba5e7855ea40b3c4de31b6ac68e/lib/OpenLayers/Popup/FramedCloud.js"
-                ]
+                patches: ["../lib/patches_OL-popup-autosize.js"]
             });
             release.writeScripts();
         </script>
