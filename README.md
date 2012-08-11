@@ -92,5 +92,5 @@ Compatibility notes (with previous version "1-FeaturePopups"):
 -------------------------------------------------------------
  * The layers can no longer be added implicitly, it is necessary to use the `addLayer` method or `layers` option of the constructor.
  * The templates are grouped into the object "templates" in options of `addLayer` method.
- * The scope of events has changed during development, now if you want to access to the control should be used `evt.object.control` instead of `evt.object`.
+ * The scope of events of `FeaturePopups.Popup` and `FeaturePopups.Layer` has changed during development, now if you want to access to the control should be used `evt.object.control` instead of `evt.object`.
  
