@@ -1,37 +1,37 @@
 var map;
 
 function init() {
-    map = new OpenLayers.Map("map",{projection:"EPSG:3857"});
+    map = new OpenLayers.Map('map', {projection: 'EPSG:3857'});
 
     var osm = new OpenLayers.Layer.OSM();
     var toMercator = OpenLayers.Projection.transforms['EPSG:4326']['EPSG:3857'];
-    var center = toMercator({x:-0.05,y:51.5});
-    
+    var center = toMercator({x: -0.05, y: 51.5});
+
     /**
      * Create 5 random vector features.  Your features would typically be fetched
      * from the server. The features are given an attribute named "foo".
      * The value of this attribute is an integer that ranges from 0 to 100.
-     */   
-    var features = [];    
-    for(var i = 0; i < 5; i++) {
+     */
+    var features = [];
+    for (var i = 0; i < 5; i++) {
         features[i] = new OpenLayers.Feature.Vector(
                 toMercator(new OpenLayers.Geometry.Point(
-                    -0.040 - 0.05*Math.random(),
-                    51.49 + 0.02*Math.random())), 
+                    -0.040 - 0.05 * Math.random(),
+                    51.49 + 0.02 * Math.random())),
                 {
-                    foo : 100 * Math.random() | 0
+                    foo: 100 * Math.random() | 0
                 }, {
-                    fillColor : '#008040',
-                    fillOpacity : 0.8,                    
-                    strokeColor : "#ee9900",
-                    strokeOpacity : 1,
-                    strokeWidth : 1,
-                    pointRadius : 8
+                    fillColor: '#008040',
+                    fillOpacity: 0.8,
+                    strokeColor: '#ee9900',
+                    strokeOpacity: 1,
+                    strokeWidth: 1,
+                    pointRadius: 8
                 });
     }
-        
+
     // create the layer with listeners to create and destroy popups
-    var vector = new OpenLayers.Layer.Vector("Points");
+    var vector = new OpenLayers.Layer.Vector('Points');
     vector.addFeatures(features);
 
     // create the select feature control
@@ -39,13 +39,13 @@ function init() {
         selectOptions: {
             clickout: true
         }
-    })
+    });
     selector.addLayer(vector, {
-        templates:{single: "<div style='font-size:.8em'>Feature: ${id}<br>Foo: ${.foo}</div>"},
-        hoverTemplate: "Foo: ${.foo}"
-    }); 
-    
+        templates: {single: "<div style='font-size:.8em'>Feature: ${id}<br>Foo: ${.foo}</div>"},
+        hoverTemplate: 'Foo: ${.foo}'
+    });
+
     map.addLayers([osm, vector]);
     map.addControl(selector);
-    map.setCenter(new OpenLayers.LonLat(center.x,center.y), 13);
+    map.setCenter(new OpenLayers.LonLat(center.x, center.y), 13);
 }

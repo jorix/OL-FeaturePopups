@@ -1,5 +1,5 @@
 // Define grid & control
-    var grid, fpControl, 
+    var grid, fpControl,
         _silentSelect = false;
 
 // Functions to bind grid with fpControl
@@ -10,13 +10,13 @@
             grid.getData().setItems(evt.selection);
             grid.setSelectedRows([]);
             grid.invalidate();
-            $("#grid-container").show();
+            $('#grid-container').show();
         } else {
-            $("#grid-container").hide();
+            $('#grid-container').hide();
         }
     };
     // listeners on grid
-    var grid_selectionChanged = function (e, args) {
+    var grid_selectionChanged = function(e, args) {
         var ids = grid.getData().mapRowsToIds(args.rows);
         if (ids.length) {
             fpControl.showSingleFeatureById(vLayer.id, ids[0]);
@@ -25,8 +25,8 @@
     // Grid data view
     var grid_dataItemColumnValueExtractor = function(item, colDef) {
         return item.attributes[colDef.id];
-    }
-    var grid_onSort = function (e, args) {
+    };
+    var grid_onSort = function(e, args) {
         var sortcol = args.sortCol,
             dataView = grid.getData();
         _silentSelect = true;
@@ -38,26 +38,26 @@
         dataView.sort(comparer, args.sortAsc);
         grid.invalidate();
         _silentSelect = false;
-    }
-    
+    };
+
 // Create Control
     fpControl = new OpenLayers.Control.FeaturePopups({
-        hoverOptions:{renderIntent: "temporary"},
+        hoverOptions: {renderIntent: 'temporary'},
         popupSelectOptions: null,
         popupListOptions: null
     });
     map.addControl(fpControl);
     fpControl.addLayer(vLayer, {
-        templates: {single: "${.title} ${.size}"},
+        templates: {single: '${.title} ${.size}'},
         eventListeners: {
-            "selectionchanged": fpControl_onSelectionChanged
+            'selectionchanged': fpControl_onSelectionChanged
         }
     });
-    
+
 // Create Grid
-    $("#grid-caption").html(vLayer.name);
-    grid = new Slick.Grid("#grid-data", 
-        new Slick.Data.DataView({ inlineFilters: true }), 
+    $('#grid-caption').html(vLayer.name);
+    grid = new Slick.Grid('#grid-data',
+        new Slick.Data.DataView({ inlineFilters: true }),
         [
             { id: 'title', field: 'title', name: 'Title', width: 200, sortable: true},
             { id: 'size', field: 'size', name: 'Size', width: 50, sortable: true}
@@ -71,5 +71,5 @@
     grid.onSelectedRowsChanged.subscribe(grid_selectionChanged);
     grid.getData().syncGridSelection(grid, true);
 
-    $("#grid-container").hide();
-    
+    $('#grid-container').hide();
+

@@ -9,10 +9,10 @@
         grid.jqGrid('clearGridData');
         if (evt.selection.length) {
             grid.jqGrid('addRowData', 'id', evt.selection);
-            grid.trigger("reloadGrid");
-            $("#grid-container").show();
+            grid.trigger('reloadGrid');
+            $('#grid-container').show();
         } else {
-            $("#grid-container").hide();
+            $('#grid-container').hide();
         }
     };
     // listeners on grid
@@ -20,27 +20,27 @@
         lastSelectId = id;
         fpControl.showSingleFeatureById(vLayer.id, id);
     };
-    var grid_onLoadComplete = function() {            
-        lastSelectId && grid.jqGrid("setSelection", lastSelectId, false);
-    };        
-    
+    var grid_onLoadComplete = function() {
+        lastSelectId && grid.jqGrid('setSelection', lastSelectId, false);
+    };
+
 // Create Control
     fpControl = new OpenLayers.Control.FeaturePopups({
-        hoverOptions:{renderIntent: "temporary"},
+        hoverOptions: {renderIntent: 'temporary'},
         popupSelectOptions: null,
         popupListOptions: null
     });
     map.addControl(fpControl);
     fpControl.addLayer(vLayer, {
-        templates: {single: "${.title} ${.size}"},
+        templates: {single: '${.title} ${.size}'},
         eventListeners: {
-            "selectionchanged": fpControl_onSelectionChanged,
-            "scope": fpControl
+            'selectionchanged': fpControl_onSelectionChanged,
+            'scope': fpControl
         }
     });
-    
+
 // Create Grid
-    grid = $("#grid-data");
+    grid = $('#grid-data');
     grid.jqGrid({
         datatype: 'local',
         caption: vLayer.name,
@@ -49,7 +49,7 @@
             { name: 'attributes.title', label: 'Title', width: 200},
             { name: 'attributes.size', label: 'Size', width: 50}
         ],
-        height: "100%",
+        height: '100%',
         pager: '#grid-pager',
         rowNum: 20,
         sortname: 'Name',
@@ -58,5 +58,5 @@
         loadComplete: grid_onLoadComplete,
         onSelectRow: grid_onRowSelected
     });
-    $("#grid-container").hide();
-    
+    $('#grid-container').hide();
+

@@ -8,13 +8,13 @@
     var fpControl_onFeaturesChanged = function(evt) {
         var features = evt.features;
         grid.jqGrid('clearGridData');
-        grid.jqGrid('addRowData','id',features);
-        grid.trigger("reloadGrid");
+        grid.jqGrid('addRowData', 'id', features);
+        grid.trigger('reloadGrid');
         if (features.length) {
             fpControl_onSelectionChanged(evt);
-            $("#grid-container").show();
+            $('#grid-container').show();
         } else {
-            $("#grid-container").hide();
+            $('#grid-container').hide();
         }
     };
     var fpControl_onSelectionChanged = function(evt) {
@@ -38,29 +38,29 @@
     var grid_onLoadComplete = function() {
         refreshSelection();
     };
-    var refreshSelection = function() {            
-        for (var i =0, len = selectionIds.length; i < len; i++) {
+    var refreshSelection = function() {
+        for (var i = 0, len = selectionIds.length; i < len; i++) {
             grid.jqGrid('setSelection', selectionIds[i], false);
         }
-    };        
-    
+    };
+
 // Create Control
     fpControl = new OpenLayers.Control.FeaturePopups({
-        hoverOptions:{renderIntent: "temporary"},
+        hoverOptions: {renderIntent: 'temporary'},
         popupSelectOptions: null,
         popupListOptions: null
     });
     map.addControl(fpControl);
     fpControl.addLayer(vLayer, {
-        templates: {single: "${.title} ${.size}"},
+        templates: {single: '${.title} ${.size}'},
         eventListeners: {
-            "featureschanged": fpControl_onFeaturesChanged,
-            "selectionchanged": fpControl_onSelectionChanged
+            'featureschanged': fpControl_onFeaturesChanged,
+            'selectionchanged': fpControl_onSelectionChanged
         }
     });
-    
+
 // Create Grid
-    grid = $("#grid-data");
+    grid = $('#grid-data');
     grid.jqGrid({
         datatype: 'local',
         caption: vLayer.name,
@@ -69,7 +69,7 @@
             {name: 'attributes.title', label: 'Title', width: 200},
             {name: 'attributes.size', label: 'Size', width: 50}
         ],
-        height: "100%",
+        height: '100%',
         pager: '#grid-pager',
         rowNum: 20,
         sortname: 'Name',
@@ -79,4 +79,4 @@
         loadComplete: grid_onLoadComplete,
         onSelectRow: grid_onRowSelected
     });
-    $("#grid-container").hide();
+    $('#grid-container').hide();

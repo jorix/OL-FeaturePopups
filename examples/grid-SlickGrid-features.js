@@ -1,5 +1,5 @@
 // Define grid & control
-    var grid, fpControl, 
+    var grid, fpControl,
         _silentSelect = false;
 
 // Functions to bind grid with fpControl
@@ -8,24 +8,24 @@
         if (evt.features.length) {
             grid.getData().setItems(evt.features);
             grid.invalidate();
-            $("#grid-container").show();
+            $('#grid-container').show();
         } else {
-            $("#grid-container").hide();
+            $('#grid-container').hide();
         }
-    }
+    };
     var fpControl_onSelectionChanged = function(evt) {
         fpControl.showSingleFeatureById();
         _silentSelect = true;
-        var ids = fpControl.getSelectionIds(evt.layer)
+        var ids = fpControl.getSelectionIds(evt.layer);
         grid.setSelectedRows(grid.getData().mapIdsToRows(ids));
         _silentSelect = false;
     };
     // listeners on grid
-    var grid_selectionChanged = function (e, args) {
+    var grid_selectionChanged = function(e, args) {
         if (!_silentSelect) {
-            fpControl.setSelectionByIds(vLayer.id, 
+            fpControl.setSelectionByIds(vLayer.id,
                 grid.getData().mapRowsToIds(args.rows), true);
-            // Show popup if active row is selected    
+            // Show popup if active row is selected
             var row = grid.getActiveCell().row,
                 selectedRows = grid.getSelectedRows();
             if (OpenLayers.Util.indexOf(selectedRows, row) > -1) {
@@ -39,8 +39,8 @@
     // Grid data view
     var grid_dataItemColumnValueExtractor = function(item, colDef) {
         return item.attributes[colDef.id];
-    }
-    var grid_onSort = function (e, args) {
+    };
+    var grid_onSort = function(e, args) {
         var sortcol = args.sortCol,
             dataView = grid.getData();
         _silentSelect = true;
@@ -52,27 +52,27 @@
         dataView.sort(comparer, args.sortAsc);
         grid.invalidate();
         _silentSelect = false;
-    }
-    
+    };
+
 // Create Control
     fpControl = new OpenLayers.Control.FeaturePopups({
-        hoverOptions:{renderIntent: "temporary"},
+        hoverOptions: {renderIntent: 'temporary'},
         popupSelectOptions: null,
         popupListOptions: null
     });
     map.addControl(fpControl);
     fpControl.addLayer(vLayer, {
-        templates: {single: "${.title} ${.size}"},
+        templates: {single: '${.title} ${.size}'},
         eventListeners: {
-            "featureschanged": fpControl_onFeaturesChanged,
-            "selectionchanged": fpControl_onSelectionChanged
+            'featureschanged': fpControl_onFeaturesChanged,
+            'selectionchanged': fpControl_onSelectionChanged
         }
     });
-    
+
 // Create Grid
-    $("#grid-caption").html(vLayer.name);
-    grid = new Slick.Grid("#grid-data", 
-        new Slick.Data.DataView({ inlineFilters: true }), 
+    $('#grid-caption').html(vLayer.name);
+    grid = new Slick.Grid('#grid-data',
+        new Slick.Data.DataView({ inlineFilters: true }),
         [
             { id: 'title', field: 'title', name: 'Title', width: 200, sortable: true},
             { id: 'size', field: 'size', name: 'Size', width: 50, sortable: true}
@@ -87,5 +87,5 @@
     grid.onSelectedRowsChanged.subscribe(grid_selectionChanged);
     grid.getData().syncGridSelection(grid, true);
 
-    $("#grid-container").hide();
-    
+    $('#grid-container').hide();
+

@@ -3,14 +3,14 @@
  */
 OpenLayers.Format.Flickr = OpenLayers.Class(OpenLayers.Format, {
     read: function(obj) {
-        if(obj.stat === 'fail') {
+        if (obj.stat === 'fail') {
             throw new Error(
                 ['Flickr failure response (',
                  obj.code,
                  '): ',
                  obj.message].join(''));
         }
-        if(!obj || !obj.photos ||
+        if (!obj || !obj.photos ||
            !OpenLayers.Util.isArray(obj.photos.photo)) {
             throw new Error(
                 'Unexpected Flickr response');
@@ -18,7 +18,7 @@ OpenLayers.Format.Flickr = OpenLayers.Class(OpenLayers.Format, {
         var photos = obj.photos.photo, photo,
             x, y, point,
             feature, features = [];
-        for(var i=0,l=photos.length; i<l; i++) {
+        for (var i = 0, l = photos.length; i < l; i++) {
             photo = photos[i];
             x = photo.longitude;
             y = photo.latitude;
@@ -26,7 +26,7 @@ OpenLayers.Format.Flickr = OpenLayers.Class(OpenLayers.Format, {
             feature = new OpenLayers.Feature.Vector(point, {
                 title: photo.title,
                 img_url: photo.url_s,
-                size: photo.width_s + "x" + photo.height_s
+                size: photo.width_s + 'x' + photo.height_s
             });
             features.push(feature);
         }
@@ -37,16 +37,16 @@ OpenLayers.Format.Flickr = OpenLayers.Class(OpenLayers.Format, {
 /**
  * The vectorial layer
  */
-var vLayer = new OpenLayers.Layer.Vector("Photos", {
-    projection: "EPSG:4326",
+var vLayer = new OpenLayers.Layer.Vector('Photos', {
+    projection: 'EPSG:4326',
     strategies: [
         new OpenLayers.Strategy.Fixed(),
         new OpenLayers.Strategy.Cluster()
     ],
     protocol: new OpenLayers.Protocol.Script({
-        url: "http://api.flickr.com/services/rest",
+        url: 'http://api.flickr.com/services/rest',
         params: {
-            api_key: "18351da2113513f3ba4eef6b99b4dcb6",
+            api_key: '18351da2113513f3ba4eef6b99b4dcb6',
             format: 'json',
             method: 'flickr.photos.search',
             extras: 'geo,url_s',
@@ -58,11 +58,11 @@ var vLayer = new OpenLayers.Layer.Vector("Photos", {
         format: new OpenLayers.Format.Flickr()
     }),
     styleMap: new OpenLayers.StyleMap({
-        "default": new OpenLayers.Style({
-                pointRadius: "${radius}",
-                fillColor: "#ffcc66",
+        'default': new OpenLayers.Style({
+                pointRadius: '${radius}',
+                fillColor: '#ffcc66',
                 fillOpacity: 0.8,
-                strokeColor: "#cc6633",
+                strokeColor: '#cc6633',
                 strokeWidth: 2,
                 strokeOpacity: 0.8
             }, {
@@ -72,12 +72,12 @@ var vLayer = new OpenLayers.Layer.Vector("Photos", {
                     }
                 }
         }),
-        "select": {
-            fillColor: "#8aeeef",
-            strokeColor: "#32a8a9"
+        'select': {
+            fillColor: '#8aeeef',
+            strokeColor: '#32a8a9'
         },
-        "temporary": {
-            strokeColor: "#32a8a9"
+        'temporary': {
+            strokeColor: '#32a8a9'
         }
     })
 });

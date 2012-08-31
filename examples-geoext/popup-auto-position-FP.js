@@ -16,20 +16,20 @@ var mapPanel;
 
 Ext.onReady(function() {
 
-    var bogusText = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.";
+    var bogusText = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.';
     var bogusCount = 1;
 
     // create a vector layer, add features into it
-    var vectorLayer = new OpenLayers.Layer.Vector("vector");
+    var vectorLayer = new OpenLayers.Layer.Vector('vector');
     vectorLayer.addFeatures([
         new OpenLayers.Feature.Vector(
-            new OpenLayers.Geometry.Point(-75, 45),{bogusCount: bogusCount++, bogusText:bogusText}
+            new OpenLayers.Geometry.Point(-75, 45), {bogusCount: bogusCount++, bogusText: bogusText}
         ), new OpenLayers.Feature.Vector(
-            new OpenLayers.Geometry.Point(+75, -45),{bogusCount: bogusCount++, bogusText:bogusText}
+            new OpenLayers.Geometry.Point(+75, -45), {bogusCount: bogusCount++, bogusText: bogusText}
         ), new OpenLayers.Feature.Vector(
-            new OpenLayers.Geometry.Point(+75, +45),{bogusCount: bogusCount++, bogusText:bogusText}
+            new OpenLayers.Geometry.Point(+75, +45), {bogusCount: bogusCount++, bogusText: bogusText}
         ), new OpenLayers.Feature.Vector(
-            new OpenLayers.Geometry.Point(-75, -45),{bogusCount: bogusCount++, bogusText:bogusText}
+            new OpenLayers.Geometry.Point(-75, -45), {bogusCount: bogusCount++, bogusText: bogusText}
         )]
 
     );
@@ -40,11 +40,11 @@ Ext.onReady(function() {
             title: 'My Popup',
             map: map,
             location: new OpenLayers.Geometry.Point(lonLat.lon, lonLat.lat),
-            width:200,
+            width: 200,
             html: html,
             maximizable: true,
             collapsible: true,
-            anchorPosition: "auto"
+            anchorPosition: 'auto'
         });
         // unselect feature when the popup
         // is closed
@@ -54,27 +54,27 @@ Ext.onReady(function() {
         popup.show();
         return {
             div: popup.getEl().dom,
-            destroy: function(){popup.destroy()}
+            destroy: function() {popup.destroy()}
         };
     }
 
     // create Ext window including a map panel
     var mapwin = new Ext.Window({
-        layout: "fit",
-        title: "Map",
-        closeAction: "hide",
+        layout: 'fit',
+        title: 'Map',
+        closeAction: 'hide',
         width: 650,
         height: 356,
         x: 50,
         y: 100,
         items: {
-            xtype: "gx_mappanel",
-            region: "center",
+            xtype: 'gx_mappanel',
+            region: 'center',
             layers: [
                 new OpenLayers.Layer.WMS(
-                    "OpenLayers WMS",
-                    "http://vmap0.tiles.osgeo.org/wms/vmap0",
-                    {layers: 'basic'} ),
+                    'OpenLayers WMS',
+                    'http://vmap0.tiles.osgeo.org/wms/vmap0',
+                    {layers: 'basic'}),
                 vectorLayer
             ]
         }
@@ -82,15 +82,15 @@ Ext.onReady(function() {
     mapwin.show();
 
     mapPanel = mapwin.items.get(0);
-    mapPanel.map.addControl( new OpenLayers.Control.FeaturePopups({
+    mapPanel.map.addControl(new OpenLayers.Control.FeaturePopups({
             popupSingleOptions: {popupClass: createPopup},
             popupListOptions: {popupClass: createPopup},
             popupListItemOptions: {popupClass: createPopup},
             layers: [[
                 vectorLayer, {
                     templates: {
-                        single: "<div>${.bogusCount} - ${.bogusText}</div>",
-                        item: "<li><a href=\"#\" ${showPopup()}>${.bogusCount} - ${.bogusText}</a></li>"
+                        single: '<div>${.bogusCount} - ${.bogusText}</div>',
+                        item: '<li><a href=\"#\" ${showPopup()}>${.bogusCount} - ${.bogusText}</a></li>'
                     }
                 }
             ]]
