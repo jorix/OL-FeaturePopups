@@ -73,7 +73,7 @@ Features:
  
 Adjustments on OL popups for proper calculation of the autosize
 ---------------------------------------------------------------
-Have been proposed to OpenLayers team a set of patches to fix some autosize issues. These patches are grouped all in a code to can use these patches also in releases 2.11 and 2.12, see: [lib/patches_OL-popup-autosize.js](https://github.com/jorix/OL-FeaturePopups/blob/gh-pages/lib/patches_OL-popup-autosize.js)
+Have been proposed to OpenLayers team a set of patches to fix some autosize issues. These patches are grouped all in a code to can use these patches also in releases 2.11 and 2.12, see: [lib/patches_OL-popup-autosize.js]
 
 The problems were fixed:
   * Remove extra padding: [autoSize-padding-dev.html][autoSize-padding-dev]
@@ -87,6 +87,11 @@ Patches to fix other problems not yet proposed to OL, but applied in this code:
   * Margin should be considered when padding on `contentDisplayClass` is zero: [popups-margin-dev.html](http://jorix.github.com/OL-FeaturePopups/OL-Popup-issues/popups-margin-dev.html)
 
 [autoSize-padding-dev]: http://jorix.github.com/OL-FeaturePopups/OL-Popup-issues/autoSize-padding-dev.html
+[lib/patches_OL-popup-autosize.js]: https://github.com/jorix/OL-FeaturePopups/blob/gh-pages/lib/patches_OL-popup-autosize.js
+ 
+Compatibility with OpenLayers releases:
+---------------------------------------
+The `FeaturePopups` control works correctly with release 2.11 or higher including the development version. This also includes patches for OL grouped in [lib/patches_OL-popup-autosize.js].
  
 Compatibility notes (with previous version "1-FeaturePopups"):
 -------------------------------------------------------------
