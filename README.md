@@ -70,7 +70,14 @@ Features:
     * *hover popups* follows the cursor (to prevent flickering)
     * *select popups* are shown where the cursor is pressed.
  * Ability to customize the operation of the control.
- 
+
+Documentation:
+--------------
+ * [API for users](http://jorix.github.com/OL-FeaturePopups/doc/FeaturePopups/api)
+ * For developers
+   * [all `FeaturePopups` elements](http://jorix.github.com/OL-FeaturePopups/doc/FeaturePopups/all)
+   * [releaseEnvirontment loader](http://jorix.github.com/OL-FeaturePopups/doc/releaseEnvirontment)
+
 Adjustments on OL popups for proper calculation of the autosize
 ---------------------------------------------------------------
 Have been proposed to OpenLayers team a set of patches to fix some autosize issues. These patches are grouped all in a code to can use these patches also in releases 2.11 and 2.12, see: [lib/patches_OL-popup-autosize.js]
