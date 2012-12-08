@@ -27,7 +27,7 @@ SubTitle: for OpenLayers 2.1x
 # These are indexes you deleted, so Natural Docs will not add them again
 # unless you remove them from this line.
 
-Don't Index: Files
+Don't Index: Constructor, Files, Classes
 
 
 # --------------------------------------------------------------------------
@@ -60,9 +60,7 @@ Group: FeaturePopups  {
 Group: Index  {
 
    Index: Everything
-   Class Index: Classes
    Constant Index: Constants
-   Constructor Index: Constructor
    Function Index: Functions
    Property Index: Properties
    }  # Group: Index
