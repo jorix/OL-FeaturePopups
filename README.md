@@ -70,6 +70,7 @@ Features:
     * *hover popups* follows the cursor (to prevent flickering)
     * *select popups* are shown where the cursor is pressed.
  * Ability to customize the operation of the control.
+ * Allow simultaneously display "list" and "itemList" popups without much overlap.
 
 Documentation:
 --------------
