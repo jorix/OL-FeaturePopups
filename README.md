@@ -75,9 +75,7 @@ Features:
 Documentation:
 --------------
  * [API for users](http://jorix.github.com/OL-FeaturePopups/doc/FeaturePopups/api)
- * For developers
-   * [all `FeaturePopups` elements](http://jorix.github.com/OL-FeaturePopups/doc/FeaturePopups/all)
-   * [releaseEnvirontment loader](http://jorix.github.com/OL-FeaturePopups/doc/releaseEnvirontment)
+ * For developers [all `FeaturePopups` elements](http://jorix.github.com/OL-FeaturePopups/doc/FeaturePopups/all)
 
 Adjustments on OL popups for proper calculation of the autosize
 ---------------------------------------------------------------
