@@ -14,39 +14,45 @@ var fpControl = new OpenLayers.Control.FeaturePopups({
     popupListOptions: {eventListeners: {
         "beforepopupdisplayed": function(e){
             var html = [],
-                htmlAux = [],
-                feature0 = null;
+                feature0 = null,
+                layerObj0 = null,
+                count = 0;
             for (var i = 0, iLen = e.selection.length; i < iLen; i++) {
                 var sel = e.selection[i],
+                    htmlAux = [],
                     layerObj = sel.layerObj;
                 for (var ii = 0, iiLen = sel.features.length; ii < iiLen; ii++) {
-                    if (ii > 0) { // remove the first feature to simulate a filter.
+                    if (ii > 0 || iiLen === 1) { // remove the first feature to simulate a filter.
                         feature0 = sel.features[ii];
+                        layerObj0 = layerObj;
+                        count++;
                         htmlAux.push(
                             layerObj.renderTemplate(layerObj.templates.item, feature0)
                         );
                     }
                 }
+                html.push(layerObj.renderTemplate(
+                    layerObj.templates.list, {
+                        layer: sel.layer,
+                        count: sel.features.length,
+                        html: htmlAux.join('\n')
+                    }
+                ));
             }
-            if (htmlAux.length === 1) {
-                layerObj.control.popupObjs.single.showPopup({
-                        layerObj: layerObj,
+            if (count === 1) {
+                layerObj0.control.popupObjs.single.showPopup({
+                        layerObj: layerObj0,
                         layer: layerObj.layer,
                         feature: feature0
                     }, 
                     feature0.geometry.getBounds().getCenterLonLat(), 
-                    layerObj.getSingleHtml(feature0).html, 
+                    layerObj0.getSingleHtml(feature0).html, 
                     true
                 );
+                layerObj0 = null;
+                feature0 = null;
                 return false;
             }
-            html.push(layerObj.renderTemplate(
-                layerObj.templates.list, {
-                    layer: sel.layer,
-                    count: sel.features.length,
-                    html: htmlAux.join('\n')
-                }
-            ));
             e.html = html.join('\n');
         }
     }},    
