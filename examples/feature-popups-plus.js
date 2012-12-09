@@ -14,18 +14,31 @@ var fpControl = new OpenLayers.Control.FeaturePopups({
     popupListOptions: {eventListeners: {
         "beforepopupdisplayed": function(e){
             var html = [],
-                htmlAux = [];
+                htmlAux = [],
+                feature0 = null;
             for (var i = 0, iLen = e.selection.length; i < iLen; i++) {
                 var sel = e.selection[i],
                     layerObj = sel.layerObj;
                 for (var ii = 0, iiLen = sel.features.length; ii < iiLen; ii++) {
-                    if (true) {
+                    if (ii > 0) { // remove the first feature to simulate a filter.
+                        feature0 = sel.features[ii];
                         htmlAux.push(
-                            "<li>&nbsp;</li>" + 
-                            layerObj.renderTemplate(layerObj.templates.item, sel.features[ii])
+                            layerObj.renderTemplate(layerObj.templates.item, feature0)
                         );
                     }
                 }
+            }
+            if (htmlAux.length === 1) {
+                layerObj.control.popupObjs.single.showPopup({
+                        layerObj: layerObj,
+                        layer: this.layer,
+                        feature: feature0
+                    }, 
+                    feature0.geometry.getBounds().getCenterLonLat(), 
+                    layerObj.getSingleHtml(feature0).html, 
+                    true
+                );
+                return false;
             }
             html.push(layerObj.renderTemplate(
                 layerObj.templates.list, {
