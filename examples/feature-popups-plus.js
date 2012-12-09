@@ -31,7 +31,7 @@ var fpControl = new OpenLayers.Control.FeaturePopups({
             if (htmlAux.length === 1) {
                 layerObj.control.popupObjs.single.showPopup({
                         layerObj: layerObj,
-                        layer: this.layer,
+                        layer: layerObj.layer,
                         feature: feature0
                     }, 
                     feature0.geometry.getBounds().getCenterLonLat(), 
