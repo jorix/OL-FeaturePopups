@@ -64,6 +64,7 @@ Features:
  * Multiple selection using box and show list of features selected into an popup.
  * Proper popups on clustered features (OpenLayers.Strategy.Cluster)
  * Safe selection: Features remain selected even after zooming or moving the map (using Cluster and BBOX strategies)
+ * Safe selection also allows that `clickout` not fails after a zoom (using Cluster or BBOX strategies)
  * Triggers appropriate events when changing the selection or a layer features (to prevent flickering or other nuisances, events are triggered only if there has been an effective change)
  * By default: 
     * Multi selection is enabled, 
