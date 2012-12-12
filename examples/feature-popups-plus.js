@@ -1,6 +1,10 @@
 // Create control and add some layers
 // ----------------------------------
 // ** advanced use **
+
+var framedCloudScrolable = OpenLayers.Class(OpenLayers.Popup.FramedCloud, {
+    displayClass: "olScrollable olPopup"
+});
 var fpControl = new OpenLayers.Control.FeaturePopups({
     boxSelectionOptions: {},
     // ** Options for the SelectFeature control to select **
@@ -10,6 +14,8 @@ var fpControl = new OpenLayers.Control.FeaturePopups({
     // ** Don't use close box on popups
     mode: OpenLayers.Control.FeaturePopups.DEFAULT & 
           ~OpenLayers.Control.FeaturePopups.CLOSE_BOX,
+    // ** Allow to zoom with the scroll wheel when the mouse is in the single popup active area, but like all drugs can have side effects ;-) **
+    popupSingleOptions: {popupClass: framedCloudScrolable},
     // ** Overwrites html of the list popups adding a vacuum <li> before each item **
     popupListOptions: {eventListeners: {
         "beforepopupdisplayed": function(e){
