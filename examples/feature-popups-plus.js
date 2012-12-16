@@ -16,8 +16,9 @@ var fpControl = new OpenLayers.Control.FeaturePopups({
           ~OpenLayers.Control.FeaturePopups.CLOSE_BOX,
     // ** Allow to zoom with the scroll wheel when the mouse is in the single popup active area, but like all drugs can have side effects ;-) **
     popupSingleOptions: {popupClass: framedCloudScrolable},
+    popupListItemOptions: {popupClass: framedCloudScrolable},
     // ** Overwrites html of the list popups adding a vacuum <li> before each item **
-    popupListOptions: {eventListeners: {
+    popupListOptions: {popupClass: framedCloudScrolable, eventListeners: {
         "beforepopupdisplayed": function(e){
             var html = [],
                 feature0 = null,
