@@ -2,7 +2,7 @@
 // ----------------------------------
 // ** advanced use **
 
-var framedCloudScrolable = OpenLayers.Class(OpenLayers.Popup.FramedCloud, {
+var framedCloudScrollable = OpenLayers.Class(OpenLayers.Popup.FramedCloud, {
     displayClass: "olScrollable olPopup"
 });
 var fpControl = new OpenLayers.Control.FeaturePopups({
@@ -15,10 +15,10 @@ var fpControl = new OpenLayers.Control.FeaturePopups({
     mode: OpenLayers.Control.FeaturePopups.DEFAULT & 
           ~OpenLayers.Control.FeaturePopups.CLOSE_BOX,
     // ** Allow to zoom with the scroll wheel when the mouse is in the single popup active area, but like all drugs can have side effects ;-) **
-    popupSingleOptions: {popupClass: framedCloudScrolable},
-    popupListItemOptions: {popupClass: framedCloudScrolable},
+    popupSingleOptions: {popupClass: framedCloudScrollable},
+    popupListItemOptions: {popupClass: framedCloudScrollable},
     // ** Overwrites html of the list popups adding a vacuum <li> before each item **
-    popupListOptions: {popupClass: framedCloudScrolable, eventListeners: {
+    popupListOptions: {popupClass: framedCloudScrollable, eventListeners: {
         "beforepopupdisplayed": function(e){
             var html = [],
                 feature0 = null,
