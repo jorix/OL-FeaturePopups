@@ -34,7 +34,7 @@ var fpControl = new OpenLayers.Control.FeaturePopups({
                         layerObj0 = layerObj;
                         count++;
                         htmlAux.push(
-                            layerObj.renderTemplate(layerObj.templates.item, feature0)
+                            layerObj.applyTemplate.item(feature0)
                         );
                     }
                 }
@@ -52,7 +52,7 @@ var fpControl = new OpenLayers.Control.FeaturePopups({
                         layer: layerObj.layer,
                         feature: feature0
                     }, 
-                    feature0.geometry.getBounds().getCenterLonLat(), 
+                    feature0.geometry.getBounds().getCenterLonLat(),
                     layerObj0.getSingleHtml(feature0).html, 
                     true
                 );
@@ -73,7 +73,7 @@ var fpControl = new OpenLayers.Control.FeaturePopups({
                 if (true) {
                     htmlAux.push(
                         "<hr>" + 
-                        layerObj.renderTemplate(layerObj.templates.hoverItem, sel.features[ii])
+                        layerObj.applyTemplate.hoverItem(sel.features[ii])
                     );
                 }
             }
