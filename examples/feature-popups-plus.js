@@ -15,6 +15,7 @@ var singleEventListeners = {
         }
     }
 };
+
 var fpControl = new OpenLayers.Control.FeaturePopups({
     boxSelectionOptions: {},
     // ** Options for the SelectFeature control to select **
@@ -24,8 +25,8 @@ var fpControl = new OpenLayers.Control.FeaturePopups({
     // ** Don't use close box on popups
     mode: OpenLayers.Control.FeaturePopups.DEFAULT & 
           ~OpenLayers.Control.FeaturePopups.CLOSE_BOX,
-    // ** Allow to zoom with the scroll wheel when the mouse is in the single popup active area, but like all drugs can have side effects ;-) **
-
+    // ** Allow to zoom with the scroll wheel when the mouse is in the single popup active area (see `framedCloudScrollable`)
+    // ** Alert instead of popup on `poisLayer` (see `singleEventListeners`)
     popupSingleOptions: {
         popupClass: framedCloudScrollable,
         eventListeners: singleEventListeners
