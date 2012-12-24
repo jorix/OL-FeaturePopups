@@ -5,6 +5,16 @@
 var framedCloudScrollable = OpenLayers.Class(OpenLayers.Popup.FramedCloud, {
     displayClass: "olScrollable olPopup"
 });
+var singleEventListeners = {
+    "beforepopupdisplayed": function(e) {
+        var sel = e.selection;
+        // Use alert instead of a popup for poisLayer
+        if (sel.layer === poisLayer) {
+            alert(sel.feature.id);
+            return false;
+        }
+    }
+};
 var fpControl = new OpenLayers.Control.FeaturePopups({
     boxSelectionOptions: {},
     // ** Options for the SelectFeature control to select **
@@ -15,8 +25,15 @@ var fpControl = new OpenLayers.Control.FeaturePopups({
     mode: OpenLayers.Control.FeaturePopups.DEFAULT & 
           ~OpenLayers.Control.FeaturePopups.CLOSE_BOX,
     // ** Allow to zoom with the scroll wheel when the mouse is in the single popup active area, but like all drugs can have side effects ;-) **
-    popupSingleOptions: {popupClass: framedCloudScrollable},
-    popupListItemOptions: {popupClass: framedCloudScrollable},
+
+    popupSingleOptions: {
+        popupClass: framedCloudScrollable,
+        eventListeners: singleEventListeners
+    },
+    popupListItemOptions: {
+        popupClass: framedCloudScrollable,
+        eventListeners: singleEventListeners
+    },
     // ** Overwrites html of the list popups adding a vacuum <li> before each item **
     popupListOptions: {popupClass: framedCloudScrollable, eventListeners: {
         "beforepopupdisplayed": function(e){
