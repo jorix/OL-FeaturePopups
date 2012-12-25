@@ -56,13 +56,12 @@ var fpControl = new OpenLayers.Control.FeaturePopups({
                         );
                     }
                 }
-                html.push(layerObj.renderTemplate(
-                    layerObj.templates.list, {
+                html.push(layerObj.applyTemplate.list({
                         layer: sel.layer,
                         count: sel.features.length,
                         html: htmlAux.join('\n')
-                    }
-                ));
+                    })
+                );
             }
             if (count === 1) {
                 layerObj0.control.popupObjs.single.showPopup({
@@ -95,13 +94,11 @@ var fpControl = new OpenLayers.Control.FeaturePopups({
                     );
                 }
             }
-            e.html = layerObj.renderTemplate(
-                layerObj.templates.hoverList, {
-                    layer: sel.layer,
-                    count: sel.features.length,
-                    html: htmlAux.join('\n')
-                }
-            );
+            e.html = layerObj.applyTemplate.hoverList({
+                layer: sel.layer,
+                count: sel.features.length,
+                html: htmlAux.join('\n')
+            });
         }
     }},
     layers: [
