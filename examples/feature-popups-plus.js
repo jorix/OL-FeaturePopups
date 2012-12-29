@@ -9,7 +9,7 @@ var singleEventListeners = {
     "beforepopupdisplayed": function(e) {
         var sel = e.selection;
         // Use alert instead of a popup for poisLayer
-        if (sel.layer === poisLayer) {
+        if (sel.layer === sundialsLayer) {
             alert(sel.feature.id);
             return false;
         }
