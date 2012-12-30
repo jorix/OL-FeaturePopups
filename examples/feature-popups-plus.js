@@ -3,7 +3,10 @@
 // ** advanced use **
 
 var framedCloudScrollable = OpenLayers.Class(OpenLayers.Popup.FramedCloud, {
-    displayClass: "olScrollable olPopup"
+    displayClass: "olScrollable olPopup",
+    registerEvents:function() {
+        this.events = new OpenLayers.Events(this);
+    }
 });
 var singleEventListeners = {
     "beforepopupdisplayed": function(e) {
@@ -25,7 +28,8 @@ var fpControl = new OpenLayers.Control.FeaturePopups({
     // ** Don't use close box on popups
     mode: OpenLayers.Control.FeaturePopups.DEFAULT & 
           ~OpenLayers.Control.FeaturePopups.CLOSE_BOX,
-    // ** Allow to zoom with the scroll wheel when the mouse is in the single popup active area (see `framedCloudScrollable`)
+    // ** Allow pan or zoom the map and to zoom with the scroll wheel when the
+    //    mouse is in popup active area (see `framedCloudScrollable`)
     // ** Alert instead of popup on `poisLayer` (see `singleEventListeners`)
     popupSingleOptions: {
         popupClass: framedCloudScrollable,
