@@ -34,7 +34,7 @@ var indexSectionsWithContent = {
       "Numbers": false,
       "A": true,
       "B": false,
-      "C": false,
+      "C": true,
       "D": true,
       "E": false,
       "F": false,
