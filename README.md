@@ -96,12 +96,16 @@ Patches to fix other problems not yet proposed to OL, but applied in this code:
 [autoSize-padding-dev]: http://jorix.github.com/OL-FeaturePopups/OL-Popup-issues/autoSize-padding-dev.html
 [lib/patches_OL-popup-autosize.js]: https://github.com/jorix/OL-FeaturePopups/blob/gh-pages/lib/patches_OL-popup-autosize.js
  
+Versions:
+--------
+ * **v1.0.0** It is considered a stable version.
+
 Compatibility with OpenLayers releases:
 ---------------------------------------
-The `FeaturePopups` control works correctly with release 2.11 or higher including the development version. This also includes patches for OL grouped in [lib/patches_OL-popup-autosize.js].
+The `FeaturePopups` v0.9.0 or higer works correctly with releases 2.11 and 2.12 and whith development version. This also includes patches for OL grouped in [lib/patches_OL-popup-autosize.js].
  
-Compatibility notes (with previous version "1-FeaturePopups"):
--------------------------------------------------------------
+Compatibility notes with old version "v0.2.0":
+---------------------------------------------
  * The layers can no longer be added implicitly, it is necessary to use the `addLayer` method or `layers` option of the constructor.
  * The templates are grouped into the object "templates" in options of `addLayer` method.
  * The scope of events of `FeaturePopups.Popup` and `FeaturePopups.Layer` has changed during development, now if you want to access to the control should be used `evt.object.control` instead of `evt.object`.
