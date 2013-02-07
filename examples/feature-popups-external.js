@@ -42,7 +42,7 @@ fpControl.addLayer(
     poisLayer, {templates: {
         hover: '${.title}',
         single: '<h2>${.title}</h2>${.description}',
-        item: '<li><a href=\"#\" ${showPopup(fid)}>${.title}</a></li>'
+        item: '<li><a href=\"#\" ${showPopup()}>${.title}</a></li>'
     }}
 );
 
