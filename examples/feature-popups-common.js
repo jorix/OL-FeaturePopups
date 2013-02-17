@@ -1,4 +1,4 @@
-﻿;// Projections
+﻿// Projections
 // -----------
 var sphericalMercatorProj = new OpenLayers.Projection('EPSG:900913');
 var geographicProj = new OpenLayers.Projection('EPSG:4326');
