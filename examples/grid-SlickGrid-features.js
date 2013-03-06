@@ -29,7 +29,7 @@
             var row = grid.getActiveCell().row,
                 selectedRows = grid.getSelectedRows();
             if (OpenLayers.Util.indexOf(selectedRows, row) > -1) {
-                id = grid.getDataItem(row).id;
+                var id = grid.getDataItem(row).id;
                 fpControl.showSingleFeatureById(vLayer.id, id);
             } else {
                 fpControl.showSingleFeatureById();
