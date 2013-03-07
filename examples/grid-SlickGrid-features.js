@@ -23,14 +23,14 @@
     // listeners on grid
     var grid_selectionChanged = function(e, args) {
         if (!_silentSelect) {
-            fpControl.setSelectionByIds(vLayer.id,
+            fpControl.setSelectionByIds(vLayer,
                 grid.getData().mapRowsToIds(args.rows), true);
             // Show popup if active row is selected
             var row = grid.getActiveCell().row,
                 selectedRows = grid.getSelectedRows();
             if (OpenLayers.Util.indexOf(selectedRows, row) > -1) {
                 var id = grid.getDataItem(row).id;
-                fpControl.showSingleFeatureById(vLayer.id, id);
+                fpControl.showSingleFeatureById(vLayer, id);
             } else {
                 fpControl.showSingleFeatureById();
             }

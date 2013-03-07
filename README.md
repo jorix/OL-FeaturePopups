@@ -98,14 +98,19 @@ Patches to fix other problems not yet proposed to OL, but applied in this code:
  
 Versions:
 --------
- * **v1.0.0** It is considered a stable version.
+ * **v1.0.0** It is considered a stable version (v1.1.0 in preparation)
 
 Compatibility with OpenLayers releases:
 ---------------------------------------
 The `FeaturePopups` v0.9.0 or higer works correctly with releases 2.11 and 2.12 and whith development version. This also includes patches for OL grouped in [lib/patches_OL-popup-autosize.js].
  
-Compatibility notes with old version "v0.2.0":
----------------------------------------------
+Compatibility notes with old versions:
+--------------------------------------
+
+**v1.0.0**
+ * The first parameter of functions *xxxSelectionById* & *showSingleFeatureById* becomes the layer instead of its id.
+
+**v0.2.0**
  * The layers can no longer be added implicitly, it is necessary to use the `addLayer` method or `layers` option of the constructor.
  * The templates are grouped into the object "templates" in options of `addLayer` method.
  * The scope of events of `FeaturePopups.Popup` and `FeaturePopups.Layer` has changed during development, now if you want to access to the control should be used `evt.object.control` instead of `evt.object`.

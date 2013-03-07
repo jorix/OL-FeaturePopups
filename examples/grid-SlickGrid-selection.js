@@ -19,7 +19,7 @@
     var grid_selectionChanged = function(e, args) {
         var ids = grid.getData().mapRowsToIds(args.rows);
         if (ids.length) {
-            fpControl.showSingleFeatureById(vLayer.id, ids[0]);
+            fpControl.showSingleFeatureById(vLayer, ids[0]);
         }
     };
     // Grid data view

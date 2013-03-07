@@ -27,11 +27,11 @@
     var grid_onRowSelected = function(id, status) {
         if (status) {
             selectionIds.push(id);
-            fpControl.addSelectionByIds(vLayer.id, [id], true);
-            fpControl.showSingleFeatureById(vLayer.id, id);
+            fpControl.addSelectionByIds(vLayer, [id], true);
+            fpControl.showSingleFeatureById(vLayer, id);
         } else {
             OpenLayers.Util.removeItem(selectionIds, id);
-            fpControl.removeSelectionByIds(vLayer.id, [id], true);
+            fpControl.removeSelectionByIds(vLayer, [id], true);
             fpControl.showSingleFeatureById();
         }
     };

@@ -18,7 +18,7 @@
     // listeners on grid
     var grid_onRowSelected = function(id, status) {
         lastSelectId = id;
-        fpControl.showSingleFeatureById(vLayer.id, id);
+        fpControl.showSingleFeatureById(vLayer, id);
     };
     var grid_onLoadComplete = function() {
         lastSelectId && grid.jqGrid('setSelection', lastSelectId, false);
