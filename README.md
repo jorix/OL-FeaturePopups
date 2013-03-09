@@ -108,7 +108,8 @@ Compatibility notes with old versions:
 --------------------------------------
 
 **v1.0.0**
- * The first parameter of functions *xxxSelectionById* & *showSingleFeatureById* becomes the layer instead of its id.
+ * The first parameter of some functions becomes the layer instead of its id (*xxxSelectionById*, *getSelectionIds* & *showSingleFeatureById*)
+ * The functions mentioned in previous paragraph have been moved to *FeaturePopupsExtend.js*
 
 **v0.2.0**
  * The layers can no longer be added implicitly, it is necessary to use the `addLayer` method or `layers` option of the constructor.
