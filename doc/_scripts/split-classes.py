@@ -5,22 +5,20 @@ import os
 import sys
 import shutil
 
-def splitClasses (inputFilename, outputDirectory):
+def splitClasses (inputFilename, outputDirectory, clear):
     print "Splitting classes, input: %s output: %s " % (inputFilename, outputDirectory)
 
     if not os.path.isfile(inputFilename):
         print "\nProcess aborted due to errors."
         sys.exit('ERROR: Input file "%s" does not exist!' % inputFilename)
 
-    if os.path.isdir(outputDirectory):
+    if clear == "Y" and os.path.isdir(outputDirectory):
         try:
             shutil.rmtree(outputDirectory, False)
         except Exception, E:
             print "\nAbnormal termination: Unable to clear or create working folder \"%s\"," % outputDirectory
             print "                      check if there is a process that blocks the folder."
             sys.exit("ERROR: %s" % E) 
-   # if not os.path.exists(outputDirectory):
-    #    os.makedirs(outputDirectory)
 
     pathName, fileName = os.path.split(inputFilename)
     pathName = os.path.join(outputDirectory, pathName.replace("../",""))
@@ -48,4 +46,4 @@ def splitClasses (inputFilename, outputDirectory):
 # main
 # -----------------
 if __name__ == '__main__':
-    splitClasses(sys.argv[1], sys.argv[2])
+    splitClasses(sys.argv[1], sys.argv[2], sys.argv[3])
