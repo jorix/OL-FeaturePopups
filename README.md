@@ -3,6 +3,10 @@ Proposal for a new control for OpenLayers: FeaturePopups
 
 **FeaturePopups** wraps the management of popups and SelectFeature control of [OpenLayers](http://openlayers.org).
 
+###NOTE###
+This branch **goal-v110** is for developing code of version v1.1.0
+(Any broken links may appear as point to the contents of the stable version on [**gh-pages**](https://github.com/jorix/OL-FeaturePopups/tree/gh-pages) branch)
+
 Please, open a **issue** if you have questions or problems using this control.
  
 Operation:
