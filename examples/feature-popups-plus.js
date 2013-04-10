@@ -1,72 +1,95 @@
-// Create control and add some layers
-// ----------------------------------
-// ** advanced use **
+// Advanced use of FeaturePopups
+// =============================
+// This code shows the customization possibilities of the control, creating the
+//      control and adding layers with a lot of options.
 
+// ** Allows pan the map and zoom box when the mouse is around a popup and zoom
+//      with the scroll wheel when the mouse is in popup active area (see
+//      `spopupSingleOptions`, `popupListItemOptions` and `popupListOptions`)
 var framedCloudScrollable = OpenLayers.Class(OpenLayers.Popup.FramedCloud, {
-    displayClass: 'olScrollable olPopup',
-    registerEvents: function() {
-        this.events = new OpenLayers.Events(this);
+    displayClass: 'olScrollable olPopup', // scroll wheel
+    registerEvents:function() { // 
+        this.events = new OpenLayers.Events(this, this.contentDiv, null, true);
+        this.events.on({
+            "mousedown": this.onmousedown,
+            "mousemove": this.onmousemove,
+            "mouseup": this.onmouseup,
+            "click": this.onclick,
+            "mouseout": this.onmouseout,
+            "dblclick": this.ondblclick,
+            "touchstart": function(evt) {
+                OpenLayers.Event.stop(evt, true);
+            },
+            scope: this
+        });
     }
 });
+// ** Alert instead of popup on `poisLayer` (see `spopupSingleOptions` and
+//    `popupListItemOptions`)
 var singleEventListeners = {
     'beforepopupdisplayed': function(e) {
         var sel = e.selection;
         // Use alert instead of a popup for poisLayer
-        if (sel.layer === sundialsLayer) {
-            alert(sel.feature.id);
+        if (sel.layer === poisLayer) {
+            alert(sel.feature.attributes.title);
             return false;
         }
     }
 };
 
+// Creating the control... with some layers...
 var fpControl = new OpenLayers.Control.FeaturePopups({
     boxSelectionOptions: {},
     // ** Options for the SelectFeature control to select **
     selectOptions: {clickout: true},
-    // ** Close the window when displaying the detail of an item **
-    popupListItemOptions: {relatedToClear: ['list', 'single']},
     // ** Don't use close box on popups
     mode: OpenLayers.Control.FeaturePopups.DEFAULT &
           ~OpenLayers.Control.FeaturePopups.CLOSE_BOX,
     // ** Allow pan or zoom the map and to zoom with the scroll wheel when the
     //    mouse is in popup active area (see `framedCloudScrollable`)
-    // ** Alert instead of popup on `poisLayer` (see `singleEventListeners`)
     popupSingleOptions: {
         popupClass: framedCloudScrollable,
+        // ** Alert instead of popup on `poisLayer`, see `singleEventListeners`
         eventListeners: singleEventListeners
     },
     popupListItemOptions: {
         popupClass: framedCloudScrollable,
+        // ** Close the window when displaying the detail of an item **
+        relatedToClear: ['list', 'single'],
+        // ** Alert instead of popup on `poisLayer`, see `singleEventListeners`
         eventListeners: singleEventListeners
     },
     // ** Overwrites html of list popups, to show only first 10 items **
-    popupListOptions: {popupClass: framedCloudScrollable, eventListeners: {
-        'beforepopupdisplayed': function(e) {
-            var html = [];
-            for (var i = 0, iLen = e.selection.length; i < iLen; i++) {
-                var htmlAux = [],
-                    sel = e.selection[i],
-                    layerObj = sel.layerObj;
-                for (var ii = 0, iiLen = sel.features.length; ii < iiLen;
-                                                                         ii++) {
-                    if (ii >= 10) { // only first 10 items.
-                        htmlAux.push('<li>...and more</li>');
-                        break;
+    popupListOptions: {
+        popupClass: framedCloudScrollable, 
+        eventListeners: {
+            'beforepopupdisplayed': function(e) {
+                var html = [];
+                for (var i = 0, iLen = e.selection.length; i < iLen; i++) {
+                    var htmlAux = [],
+                        sel = e.selection[i],
+                        layerObj = sel.layerObj;
+                    for (var ii = 0, iiLen = sel.features.length; ii < iiLen;
+                                                                             ii++) {
+                        if (ii >= 10) { // only first 10 items.
+                            htmlAux.push('<li>...and more</li>');
+                            break;
+                        }
+                        htmlAux.push(
+                            layerObj.applyTemplate.item(sel.features[ii])
+                        );
                     }
-                    htmlAux.push(
-                        layerObj.applyTemplate.item(sel.features[ii])
+                    html.push(layerObj.applyTemplate.list({
+                            layer: sel.layer,
+                            count: sel.features.length,
+                            html: htmlAux.join('\n')
+                        })
                     );
                 }
-                html.push(layerObj.applyTemplate.list({
-                        layer: sel.layer,
-                        count: sel.features.length,
-                        html: htmlAux.join('\n')
-                    })
-                );
+                e.html = html.join('\n');
             }
-            e.html = html.join('\n');
         }
-    }},
+    },
     // ** Overwrites html of hover list popups to alternate color text **
     popupHoverListOptions: {eventListeners: {
         'beforepopupdisplayed': function(e) {
@@ -137,7 +160,7 @@ fpControl.addLayer(
     poisLayer,
     {templates: {
         hover: '${.title}',
-        single: '<h2>${.title}</h2>${.description}',
+        single: ' ', // Need to declare a template to use `singleEventListeners`.
         item: '<li><a href="#" ${showPopup()}>${.title}</a></li>'
     }}
 );
