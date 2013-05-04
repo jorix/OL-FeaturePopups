@@ -20,12 +20,6 @@
     <script src="http://www.openlayers.org/dev/OpenLayers.js"></script>
     <script src="../lib/FeaturePopups.js"></script>
     <script type="text/javascript">
-        if (console && typeof console.log === "function") {
-            OpenLayers.Console.log = function(){
-                console.log.apply(console, arguments);
-            }
-        }
-
         var map;
 
         OpenLayers.Feature.Vector.style['default']['strokeWidth'] = '2';
@@ -51,7 +45,9 @@
             vectors.addFeatures([feature2]);
 
             var report = function(e) {
-                OpenLayers.Console.log(e.type, e.feature.id);
+                if (window.console && window.console.log) {
+                    console.log(e.type, e.feature.id);
+                }
             };
             
             var ctrl = new OpenLayers.Control.FeaturePopups({
