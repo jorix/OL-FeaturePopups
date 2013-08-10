@@ -3,10 +3,6 @@ Proposal for a new control for OpenLayers: FeaturePopups
 
 **FeaturePopups** wraps the management of popups and SelectFeature control of [OpenLayers](http://openlayers.org).
 
-###NOTE###
-This branch **goal-v110** is for developing code of version v1.1.0
-(Any broken links may appear as point to the contents of the stable version on [**gh-pages**](https://github.com/jorix/OL-FeaturePopups/tree/gh-pages) branch)
-
 Please, open a **issue** if you have questions or problems using this control.
  
 Operation:
@@ -99,24 +95,8 @@ Patches to fix other problems not yet proposed to OL, but applied in this code:
 
 [autoSize-padding-dev]: http://jorix.github.com/OL-FeaturePopups/OL-Popup-issues/autoSize-padding-dev.html
 [lib/patches_OL-popup-autosize.js]: https://github.com/jorix/OL-FeaturePopups/blob/gh-pages/lib/patches_OL-popup-autosize.js
- 
-Versions:
---------
- * **v1.0.0** It is considered a stable version (v1.1.0 in preparation)
 
 Compatibility with OpenLayers releases:
 ---------------------------------------
-The `FeaturePopups` v0.9.0 or higer works correctly with releases 2.11 and 2.12 and whith development version. This also includes patches for OL grouped in [lib/patches_OL-popup-autosize.js].
- 
-Compatibility notes with old versions:
---------------------------------------
-
-**v1.0.0**
- * The first parameter of some functions becomes the layer instead of its id (*xxxSelectionById*, *getSelectionIds* & *showSingleFeatureById*)
- * The functions mentioned in previous paragraph have been moved to *FeaturePopupsExtend.js*
-
-**v0.2.0**
- * The layers can no longer be added implicitly, it is necessary to use the `addLayer` method or `layers` option of the constructor.
- * The templates are grouped into the object "templates" in options of `addLayer` method.
- * The scope of events of `FeaturePopups.Popup` and `FeaturePopups.Layer` has changed during development, now if you want to access to the control should be used `evt.object.control` instead of `evt.object`.
+The `FeaturePopups` v0.9.0 or higer works correctly with releases from 2.11 to 2.13.1 and whith development version. This also includes patches for OL grouped in [lib/patches_OL-popup-autosize.js].
  
