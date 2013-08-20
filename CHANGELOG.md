@@ -10,6 +10,18 @@ On development
 (open for suggestions)
 
 
+v1.1.0 (On development)
+-----------------------
+
+#### Improvements
+ * Is available the *pupupOptions* on addLayer options to allow display the list popup separate from other layers.
+
+#### Compatibility notes
+ * Methods *xxxSelectionByIds* (add, set or remove), *showSingleFeatureById* and *getSelectionIds* are moved to a separate code named *FeaturePopupsExtend.js*.
+ * First parameter of *xxxSelectionByIds*, *showSingleFeatureById* and *getSelectionIds* functions becomes the layer instead of its id.
+ * *unselectFunction* replaces *unselectOnClose* on *OpenLayers.Control.FeaturePopups.Popup*
+
+
 [v1.0.0](https://github.com/jorix/OL-FeaturePopups/releases/tag/v1.0.0)
 -----------------------------------------------------------------------
 
@@ -38,7 +50,7 @@ On development
 [v0.9.0](https://github.com/jorix/OL-FeaturePopups/releases/tag/v0.9.0)
 -----------------------------------------------------------------------
 
-#### Changes
+#### Compatibility notes
  * The first parameter of some functions becomes the layer instead of its id (*xxxSelectionById*, *getSelectionIds* & *showSingleFeatureById*)
  * The functions mentioned in previous paragraph have been moved to *FeaturePopupsExtend.js*
 
@@ -46,7 +58,7 @@ On development
 [v0.2.0](https://github.com/jorix/OL-FeaturePopups/releases/tag/v0.2.0)
 -----------------------------------------------------------------------
 
-#### Changes
+#### Compatibility notes
  * The layers can no longer be added implicitly, it is necessary to use the `addLayer` method or `layers` option of the constructor.
  * The templates are grouped into the object "templates" in options of `addLayer` method.
  * The scope of events of `FeaturePopups.Popup` and `FeaturePopups.Layer` has changed during development, now if you want to access to the control should be used `evt.object.control` instead of `evt.object`.
