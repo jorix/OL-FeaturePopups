@@ -1,5 +1,5 @@
-Proposal for a new control for OpenLayers: FeaturePopups
-========================================================
+Control for OpenLayers to manage popups of features
+===================================================
 
 **FeaturePopups** wraps the management of popups and SelectFeature control of [OpenLayers](http://openlayers.org).
 
@@ -35,7 +35,8 @@ Examples:
 **Using the control and templates to display popups**:
 
  * Multi layer, multi selection and uses *Strategy.Cluster*: [feature-popups.html](http://jorix.github.com/OL-FeaturePopups/examples/feature-popups.html)
- * Same as above but the lists of features are displayed outside the map div: [feature-popups-external.html](http://jorix.github.com/OL-FeaturePopups/examples/feature-popups-external.html)
+ * The lists of features are displayed outside the map div: [feature-popups-external.html](http://jorix.github.com/OL-FeaturePopups/examples/feature-popups-external.html)
+ * Mixed: some lists of features are displayed as standard (FramedCloud) another outside the map div: [feature-popups-mixed.html](http://jorix.github.com/OL-FeaturePopups/examples/feature-popups-mixed.html)
 
 **Grids to show feature attributes using `FeaturePopups`**:
 
