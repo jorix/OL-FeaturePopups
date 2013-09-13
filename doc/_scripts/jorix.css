@@ -1,0 +1,56 @@
+p {
+    text-indent: 0; margin-bottom: 1em;
+}
+
+.MGroup {
+    font-variant: normal;
+    margin: 0.4em 0 0em 10px
+}
+
+.MTitle {
+    font-variant: normal;
+}
+
+.CGroup .CTitle {
+    font-variant: normal;
+}
+
+.SGroup .SEntry {
+    font-variant: normal;
+}
+
+.CClass .CTopic h2.CTitle,
+#MainTopic .CTitle {
+    background-color: #ddd;
+    color: #025;
+    border-radius: 16px;
+    border-width:0;
+    margin: 5px;
+    margin: 0 10px 5px 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.6);
+}
+#MainTopic .CTitle {
+    padding-right: 150px; /* used by #forkme_banner */
+    border-top-right-radius: 0;
+    border-top-left-radius: 0; 
+}
+#forkme_banner {
+    display: block;
+    position: absolute;
+    top: 3px; right: 13px;
+    z-index: 10;
+    padding: 5px 5px 5px 36px;
+    color: #fff !important;
+    background: url('http://github.com/themes/slate/images/blacktocat.png') #0090ff no-repeat 3px 50%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    border-radius: 16px;
+    text-decoration: none;
+    font-family: 'Myriad Pro', Calibri, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: bold;
+}
+a#forkme_banner:hover,
+a#forkme_banner:focus {
+    background: url('http://github.com/themes/slate/images/blacktocat.png') #000000 no-repeat 3px 50%;
+}

@@ -4,9 +4,7 @@ Format: 1.52
 Title: FeaturePopups
 SubTitle: for OpenLayers 2.1x
 
-# You can add a footer to your documentation like this:
-# Footer: [text]
-# If you want to add a copyright notice, this would be the place to do it.
+Footer: <a href="https://github.com/jorix">View on github.com/jorix</a><a id="forkme_banner" href="https://github.com/jorix/OL-FeaturePopups">View on GitHub</a>
 
 # You can add a timestamp to your documentation like one of these:
 # Timestamp: Generated on month day, year
@@ -52,22 +50,23 @@ Don't Index: General, Constructor, Files
 
 Group: FeaturePopups  {
 
-   File: FeaturePopups  (lib\FeaturePopups-1.js)
-   File: FeaturePopups.Layer  (lib\FeaturePopups-3.js)
-   File: FeaturePopups.Popup  (lib\FeaturePopups-2.js)
+   File: FeaturePopups  (no auto-title, lib\FeaturePopups-0.js)
+   File: FeaturePopups_Utils  (no auto-title, lib\FeaturePopups-1.js)
+   File: FeaturePopups.Layer  (no auto-title, lib\FeaturePopups-3.js)
+   File: FeaturePopups.Popup  (no auto-title, lib\FeaturePopups-2.js)
    }  # Group: FeaturePopups
 
 Group: FeaturePopupsExtend  {
 
-   File: FeaturePopups  (lib\FeaturePopupsExtend-1.js)
-   File: FeaturePopups.Layer  (lib\FeaturePopupsExtend-2.js)
+   File: FeaturePopups  (no auto-title, lib\FeaturePopupsExtend-0.js)
+   File: FeaturePopups.Layer  (no auto-title, lib\FeaturePopupsExtend-1.js)
    }  # Group: FeaturePopupsExtend
 
 Group: Index  {
 
-   Class Index: Classes
    Function Index: Functions
    Property Index: Properties
    Constant Index: Constants
+   Class Index: Classes
    }  # Group: Index
 

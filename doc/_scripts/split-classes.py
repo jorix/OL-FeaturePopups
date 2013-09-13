@@ -30,15 +30,12 @@ def splitClasses (inputFilename, outputDirectory, clear):
     fIn = open(inputFilename)
     sourceIn = fIn.read()
     fIn.close()
-    sourceOut = re.split('/\*\* *\r*\n *\* *Class:', sourceIn)
-    for i, text in enumerate(sourceOut):
-        if i == 0:
-            outputFileName = os.path.join(pathName, fileName + fileExt)
-        else:
-            outputFileName = os.path.join(pathName, fileName + "-" + format(i) + fileExt)
+    sourceOut = re.split('/\*\* *\r*\n *\* *(Class: |Namespace: )', sourceIn)
+    for i in range(1, len(sourceOut), 2): #. enumerate(sourceOut):
+        outputFileName = os.path.join(pathName, fileName + "-" + format(i/2) + fileExt)
         print "Splited to:", outputFileName
         fOut = open(outputFileName,"w")
-        fOut.write("/**\n * Class:" + text)
+        fOut.write("/**\n * " + sourceOut[i] + sourceOut[i + 1])
         fOut.close()
     print "Done!"
 
