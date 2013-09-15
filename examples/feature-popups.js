@@ -42,7 +42,8 @@ map.addControl(fpControl);
 // Add a layer to the control using addLayer
 // -----------------------------------------
 fpControl.addLayer(
-    // poisLayer uses "fid", so SAFE_SELECTION uses "fid" instead of "id"
+    // poisLayer uses "fid", so by default SAFE_SELECTION uses "fid" (if it
+    //     exists) instead of "id".
     poisLayer,
     {templates: {
         hover: '${.title}',

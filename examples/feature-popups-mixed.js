@@ -2,28 +2,29 @@
 // ----------------------------------
 var fpControl = new OpenLayers.Control.FeaturePopups({
     boxSelectionOptions: {},
-    XXXmode: OpenLayers.Control.FeaturePopups.SAFE_SELECTION |
-        OpenLayers.Control.FeaturePopups.CLOSE_ON_UNSELECT |
-        OpenLayers.Control.FeaturePopups.CLOSE_BOX,
     layers: [
         [
         // Uses: Templates for hover & select and safe selection
         sundialsLayer, {
-            popupOptions: {list:{
-                // Uses an existing window having a id 'divList'
-                popupClass: 'divList'
-            }},
+            popupOptions: {
+                list:{
+                    // Uses an existing div having an id 'divList'
+                    popupClass: 'divList'
+                },
+                single: null // Show a list instead of single popup if the list
+                             //     has only an item.
+            },
             templates: {
-            // hover: single & list
-            
-            hover: '${.name}',
-            hoverList: '<b>${count}</b><br>${html}',
-            list: '${html}',
-            hoverItem: '${.name}<br>',
-            // select: single & list
-            single: '<div><h2>${.name}</h2>${.description}</div>',
-            item: '<li><a href="#" ${showPopup()}>${.name}</a></li>'
-        }}], [
+                // hover: single & list
+                hover: '${.name}',
+                hoverList: '<b>${count}</b><br>${html}',
+                list: '${html}',
+                hoverItem: '${.name}<br>',
+                // select: single & list
+                single: '<div><h2>${.name}</h2>${.description}</div>',
+                item: '<li><a href="#" ${showPopup()}>${.name}</a></li>'
+            }
+        }], [
         // Uses: Internationalized templates.
         sprintersLayer, {templates: {
             hover: '${.Name}',
@@ -52,7 +53,8 @@ map.addControl(fpControl);
 // Add a layer to the control using addLayer
 // -----------------------------------------
 fpControl.addLayer(
-    // poisLayer uses "fid", so SAFE_SELECTION uses "fid" instead of "id"
+    // poisLayer uses "fid", so by default SAFE_SELECTION uses "fid" (if it
+    //     exists) instead of "id".
     poisLayer,
     {templates: {
         hover: '${.title}',
