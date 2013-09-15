@@ -9,7 +9,6 @@ var fpControl = new OpenLayers.Control.FeaturePopups({
         },
         single: null // Show a list instead of single popup if the list
                      //     has only an item.
-        }
     },
     boxSelectionOptions: {},
     layers: [
