@@ -10,16 +10,16 @@ On development
 (open for suggestions)
 
 
-v1.1.0 (On development)
------------------------
+v1.1.0 (release pending)
+------------------------
 
 #### Improvements
  * Is available the *pupupOptions* on addLayer options to allow display the list popup separate from other layers.
 
 #### Compatibility notes
  * Methods *xxxSelectionByIds* (add, set or remove), *showSingleFeatureById* and *getSelectionIds* are moved to a separate code named *FeaturePopupsExtend.js*.
- * First parameter of *xxxSelectionByIds*, *showSingleFeatureById* and *getSelectionIds* functions becomes the layer instead of its id.
- * *unselectFunction* replaces *unselectOnClose* on *OpenLayers.Control.FeaturePopups.Popup*
+ * First parameters *xxxSelectionByIds*, *showSingleFeatureById* and *getSelectionIds* functions becomes the layer instead of its id.
+ * *unselectOnClose* of *OpenLayers.Control.FeaturePopups.Popup* is replaced by *unselectFunction*.
 
 
 [v1.0.0](https://github.com/jorix/OL-FeaturePopups/releases/tag/v1.0.0)
