@@ -10,8 +10,8 @@ On development
 (open for suggestions)
 
 
-v1.1.0 (release pending)
-------------------------
+[v1.1.0](https://github.com/jorix/OL-FeaturePopups/releases/tag/v1.1.0)
+-----------------------------------------------------------------------
 
 #### Improvements
  * Is available the *pupupOptions* on addLayer options to allow display the list popup separate from other layers.
