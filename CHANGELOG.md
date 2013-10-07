@@ -10,6 +10,13 @@ On development
 (open for suggestions)
 
 
+v1.1.1 (pending to release)
+---------------------------
+
+#### Bug fixes
+ * Make a correct unselection of a layer that fixes bugs: #18 & #19
+
+
 [v1.1.0](https://github.com/jorix/OL-FeaturePopups/releases/tag/v1.1.0)
 -----------------------------------------------------------------------
 
