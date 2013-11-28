@@ -10,7 +10,17 @@ On development
 (open for suggestions)
 
 
-v[1.1.1](https://github.com/jorix/OL-FeaturePopups/releases/tag/v1.1.1)
+v1.1.2 (working on it)
+----------------------
+
+#### Bug fixes
+ * Respect the maxSize if specified by *popupClass* that fixes bug: #23
+
+#### Changes
+ * Better determine if a *popupClass* of a *popupOption* key is compatible with *OpenLayers.Popup*.
+
+
+[v1.1.1](https://github.com/jorix/OL-FeaturePopups/releases/tag/v1.1.1)
 -----------------------------------------------------------------------
 
 #### Bug fixes
