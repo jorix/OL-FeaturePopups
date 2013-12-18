@@ -10,8 +10,8 @@ On development
 (open for suggestions)
 
 
-v1.1.2 (working on it)
-----------------------
+[v1.1.2](https://github.com/jorix/OL-FeaturePopups/releases/tag/v1.1.2)
+-----------------------------------------------------------------------
 
 #### Bug fixes
  * Respect the maxSize if specified by *popupClass* that fixes bug: #23
