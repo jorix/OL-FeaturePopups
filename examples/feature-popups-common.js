@@ -8,7 +8,7 @@ var geographicProj = new OpenLayers.Projection('EPSG:4326');
 // Sprinters: layer with different attributes.
 var sprintersLayer = new OpenLayers.Layer.Vector('Sprinters (translated labels)', {
     styleMap: new OpenLayers.StyleMap({
-        externalGraphic: 'http://www.openlayers.org/dev/examples/img/mobile-loc.png',
+        externalGraphic: 'http://dev.openlayers.org/examples/img/mobile-loc.png',
         graphicOpacity: 1.0,
         graphicWith: 16,
         graphicHeight: 26,
