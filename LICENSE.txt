@@ -1,4 +1,4 @@
-Copyright 2011-2015 by Xavier Mamano, http://github.com/jorix/OL-FeaturePopups
+Copyright 2011-2016 by Xavier Mamano, http://github.com/jorix/OL-FeaturePopups
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
