@@ -10,6 +10,14 @@ On development
 (open for suggestions)
 
 
+[v1.1.3](https://github.com/jorix/OL-FeaturePopups/releases/tag/v1.1.3)
+-----------------------------------------------------------------------
+
+#### Bug fixes
+ * #26: Strange errors with removeLayer
+ * #29: On click link don't shows a single popup
+
+ 
 [v1.1.2](https://github.com/jorix/OL-FeaturePopups/releases/tag/v1.1.2)
 -----------------------------------------------------------------------
 
