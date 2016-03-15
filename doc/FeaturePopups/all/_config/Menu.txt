@@ -25,7 +25,7 @@ Footer: <a href="https://github.com/jorix">View on github.com/jorix</a><a id="fo
 # These are indexes you deleted, so Natural Docs will not add them again
 # unless you remove them from this line.
 
-Don't Index: General, Constructor, Files
+Don't Index: Files, General, Constructor
 
 
 # --------------------------------------------------------------------------
