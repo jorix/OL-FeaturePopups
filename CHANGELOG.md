@@ -10,6 +10,12 @@ On development
 (open for suggestions)
 
 
+[v1.1.4](https://github.com/jorix/OL-FeaturePopups/releases/tag/v1.1.4)
+-----------------------------------------------------------------------
+
+#### Fixes
+ * #32: Flicker popup at top-left position 
+ 
 [v1.1.3](https://github.com/jorix/OL-FeaturePopups/releases/tag/v1.1.3)
 -----------------------------------------------------------------------
 
